@@ -1,0 +1,6 @@
+framework module ISHPermissionKit {
+  umbrella header "ISHPermissionKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
