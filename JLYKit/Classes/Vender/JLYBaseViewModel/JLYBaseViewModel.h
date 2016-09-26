@@ -14,10 +14,21 @@ typedef void (^JLYCompletionHandler)(id _Nullable obj ,  NSError * _Nullable  er
 
 @interface JLYBaseViewModel : NSObject
 
-@property (nonatomic ,strong ,nonnull) NSMutableDictionary<NSString * ,id>*blockDic;
+@property (nonatomic ,strong) NSMutableDictionary<NSString * ,id>*blockDic;
 
-- (void)handleDataWithParams:(nullable NSDictionary<NSString * ,id>*)params CompletionHandler:(nonnull JLYCompletionHandler)completionHandler;
-- (void)handleMoreDataWithCompletionHandler:(nonnull JLYCompletionHandler)completionHandler;
+- (void)handleDataWithParams:(nullable NSDictionary<NSString * ,id>*)params
+           CompletionHandler:(JLYCompletionHandler)completionHandler;
+
+- (void)handleDataWithIdentifer:(NSString * _Nullable)identifer
+                         Params:(nullable NSDictionary<NSString * ,id>*)params
+              CompletionHandler:(JLYCompletionHandler)completionHandler;
+
+- (void)handleMoreDataWithCompletionHandler:(JLYCompletionHandler)completionHandler;
+- (void)handleMoreDataWithIdentifer:(NSString * _Nullable)identifer
+                  CompletionHandler:(JLYCompletionHandler)completionHandler;
+
+- (void)blindHandleWithKey:(NSString *)key CompletionHandler:(JLYCompletionHandler)completionHandler;
+
 - (void)openVCWithIdentifer:(NSString * _Nullable)identifer
                        andParam:(nullable NSDictionary<NSString * ,id>*)params;
 

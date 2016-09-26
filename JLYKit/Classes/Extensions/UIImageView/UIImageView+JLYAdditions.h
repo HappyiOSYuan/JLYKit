@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
  *  @param imageArray 图片名称数组
  *  @param duration   动画时间
  *
- *  @return <#return value description#>
+ *  @return 动画
  */
 + (id)jly_imageViewWithImageArray:(NSArray<NSString *> *)imageArray duration:(NSTimeInterval)duration;
 

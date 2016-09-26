@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @param placeHolder 提示文字
  */
-- (void)jly_addPlaceHolder:(NSString *)placeHolder;
+- (void)jly_addPlaceHolder:(NSString * _Nullable)placeHolder;
 
 @end
 NS_ASSUME_NONNULL_END

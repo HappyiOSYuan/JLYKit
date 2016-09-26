@@ -15,7 +15,8 @@ typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error
 
 @property (nonatomic, strong) NSMutableDictionary<NSString * ,id> *blockDic;
 
-- (void)blindHandleWithCompletionHandler:(nonnull JLYCompletionHandler)completionHandler;
+- (void)blindHandleWithCompletionHandler:(JLYCompletionHandler)completionHandler;
+- (void)blindHandleWithKey:(NSString *)key CompletionHandler:(JLYCompletionHandler)completionHandler;
 
 @end
 NS_ASSUME_NONNULL_END

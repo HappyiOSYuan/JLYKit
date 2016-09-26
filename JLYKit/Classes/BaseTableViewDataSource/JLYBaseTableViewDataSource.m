@@ -26,7 +26,6 @@
     id cell = [tableView dequeueReusableCellWithIdentifier:self.sections[indexPath.section].identifier
                                               forIndexPath:indexPath];
     CellConfigBlock configBlock = self.sections[indexPath.section].cellConfig;
-    NSLog(@"configBlock--->%@" ,self.sections[indexPath.section].cellConfig);
     if (!configBlock) {
         NSAssert(configBlock != nil, @"Warning : adapter block for section %ld is null. please use dataSourceMake.adapter(^block) set it");
         return cell;

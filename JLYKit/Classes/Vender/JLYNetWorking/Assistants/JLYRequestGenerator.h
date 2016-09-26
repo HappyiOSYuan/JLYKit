@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSURLRequest *)generateGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
                                             requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
-                                               methodName:(NSString * _Nonnull)methodName;
+                                               methodName:(NSString *)methodName;
 - (NSURLRequest *)generatePOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
                                              requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
                                                 methodName:(NSString *)methodName;

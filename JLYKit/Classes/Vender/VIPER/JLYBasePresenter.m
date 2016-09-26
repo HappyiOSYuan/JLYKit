@@ -11,7 +11,7 @@
 @implementation JLYBasePresenter
 
 - (void)jly_handleDataWithIdentifer:(NSString *)identifer
-                          andParams:(NSDictionary *)params
+                          andParams:(NSDictionary<NSString *,id> *)params
                   CompletionHandler:(JLYCompletionHandler)completionHandler{
     
 }

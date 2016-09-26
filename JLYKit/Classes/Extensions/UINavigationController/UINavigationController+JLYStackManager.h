@@ -17,7 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return controller对象
  */
-- (id)jly_findViewController:(NSString*)className;
+- (id)jly_findViewController:(NSString *)className;
 /*!
  *  @brief UINavigationController的跟控制器
  *
@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return pop之后的controllers
  */
-- (NSArray<id> *)jly_popToViewControllerWithClassName:(NSString*)className animated:(BOOL)animated;
+- (NSArray<id> *)jly_popToViewControllerWithClassName:(NSString *)className animated:(BOOL)animated;
 
 @end
 NS_ASSUME_NONNULL_END

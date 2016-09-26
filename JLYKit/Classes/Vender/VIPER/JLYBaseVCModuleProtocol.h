@@ -13,16 +13,16 @@ typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error
 
 @protocol JLYBaseVCModuleProtocol <NSObject>
 
-- (void)jly_handleDataWithIdentifer:(NSString *)identifer
-                          andParams:(NSDictionary<NSString * ,id> *)params
-                  CompletionHandler:(nonnull JLYCompletionHandler)completionHandler;
+- (void)jly_handleDataWithIdentifer:(NSString * _Nullable)identifer
+                          andParams:(NSDictionary<NSString * ,id> * _Nullable)params
+                  CompletionHandler:(JLYCompletionHandler)completionHandler;
 @optional
-- (void)jly_handleMoreDataWithIdentifer:(NSString *)identifer
-                              andParams:(NSDictionary<NSString * ,id> *)params
-                      CompletionHandler:(nonnull JLYCompletionHandler)completionHandler;
+- (void)jly_handleMoreDataWithIdentifer:(NSString * _Nullable)identifer
+                              andParams:(NSDictionary<NSString * ,id> * _Nullable)params
+                      CompletionHandler:(JLYCompletionHandler)completionHandler;
 
-- (void)jly_openVCWithIdentifer:(NSString *)identifer
-                       andParam:(NSDictionary<NSString * ,id> *)params;
+- (void)jly_openVCWithIdentifer:(NSString * _Nullable)identifer
+                       andParam:(NSDictionary<NSString * ,id>* _Nullable)params;
 
 - (void)jly_dissmissVC;
 - (void)jly_popVC;

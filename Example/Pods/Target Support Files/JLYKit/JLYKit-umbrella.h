@@ -39,7 +39,7 @@
 #import "UIImage+colorImage.h"
 #import "UIImage+Transform.h"
 #import "UIImageView+JLYAdditions.h"
-#import "UINavigationBar+JLYTransation.h"
+#import "UINavigationBar+Awesome.h"
 #import "UINavigationController+JLYStackManager.h"
 #import "UIScrollView+EmptyDataSet.h"
 #import "UITextView+JLYPlaceHolder.h"

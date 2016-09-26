@@ -11,23 +11,23 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface JLYSignatureGenerator : NSObject
 
-+ (NSString *)signGetWithSigParams:(NSDictionary<NSString * ,id> *)allParams
++ (NSString *)signGetWithSigParams:(NSDictionary<NSString * ,id> * _Nullable)allParams
                         methodName:(NSString *)methodName
                         apiVersion:(NSString *)apiVersion
                         privateKey:(NSString *)privateKey
                          publicKey:(NSString *)publicKey;
 
-+ (NSString *)signRestfulGetWithAllParams:(NSDictionary<NSString * ,id> *)allParams
++ (NSString *)signRestfulGetWithAllParams:(NSDictionary<NSString * ,id> * _Nullable)allParams
                                methodName:(NSString *)methodName
                                apiVersion:(NSString *)apiVersion
                                privateKey:(NSString *)privateKey;
 
-+ (NSString *)signPostWithApiParams:(NSDictionary<NSString * ,id> *)apiParams
++ (NSString *)signPostWithApiParams:(NSDictionary<NSString * ,id> * _Nullable)apiParams
                          privateKey:(NSString *)privateKey
                           publicKey:(NSString *)publicKey;
 
-+ (NSString *)signRestfulPOSTWithApiParams:(id)apiParams
-                              commonParams:(NSDictionary<NSString * ,id> *)commonParams
++ (NSString *)signRestfulPOSTWithApiParams:(id _Nullable)apiParams
+                              commonParams:(NSDictionary<NSString * ,id> * _Nullable)commonParams
                                 methodName:(NSString *)methodName
                                 apiVersion:(NSString *)apiVersion
                                 privateKey:(NSString *)privateKey;

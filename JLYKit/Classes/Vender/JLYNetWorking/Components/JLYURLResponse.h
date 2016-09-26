@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign, readonly) NSInteger requestId;
 @property (nonatomic, copy, readonly) NSURLRequest *request;
 @property (nonatomic, copy, readonly) NSData *responseData;
-@property (nonatomic, copy) NSDictionary<NSString * ,id> *requestParams;
+@property (nonatomic, copy, nullable) NSDictionary<NSString * ,id> *requestParams;
 @property (nonatomic, assign, readonly) BOOL isCache;
 
 - (instancetype)initWithResponseString:(NSString *)responseString
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
                              requestId:(NSNumber *)requestId
                                request:(NSURLRequest *)request
                           responseData:(NSData *)responseData
-                                 error:(NSError *)error;
+                                 error:(NSError * _Nullable)error;
 
 // 使用initWithData的response，它的isCache是YES，上面两个函数生成的response的isCache是NO
 - (instancetype)initWithData:(NSData *)data;

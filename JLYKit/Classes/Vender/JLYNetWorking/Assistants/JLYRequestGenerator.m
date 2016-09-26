@@ -57,7 +57,7 @@ static JLYRequestGenerator * instance = nil;
 }
 
 - (NSURLRequest *)generateGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                            requestParams:(NSDictionary *)requestParams
+                                            requestParams:(NSDictionary<NSString *,id> *)requestParams
                                                methodName:(NSString *)methodName{
     JLYService *service = [[JLYServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     
@@ -85,7 +85,7 @@ static JLYRequestGenerator * instance = nil;
 }
 
 - (NSURLRequest *)generatePOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                             requestParams:(NSDictionary *)requestParams
+                                             requestParams:(NSDictionary<NSString *,id> *)requestParams
                                                 methodName:(NSString *)methodName{
     JLYService *service = [[JLYServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     //NSString *signature = [NDBSignatureGenerator signPostWithApiParams:requestParams privateKey:service.privateKey publicKey:service.publicKey];
@@ -106,7 +106,7 @@ static JLYRequestGenerator * instance = nil;
 }
 
 - (NSURLRequest *)generateImageRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                              requestParams:(NSDictionary *)requestParams
+                                              requestParams:(NSDictionary<NSString *,id> *)requestParams
                                                  methodName:(NSString *)methodName{
     JLYService *service = [[JLYServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     NSString *urlString = [NSString stringWithFormat:@"%@/%@?%@", service.apiBaseUrl, methodName, [[JLYCommonParamsGenerator commonParamsDictionary] jly_urlParamsStringSignature:NO]];
@@ -125,7 +125,7 @@ static JLYRequestGenerator * instance = nil;
 }
 
 - (NSURLRequest *)generateRestfulGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                   requestParams:(NSDictionary *)requestParams
+                                                   requestParams:(NSDictionary<NSString *,id> *)requestParams
                                                       methodName:(NSString *)methodName{
     NSMutableDictionary *allParams = [NSMutableDictionary dictionaryWithDictionary:[JLYCommonParamsGenerator commonParamsDictionary]];
     //[allParams addEntriesFromDictionary:requestParams];
@@ -156,7 +156,7 @@ static JLYRequestGenerator * instance = nil;
 }
 
 - (NSURLRequest *)generateRestfulPOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                    requestParams:(NSDictionary *)requestParams
+                                                    requestParams:(NSDictionary<NSString *,id> *)requestParams
                                                        methodName:(NSString *)methodName{
     JLYService *service = [[JLYServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     NSDictionary *commonParams = [JLYCommonParamsGenerator commonParamsDictionary];
@@ -188,7 +188,8 @@ static JLYRequestGenerator * instance = nil;
     return request;
 }
 
-- (NSURLRequest *)generateGoolgeMapAPIRequestWithParams:(NSDictionary *)requestParams serviceIdentifier:(NSString *)serviceIdentifier{
+- (NSURLRequest *)generateGoolgeMapAPIRequestWithParams:(NSDictionary<NSString *,id> *)requestParams
+                                      serviceIdentifier:(NSString *)serviceIdentifier{
     JLYService *service = [[JLYServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];
     NSString *paramsString = [requestParams jly_urlParamsStringSignature:NO];
     NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@?%@", service.apiBaseUrl, service.apiVersion, paramsString]];

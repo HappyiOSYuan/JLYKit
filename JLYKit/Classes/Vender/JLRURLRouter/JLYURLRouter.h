@@ -32,7 +32,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *  @param handler    该 block 会传一个字典，包含了注册的 URL 中对应的变量。
  *                    假如注册的 URL 为 mgj://beauty/:id 那么，就会传一个 @{@"id": 4} 这样的字典过来
  */
-+ (void)registerURLPattern:(NSString * _Nonnull)URLPattern withHandler:(nonnull JLYURLRouterHandler)handler;
++ (void)registerURLPattern:(NSString * )URLPattern withHandler:(JLYURLRouterHandler)handler;
 
 /**
  *  注册 URLPattern 对应的 ObjectHandler，需要返回一个 object 给调用方
@@ -42,14 +42,14 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *                    假如注册的 URL 为 mgj://beauty/:id 那么，就会传一个 @{@"id": 4} 这样的字典过来
  *                    自带的 key 为 @"url" 和 @"completion" (如果有的话)
  */
-+ (void)registerURLPattern:(NSString * _Nonnull)URLPattern withObjectHandler:(nonnull JLYURLRouterObjectHandler)handler;
++ (void)registerURLPattern:(NSString *)URLPattern withObjectHandler:(JLYURLRouterObjectHandler)handler;
 
 /**
  *  取消注册某个 URL Pattern
  *
  *  @param URLPattern
  */
-+ (void)deregisterURLPattern:(NSString * _Nonnull)URLPattern;
++ (void)deregisterURLPattern:(NSString *)URLPattern;
 
 /**
  *  打开此 URL
@@ -57,7 +57,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *
  *  @param URL 带 Scheme，如 mgj://beauty/3
  */
-+ (void)openURL:(NSString * _Nonnull)URL;
++ (void)openURL:(NSString *)URL;
 
 /**
  *  打开此 URL，同时当操作完成时，执行额外的代码
@@ -65,7 +65,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *  @param URL        带 Scheme 的 URL，如 mgj://beauty/4
  *  @param completion URL 处理完成后的 callback，完成的判定跟具体的业务相关
  */
-+ (void)openURL:(NSString * _Nonnull)URL completion:(nonnull void (^)(id _Nullable result))completion;
++ (void)openURL:(NSString *)URL completion:(void (^)(id _Nullable result))completion;
 
 /**
  *  打开此 URL，带上附加信息，同时当操作完成时，执行额外的代码
@@ -74,14 +74,16 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *  @param parameters 附加参数
  *  @param completion URL 处理完成后的 callback，完成的判定跟具体的业务相关
  */
-+ (void)openURL:(NSString * _Nonnull)URL withUserInfo:(nullable NSDictionary<NSString * ,id>*)userInfo completion:(nonnull void (^)(id _Nullable result))completion;
++ (void)openURL:(NSString *)URL
+   withUserInfo:(NSDictionary<NSString * ,id>*)userInfo
+     completion:(void (^)(id _Nullable result))completion;
 
 /**
  * 查找谁对某个 URL 感兴趣，如果有的话，返回一个 object
  *
  *  @param URL
  */
-+ (id)objectForURL:(NSString * _Nonnull)URL;
++ (id)objectForURL:(NSString *)URL;
 
 /**
  * 查找谁对某个 URL 感兴趣，如果有的话，返回一个 object
@@ -89,7 +91,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *  @param URL
  *  @param userInfo
  */
-+ (id)objectForURL:(NSString * _Nonnull)URL withUserInfo:(nullable NSDictionary<NSString * ,id>*)userInfo;
++ (id)objectForURL:(NSString *)URL withUserInfo:(NSDictionary<NSString * ,id>*)userInfo;
 
 /**
  *  是否可以打开URL
@@ -98,7 +100,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *
  *  @return
  */
-+ (BOOL)canOpenURL:(NSString * _Nonnull)URL;
++ (BOOL)canOpenURL:(NSString *)URL;
 
 /**
  *  调用此方法来拼接 urlpattern 和 parameters
@@ -112,7 +114,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *
  *  @return
  */
-+ (NSString *)generateURLWithPattern:(NSString * _Nonnull)pattern parameters:(nullable NSArray<NSString *>*)parameters;
++ (NSString *)generateURLWithPattern:(NSString *)pattern parameters:(NSArray<NSString *>*)parameters;
 
 @end
 

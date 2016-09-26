@@ -12,7 +12,7 @@
 
 @implementation JLYCommonParamsGenerator
 
-+ (nonnull NSDictionary<NSString * ,id>*)commonParamsDictionary{
++ (NSDictionary<NSString * ,id>*)commonParamsDictionary{
     JLYAppContext *context = [JLYAppContext sharedInstance];
     return @{
              @"cid":context.cid,
@@ -33,7 +33,7 @@
              };
 }
 
-+ (nonnull NSDictionary<NSString * ,id>*)commonParamsDictionaryForLog{
++ (NSDictionary<NSString * ,id>*)commonParamsDictionaryForLog{
     JLYAppContext *context = [JLYAppContext sharedInstance];
     return @{
              @"guid":context.guid,

@@ -16,13 +16,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (NSString *)keyWithServiceIdentifier:(NSString *)serviceIdentifier
                             methodName:(NSString *)methodName
-                         requestParams:(NSDictionary<NSString * ,id> *)requestParams;
+                         requestParams:(NSDictionary<NSString * ,id> * _Nullable)requestParams;
 
 
 
 - (NSData *)fetchCachedDataWithServiceIdentifier:(NSString *)serviceIdentifier
                                       methodName:(NSString *)methodName
-                                   requestParams:(NSDictionary<NSString * ,id> *)requestParams;
+                                   requestParams:(NSDictionary<NSString * ,id> * _Nullable)requestParams;
 
 - (void)saveCacheWithData:(NSData *)cachedData
         serviceIdentifier:(NSString *)serviceIdentifier
@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)deleteCacheWithServiceIdentifier:(NSString *)serviceIdentifier
                               methodName:(NSString *)methodName
-                           requestParams:(NSDictionary<NSString * ,id> *)requestParams;
+                           requestParams:(NSDictionary<NSString * ,id> * _Nullable)requestParams;
 
 
 

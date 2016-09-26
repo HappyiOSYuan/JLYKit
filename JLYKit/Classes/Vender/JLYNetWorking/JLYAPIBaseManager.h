@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <JLYKit/JLYURLResponse.h>
 
+#define JLYDATAERROR [NSError errorWithDomain:@"获取错误" code:20151217 userInfo:nil]
+
 NS_ASSUME_NONNULL_BEGIN
 @class JLYAPIBaseManager;
 
@@ -28,7 +30,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
  */
 @protocol JLYAPIManagerCallbackDataReformer <NSObject>
 @required
-- (id)manager:(JLYAPIBaseManager *)manager reformData:(id)data;
+- (id)manager:(JLYAPIBaseManager *)manager reformData:(id _Nullable)data;
 @end
 
 
@@ -40,8 +42,8 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
  */
 @protocol JLYAPIManagerValidator <NSObject>
 @required
-- (BOOL)manager:(JLYAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary *)data;
-- (BOOL)manager:(JLYAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary *)data;
+- (BOOL)manager:(JLYAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary<NSString * ,id>* _Nullable)data;
+- (BOOL)manager:(JLYAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary<NSString * ,id>* _Nullable)data;
 @end
 
 /*!
@@ -142,7 +144,7 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
 
-- (id _Nullable)fetchDataWithReformer:(id<JLYAPIManagerCallbackDataReformer>)reformer;
+- (id _Nullable)fetchDataWithReformer:(id<JLYAPIManagerCallbackDataReformer> _Nullable)reformer;
 
 //尽量使用loadData这个方法,这个方法会通过param source来获得参数，这使得参数的生成逻辑位于controller中的固定位置
 - (NSInteger)loadData;

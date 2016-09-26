@@ -11,12 +11,12 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface JLYForm : UIView
 
-@property (nonatomic, strong ,readonly ,nonnull) NSArray<NSNumber *> *columnsWidths;
+@property (nonatomic, strong ,readonly) NSArray<NSNumber *> *columnsWidths;
 @property (nonatomic, assign ,readonly) uint numRows;
 @property (nonatomic, assign ,readonly) uint dy;
 
-- (id)initWithFrame:(CGRect)frame andColumnsWidths:(nonnull NSArray<NSNumber *>*)columns;
-- (void)addRecord:(nonnull NSArray<NSString *>*)record;
+- (id)initWithFrame:(CGRect)frame andColumnsWidths:(NSArray<NSNumber *>*)columns;
+- (void)addRecord:(NSArray<NSString *>*)record;
 - (void)reloadData;
 
 @end
