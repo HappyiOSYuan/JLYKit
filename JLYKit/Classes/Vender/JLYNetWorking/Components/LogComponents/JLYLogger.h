@@ -19,10 +19,10 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)logDebugInfoWithRequest:(NSURLRequest *)request
                         apiName:(NSString *)apiName
                         service:(JLYService *)service
-                  requestParams:(id)requestParams
+                  requestParams:(id _Nullable)requestParams
                      httpMethod:(NSString *)httpMethod;
-+ (void)logDebugInfoWithResponse:(NSHTTPURLResponse *)response
-                   resposeString:(NSString *)responseString
++ (void)logDebugInfoWithResponse:(NSHTTPURLResponse * _Nullable)response
+                   resposeString:(NSString * _Nullable)responseString
                          request:(NSURLRequest *)request
                            error:(NSError *)error;
 + (void)logDebugInfoWithCachedResponse:(JLYURLResponse *)response

@@ -16,37 +16,37 @@ typedef void(^NDBCallback)(JLYURLResponse *response);
 
 + (instancetype)sharedInstance;
 
-- (NSInteger)callGETWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callGETWithParams:(NSDictionary<NSString * ,id> * _Nullable)params
              serviceIdentifier:(NSString *)servieIdentifier
                     methodName:(NSString *)methodName
                        success:(nullable NDBCallback)success
                           fail:(nullable NDBCallback)fail;
 
-- (NSInteger)callPOSTWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callPOSTWithParams:(NSDictionary<NSString * ,id> * _Nullable)params
               serviceIdentifier:(NSString *)servieIdentifier
                      methodName:(NSString *)methodName
                         success:(nullable NDBCallback)success
                            fail:(nullable NDBCallback)fail;
 
-- (NSInteger)callImageWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callImageWithParams:(NSDictionary<NSString * ,id> * _Nullable)params
                serviceIdentifier:(NSString *)servieIdentifier
                       methodName:(NSString *)methodName
                          success:(nullable NDBCallback)success
                             fail:(nullable NDBCallback)fail;
 
-- (NSInteger)callRestfulGETWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callRestfulGETWithParams:(NSDictionary<NSString * ,id> * _Nullable)params
                     serviceIdentifier:(NSString *)servieIdentifier
                            methodName:(NSString *)methodName
                               success:(nullable NDBCallback)success
                                  fail:(nullable NDBCallback)fail;
 
-- (NSInteger)callRestfulPOSTWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callRestfulPOSTWithParams:(NSDictionary<NSString * ,id> * _Nullable)params
                      serviceIdentifier:(NSString *)servieIdentifier
                             methodName:(NSString *)methodName
                                success:(nullable NDBCallback)success
                                   fail:(nullable NDBCallback)fail;
 
-- (NSInteger)callGoogleMapAPIWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callGoogleMapAPIWithParams:(NSDictionary<NSString * ,id> * _Nullable)params
                       serviceIdentifier:(NSString *)serviceIdentifier
                                 success:(nullable NDBCallback)success
                                    fail:(nullable NDBCallback)fail;
