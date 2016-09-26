@@ -49,7 +49,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
  */
 @protocol JLYAPIManagerParamSourceDelegate <NSObject>
 @required
-- (NSDictionary *)paramsForApi:(JLYAPIBaseManager *)manager;
+- (NSDictionary * _Nullable)paramsForApi:(JLYAPIBaseManager *)manager;
 @end
 
 typedef NS_ENUM (NSUInteger, JLYAPIManagerErrorType){
@@ -93,13 +93,13 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
  继承的子类manager可以重载basemanager提供的一些方法，来实现一些扩展功能。具体的可以看m文件里面对应方法的注释。
  */
 @required
-- (NSString * _Nonnull)methodName;
-- (NSString * _Nonnull)serviceType;
+- (NSString *)methodName;
+- (NSString *)serviceType;
 - (JLYAPIManagerRequestType)requestType;
 
 @optional
 - (void)cleanData;
-- (NSDictionary<NSString * ,id>*)reformParams:(NSDictionary<NSString * ,id>*)params;
+- (NSDictionary<NSString * ,id>* _Nullable)reformParams:(NSDictionary<NSString * ,id>* _Nullable)params;
 - (BOOL)shouldCache;
 
 @end
@@ -116,8 +116,8 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 - (void)manager:(JLYAPIBaseManager *)manager beforePerformFailWithResponse:(JLYURLResponse *)response;
 - (void)manager:(JLYAPIBaseManager *)manager afterPerformFailWithResponse:(JLYURLResponse *)response;
 
-- (BOOL)manager:(JLYAPIBaseManager *)manager shouldCallAPIWithParams:(NSDictionary<NSString * ,id>*)params;
-- (void)manager:(JLYAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary<NSString * ,id>*)params;
+- (BOOL)manager:(JLYAPIBaseManager *)manager shouldCallAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
+- (void)manager:(JLYAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
 
 @end
 
@@ -142,7 +142,7 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 @property (nonatomic, assign, readonly) BOOL isReachable;
 @property (nonatomic, assign, readonly) BOOL isLoading;
 
-- (id)fetchDataWithReformer:(id<JLYAPIManagerCallbackDataReformer>)reformer;
+- (id _Nullable)fetchDataWithReformer:(id<JLYAPIManagerCallbackDataReformer>)reformer;
 
 //尽量使用loadData这个方法,这个方法会通过param source来获得参数，这使得参数的生成逻辑位于controller中的固定位置
 - (NSInteger)loadData;
@@ -157,8 +157,8 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 - (void)beforePerformFailWithResponse:(JLYURLResponse *)response;
 - (void)afterPerformFailWithResponse:(JLYURLResponse *)response;
 
-- (BOOL)shouldCallAPIWithParams:(NSDictionary<NSString * ,id>*)params;
-- (void)afterCallingAPIWithParams:(NSDictionary<NSString * ,id>*)params;
+- (BOOL)shouldCallAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
+- (void)afterCallingAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
 
 /*
  用于给继承的类做重载，在调用API之前额外添加一些参数,但不应该在这个函数里面修改已有的参数。
@@ -174,7 +174,7 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
  那么在传递参数要求不同的返回时，可以在这里给返回参数指定类型。
  
  */
-- (NSDictionary<NSString * ,id>*)reformParams:(NSDictionary<NSString * ,id>*)params;
+- (NSDictionary<NSString * ,id>* _Nullable)reformParams:(NSDictionary<NSString * ,id>* _Nullable)params;
 - (void)cleanData;
 - (BOOL)shouldCache;
 

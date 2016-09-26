@@ -9,9 +9,9 @@
 #import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
-@interface UINavigationBar (Awesome)
+@interface UINavigationBar (JLYTransation)
 
-- (void)jly_setBackgroundColor:(UIColor *)backgroundColor;
+- (void)jly_setBackgroundColor:(UIColor * _Nullable)backgroundColor;
 - (void)jly_setElementsAlpha:(CGFloat)alpha;
 - (void)jly_setTranslationY:(CGFloat)translationY;
 - (void)jly_reset;
