@@ -91,7 +91,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *  @param URL
  *  @param userInfo
  */
-+ (id)objectForURL:(NSString *)URL withUserInfo:(NSDictionary<NSString * ,id>*)userInfo;
++ (id)objectForURL:(NSString *)URL withUserInfo:(NSDictionary<NSString * ,id>* _Nullable)userInfo;
 
 /**
  *  是否可以打开URL
@@ -114,7 +114,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *
  *  @return
  */
-+ (NSString *)generateURLWithPattern:(NSString *)pattern parameters:(NSArray<NSString *>*)parameters;
++ (NSString *)generateURLWithPattern:(NSString *)pattern parameters:(NSArray<NSString *>* _Nullable)parameters;
 
 @end
 
