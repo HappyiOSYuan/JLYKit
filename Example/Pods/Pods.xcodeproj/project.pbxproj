@@ -173,7 +173,7 @@
 		476C468044CC4FC4B4466CCA57E7F7D1 /* DGActivityIndicatorView.m in Sources */ = {isa = PBXBuildFile; fileRef = B5300DB83BFABD5600575CAA4D8B3740 /* DGActivityIndicatorView.m */; };
 		47BC1B48872CAA4002D6A681D641A9E8 /* JLYLocation.m in Sources */ = {isa = PBXBuildFile; fileRef = F6E694836E8D6AC060D3F4902A5DEB77 /* JLYLocation.m */; };
 		47EE3D7DC1610F09CA2FAFE8A4A0171C /* MLInputDodgerRetractView.h in Headers */ = {isa = PBXBuildFile; fileRef = BBF92A21C852C5CC81CE59E8AE560F13 /* MLInputDodgerRetractView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		49C978DF3EAFDF586559B599ED2AB290 /* UINavigationBar+JLYTransation.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FD10EA5F37F03634E143959697BEB1 /* UINavigationBar+JLYTransation.m */; };
+		49C978DF3EAFDF586559B599ED2AB290 /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 76FD10EA5F37F03634E143959697BEB1 /* UINavigationBar+Awesome.m */; };
 		49EBB5348DBD95C4A6481826C578DC3C /* JLYReversibleAnimationController.h in Headers */ = {isa = PBXBuildFile; fileRef = ECFA19BB3664617C033CC2CBB16871A8 /* JLYReversibleAnimationController.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A58FB2650300D0CC1934BE1C2BEB996 /* Pods-JLYKit_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 076C086DCAF0C69E147C5FA463C5BE80 /* Pods-JLYKit_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		4A8219A042E415E74873B2F8297F0E32 /* JLYMaterialTextFeild.h in Headers */ = {isa = PBXBuildFile; fileRef = 393096696A2A8DB6BB79786DE97923F9 /* JLYMaterialTextFeild.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -349,7 +349,7 @@
 		A16143ED90B6494CDEFCA2C8C32A8CFF /* DGActivityIndicatorBallGridPulseAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = F680762A775AACB00A1D9839FA121016 /* DGActivityIndicatorBallGridPulseAnimation.m */; };
 		A16AAEFFA373D49636C37A04028DF1CB /* MASCompositeConstraint.h in Headers */ = {isa = PBXBuildFile; fileRef = C2F2F2001D2DD57D48887BC1A3D5E830 /* MASCompositeConstraint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A1DED5268CFFC61883E5DFACDC027441 /* JLYLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 406FB057C02CD6F619744608E9B3888C /* JLYLogger.m */; };
-		A2AED597CCA8641DF403CB16C1C44F05 /* UINavigationBar+JLYTransation.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CC0195D9B323CE10B19F530121C08B4 /* UINavigationBar+JLYTransation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		A2AED597CCA8641DF403CB16C1C44F05 /* UINavigationBar+Awesome.h in Headers */ = {isa = PBXBuildFile; fileRef = 5CC0195D9B323CE10B19F530121C08B4 /* UINavigationBar+Awesome.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2CD8EAFE788B66EFF5116CD8A14C7EF /* JLYBaseRouter.h in Headers */ = {isa = PBXBuildFile; fileRef = 59F4D4E6F943375A89E134240D43E768 /* JLYBaseRouter.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		A2E155AF136858F24807F83FF580FC26 /* JLYAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2179E4B139B36527D05F6AC0809C67DB /* JLYAlertController.m */; };
 		A3A191164F0DC18CE073F562FD0BFE81 /* DGActivityIndicatorTwoDotsAnimation.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B924117DF780A7326B6349D2D481D9E /* DGActivityIndicatorTwoDotsAnimation.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -930,7 +930,7 @@
 		5BD1AEE5007B5506F4E7D0F7F15B5F9D /* MJRefresh.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = MJRefresh.modulemap; sourceTree = "<group>"; };
 		5C4F50201469B83B3CBA1782E3F43610 /* JLYBasePresenter.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JLYBasePresenter.m; sourceTree = "<group>"; };
 		5C7D0F66E666FDABB2B44B487FC78C2D /* UIKit+AFNetworking.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "UIKit+AFNetworking.h"; path = "UIKit+AFNetworking/UIKit+AFNetworking.h"; sourceTree = "<group>"; };
-		5CC0195D9B323CE10B19F530121C08B4 /* UINavigationBar+JLYTransation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+JLYTransation.h"; sourceTree = "<group>"; };
+		5CC0195D9B323CE10B19F530121C08B4 /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = "<group>"; };
 		5D04ACA886E910B03D96648D9F65D690 /* UIImage+Transform.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "UIImage+Transform.h"; sourceTree = "<group>"; };
 		5D4262B045D736DDA0A32D43716D8CB2 /* Reachability-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Reachability-umbrella.h"; sourceTree = "<group>"; };
 		5E0AE8354F3F08508E146474CD59022E /* JLYBaseTableViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JLYBaseTableViewController.h; sourceTree = "<group>"; };
@@ -1001,7 +1001,7 @@
 		7639A662B48F7A425D83AC42DBD0FB26 /* DGActivityIndicatorRotatingSandglassAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorRotatingSandglassAnimation.m; path = DGActivityIndicatorView/Animations/DGActivityIndicatorRotatingSandglassAnimation.m; sourceTree = "<group>"; };
 		76AF088D40E0CAC2DC3B3488FA501DBE /* DGActivityIndicatorLineScalePulseOutAnimation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = DGActivityIndicatorLineScalePulseOutAnimation.m; path = DGActivityIndicatorView/Animations/DGActivityIndicatorLineScalePulseOutAnimation.m; sourceTree = "<group>"; };
 		76E0D1A8FD8E9E2D405EF39F14328DEA /* JLYAppContext.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = JLYAppContext.m; sourceTree = "<group>"; };
-		76FD10EA5F37F03634E143959697BEB1 /* UINavigationBar+JLYTransation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+JLYTransation.m"; sourceTree = "<group>"; };
+		76FD10EA5F37F03634E143959697BEB1 /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = "<group>"; };
 		773B7573D32E28300153B35C1D0C0735 /* JLYService.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = JLYService.h; sourceTree = "<group>"; };
 		779D4EE0E6042FAC6A90AEC5B174451F /* SDWebImageOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SDWebImageOperation.h; path = SDWebImage/SDWebImageOperation.h; sourceTree = "<group>"; };
 		781C214FACF77D826E39688595B87B87 /* ISHPermissionRequestViewControllerDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = ISHPermissionRequestViewControllerDelegate.h; path = ISHPermissionKit/Private/ISHPermissionRequestViewControllerDelegate.h; sourceTree = "<group>"; };
@@ -1575,8 +1575,8 @@
 		1735A9815FF9093404B5DB46AA4E6800 /* UINavigationBar */ = {
 			isa = PBXGroup;
 			children = (
-				5CC0195D9B323CE10B19F530121C08B4 /* UINavigationBar+JLYTransation.h */,
-				76FD10EA5F37F03634E143959697BEB1 /* UINavigationBar+JLYTransation.m */,
+				5CC0195D9B323CE10B19F530121C08B4 /* UINavigationBar+Awesome.h */,
+				76FD10EA5F37F03634E143959697BEB1 /* UINavigationBar+Awesome.m */,
 			);
 			path = UINavigationBar;
 			sourceTree = "<group>";
@@ -3054,7 +3054,7 @@
 				14B101925075A065613DD1F1CC074A28 /* UIImage+JLYLaunchImage.h in Headers */,
 				D1C5C75CA16D209B7B8FC8FD0AF28910 /* UIImage+Transform.h in Headers */,
 				AFB85CF5A71B606ECFA13DB0A0D5ED62 /* UIImageView+JLYAdditions.h in Headers */,
-				A2AED597CCA8641DF403CB16C1C44F05 /* UINavigationBar+JLYTransation.h in Headers */,
+				A2AED597CCA8641DF403CB16C1C44F05 /* UINavigationBar+Awesome.h in Headers */,
 				3F73D724354BCAEAA912736937A4667A /* UINavigationController+JLYStackManager.h in Headers */,
 				183141C5E51F87EFEDD763EFF71DFDD1 /* UIScrollView+EmptyDataSet.h in Headers */,
 				1BAB9131E5790E27E6B9DC74033B1075 /* UITableView+JLYTableViewDataSource.h in Headers */,
@@ -3761,7 +3761,7 @@
 				8480D413354611A25E39555F40363940 /* UIImage+JLYLaunchImage.m in Sources */,
 				EA92462B4A0403264AC1B2CB5AA6C6F5 /* UIImage+Transform.m in Sources */,
 				2C4BB63DD078DB2097B6923C7EB3CB32 /* UIImageView+JLYAdditions.m in Sources */,
-				49C978DF3EAFDF586559B599ED2AB290 /* UINavigationBar+JLYTransation.m in Sources */,
+				49C978DF3EAFDF586559B599ED2AB290 /* UINavigationBar+Awesome.m in Sources */,
 				0C1F776D99760551CFF30CEF48791077 /* UINavigationController+JLYStackManager.m in Sources */,
 				CF3862C0941E14948AD19229EFB33D96 /* UIScrollView+EmptyDataSet.m in Sources */,
 				6DBCA0A87FC2BD3F1067DD4A6DE9FB53 /* UITableView+JLYTableViewDataSource.m in Sources */,

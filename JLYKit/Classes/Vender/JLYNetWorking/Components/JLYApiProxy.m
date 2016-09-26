@@ -18,7 +18,7 @@ static NSString * const kNDBApiProxyDispatchItemKeyCallbackFail = @"kNDBApiProxy
 
 @interface JLYApiProxy ()
 
-@property (nonatomic, strong) NSMutableDictionary<NSNumber * ,NSOperation *> *dispatchTable;
+@property (nonatomic, strong) NSMutableDictionary *dispatchTable;
 @property (nonatomic, strong) NSNumber *recordedRequestId;
 
 //AFNetworking stuff
@@ -28,7 +28,7 @@ static NSString * const kNDBApiProxyDispatchItemKeyCallbackFail = @"kNDBApiProxy
 @implementation JLYApiProxy
 #pragma mark -
 #pragma mark - SettersAndGetters
-- (NSMutableDictionary<NSNumber * ,NSOperation *> *)dispatchTable{
+- (NSMutableDictionary *)dispatchTable{
     if (_dispatchTable == nil) {
         _dispatchTable = [[NSMutableDictionary alloc] init];
     }

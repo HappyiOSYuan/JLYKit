@@ -6,10 +6,10 @@
 //  Copyright (c) 2015 ltebean. All rights reserved.
 //
 
-#import "UINavigationBar+JLYTransation.h"
+#import "UINavigationBar+Awesome.h"
 #import <objc/runtime.h>
 
-@implementation UINavigationBar (JLYTransation)
+@implementation UINavigationBar (Awesome)
 
 - (void)jly_setBackgroundColor:(UIColor *)backgroundColor{
     if ([self respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
