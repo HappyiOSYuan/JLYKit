@@ -22,7 +22,7 @@
 - (void)handleDataWithIdentifer:(NSString *)identifer
                          Params:(NSDictionary<NSString *,id> *)params
               CompletionHandler:(JLYCompletionHandler)completionHandler{
-    [self blindHandleWithKey:identifer ? : @"completion"  CompletionHandler:completionHandler];
+    [self blindHandleWithKey:identifer ? : JLYVIEWMODELDATACOMPLETION  CompletionHandler:completionHandler];
 }
 
 - (void)handleMoreDataWithCompletionHandler:(JLYCompletionHandler)completionHandler{
@@ -30,7 +30,7 @@
 }
 
 - (void)handleMoreDataWithIdentifer:(NSString *)identifer CompletionHandler:(JLYCompletionHandler)completionHandler{
-    [self blindHandleWithKey:identifer ? : @"completion" CompletionHandler:completionHandler];
+    [self blindHandleWithKey:identifer ? : JLYVIEWMODELDATACOMPLETION CompletionHandler:completionHandler];
 }
 
 - (void)openVCWithIdentifer:(NSString *)identifer andParam:(NSDictionary<NSString *,id> *)params{

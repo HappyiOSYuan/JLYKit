@@ -12,11 +12,11 @@
 
 #pragma mark - PublicMethod
 - (void)blindHandleWithCompletionHandler:(JLYCompletionHandler)completionHandler{
-    [self blindHandleWithKey:@"completion" CompletionHandler:completionHandler];
+    [self blindHandleWithKey:JLYDATACOMPLETION CompletionHandler:completionHandler];
 }
 
 - (void)blindHandleWithKey:(NSString *)key CompletionHandler:(JLYCompletionHandler)completionHandler{
-    self.blockDic[@"key"] = [completionHandler copy];
+    self.blockDic[key] = [completionHandler copy];
 }
 #pragma mark - SettersAndGetters
 - (NSMutableDictionary<NSString * ,id> *)blockDic{

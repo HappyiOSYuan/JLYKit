@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#define JLYDATACOMPLETION @"completion"
+
 NS_ASSUME_NONNULL_BEGIN
 typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error);
 
