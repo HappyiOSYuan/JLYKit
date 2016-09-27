@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @since 1.1
  */
-@property (nonatomic, copy) NSDictionary *passParams;
+@property (nonatomic, copy) NSDictionary<NSString * ,id> *passParams;
 
 @property (nonatomic ,copy) NSNumber *isLoading;
 

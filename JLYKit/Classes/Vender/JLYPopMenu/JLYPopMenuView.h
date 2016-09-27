@@ -28,7 +28,7 @@ typedef void(^BackViewTapBlock)();
  *  @return 返回创建对象
  */
 + (instancetype)createMenuWithFrame:(CGRect)frame
-                           target:(UIViewController *)target
+                           target:(__kindof UIViewController *)target
                         dataArray:(NSArray *)dataArray
                   itemsClickBlock:(void(^)(NSString *str, NSInteger tag))itemsClickBlock
                       backViewTap:(void(^)())backViewTapBlock;

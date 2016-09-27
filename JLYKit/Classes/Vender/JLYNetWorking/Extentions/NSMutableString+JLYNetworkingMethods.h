@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface NSMutableString (JLYNetworkingMethods)
 
-- (void)jly_appendURLRequest:(NSURLRequest *)request;
+- (void)jly_appendURLRequest:(__kindof NSURLRequest *)request;
 
 @end
 NS_ASSUME_NONNULL_END

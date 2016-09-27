@@ -15,8 +15,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, assign ,readonly) uint numRows;
 @property (nonatomic, assign ,readonly) uint dy;
 
-- (id)initWithFrame:(CGRect)frame andColumnsWidths:(NSArray<NSNumber *>*)columns;
-- (void)addRecord:(NSArray<NSString *>*)record;
+- (id)initWithFrame:(CGRect)frame andColumnsWidths:(__kindof NSArray<NSNumber *>*)columns;
+- (void)addRecord:(__kindof NSArray<NSString *>*)record;
 - (void)reloadData;
 
 @end

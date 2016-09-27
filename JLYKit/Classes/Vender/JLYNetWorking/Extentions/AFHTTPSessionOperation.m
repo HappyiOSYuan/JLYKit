@@ -30,14 +30,14 @@
 
 @implementation AFHTTPSessionOperation
 
-+ (instancetype)operationWithManager:(AFHTTPSessionManager *)manager
++ (instancetype)operationWithManager:(__kindof AFHTTPSessionManager *)manager
                           HTTPMethod:(NSString *)method
                            URLString:(NSString *)URLString
                           parameters:(id)parameters
-                      uploadProgress:(void (^)(NSProgress *uploadProgress)) uploadProgress
-                    downloadProgress:(void (^)(NSProgress *downloadProgress)) downloadProgress
-                             success:(void (^)(NSURLSessionDataTask *, id))success
-                             failure:(void (^)(NSURLSessionDataTask *, NSError *))failure {
+                      uploadProgress:(void (^)(NSProgress * _Nonnull))uploadProgress
+                    downloadProgress:(void (^)(NSProgress * _Nonnull))downloadProgress
+                             success:(void (^)(NSURLSessionDataTask * _Nonnull, id _Nonnull))success
+                             failure:(void (^)(NSURLSessionDataTask * _Nonnull, NSError * _Nonnull))failure {
     
     AFHTTPSessionOperation *operation = [[self alloc] init];
     NSURLSessionTask *task = nil;

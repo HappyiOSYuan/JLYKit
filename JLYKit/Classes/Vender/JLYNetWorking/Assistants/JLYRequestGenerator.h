@@ -13,23 +13,23 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (instancetype)sharedInstance;
 
-- (NSURLRequest *)generateGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                            requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
-                                               methodName:(NSString *)methodName;
-- (NSURLRequest *)generatePOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                             requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
-                                                methodName:(NSString *)methodName;
-- (NSURLRequest *)generateImageRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                              requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
-                                                 methodName:(NSString *)methodName;
-- (NSURLRequest *)generateRestfulGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                   requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
-                                                      methodName:(NSString *)methodName;
-- (NSURLRequest *)generateRestfulPOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                    requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
-                                                       methodName:(NSString *)methodName;
-- (NSURLRequest *)generateGoolgeMapAPIRequestWithParams:(nullable NSDictionary<NSString * ,id>*)requestParams
-                                      serviceIdentifier:(NSString *)serviceIdentifier;
+- (__kindof NSURLRequest *)generateGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
+                                                     requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                        methodName:(NSString *)methodName;
+- (__kindof NSURLRequest *)generatePOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
+                                                      requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                         methodName:(NSString *)methodName;
+- (__kindof NSURLRequest *)generateImageRequestWithServiceIdentifier:(NSString *)serviceIdentifier
+                                                       requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                          methodName:(NSString *)methodName;
+- (__kindof NSURLRequest *)generateRestfulGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
+                                                            requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                               methodName:(NSString *)methodName;
+- (__kindof NSURLRequest *)generateRestfulPOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
+                                                             requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                                methodName:(NSString *)methodName;
+- (__kindof NSURLRequest *)generateGoolgeMapAPIRequestWithParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                               serviceIdentifier:(NSString *)serviceIdentifier;
 
 @end
 NS_ASSUME_NONNULL_END

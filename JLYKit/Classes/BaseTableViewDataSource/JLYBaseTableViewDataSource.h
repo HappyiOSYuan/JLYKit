@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class JLYDataSourceSection;
 @interface JLYBaseTableViewDataSource : NSObject<JLYBaseTableViewDataSourceProtocol>
 
-@property (nonatomic, strong) NSMutableArray<JLYDataSourceSection *>*sections;
+@property (nonatomic, strong) NSMutableArray<__kindof JLYDataSourceSection *>*sections;
 
 @end
 NS_ASSUME_NONNULL_END

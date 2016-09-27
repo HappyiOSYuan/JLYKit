@@ -22,15 +22,15 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
  */
 @protocol JLYAPIManagerApiCallBackDelegate <NSObject>
 @required
-- (void)managerCallAPIDidSuccess:(JLYAPIBaseManager *)manager;
-- (void)managerCallAPIDidFailed:(JLYAPIBaseManager *)manager;
+- (void)managerCallAPIDidSuccess:(__kindof JLYAPIBaseManager *)manager;
+- (void)managerCallAPIDidFailed:(__kindof JLYAPIBaseManager *)manager;
 @end
 /*!
  *  @brief 请求数据格式化处理
  */
 @protocol JLYAPIManagerCallbackDataReformer <NSObject>
 @required
-- (id)manager:(JLYAPIBaseManager *)manager reformData:(id _Nullable)data;
+- (id)manager:(__kindof JLYAPIBaseManager *)manager reformData:(id _Nullable)data;
 @end
 
 
@@ -42,8 +42,8 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestI
  */
 @protocol JLYAPIManagerValidator <NSObject>
 @required
-- (BOOL)manager:(JLYAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary<NSString * ,id>* _Nullable)data;
-- (BOOL)manager:(JLYAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary<NSString * ,id>* _Nullable)data;
+- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary<NSString * ,id>* _Nullable)data;
+- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary<NSString * ,id>* _Nullable)data;
 @end
 
 /*!
@@ -112,14 +112,14 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 @protocol JLYAPIManagerInterceptor <NSObject>
 
 @optional
-- (void)manager:(JLYAPIBaseManager *)manager beforePerformSuccessWithResponse:(JLYURLResponse *)response;
-- (void)manager:(JLYAPIBaseManager *)manager afterPerformSuccessWithResponse:(JLYURLResponse *)response;
+- (void)manager:(__kindof JLYAPIBaseManager *)manager beforePerformSuccessWithResponse:(JLYURLResponse *)response;
+- (void)manager:(__kindof JLYAPIBaseManager *)manager afterPerformSuccessWithResponse:(JLYURLResponse *)response;
 
-- (void)manager:(JLYAPIBaseManager *)manager beforePerformFailWithResponse:(JLYURLResponse *)response;
-- (void)manager:(JLYAPIBaseManager *)manager afterPerformFailWithResponse:(JLYURLResponse *)response;
+- (void)manager:(__kindof JLYAPIBaseManager *)manager beforePerformFailWithResponse:(JLYURLResponse *)response;
+- (void)manager:(__kindof JLYAPIBaseManager *)manager afterPerformFailWithResponse:(JLYURLResponse *)response;
 
-- (BOOL)manager:(JLYAPIBaseManager *)manager shouldCallAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
-- (void)manager:(JLYAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
+- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager shouldCallAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
+- (void)manager:(__kindof JLYAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
 
 @end
 

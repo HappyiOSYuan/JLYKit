@@ -10,14 +10,14 @@
 
 @implementation JLYPopMenuModel
 
-- (instancetype)initWithDict:(NSDictionary *)dict{
+- (instancetype)initWithDict:(NSDictionary<NSString * ,id> *)dict{
     if (self == [super init]) {
         [self setValuesForKeysWithDictionary:dict];
     }
     return self;
 }
 
-+ (instancetype)MenuModelWithDict:(NSDictionary *)dict{
++ (instancetype)MenuModelWithDict:(NSDictionary<NSString * ,id> *)dict{
     return [[self alloc] initWithDict:dict];
 }
 

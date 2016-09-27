@@ -26,8 +26,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @returns AFURLSessionOperation that can be added to a NSOperationQueue.
  */
-+ (instancetype)dataOperationWithManager:(AFURLSessionManager *)manager
-                                 request:(NSURLRequest *)request
++ (instancetype)dataOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                 request:(__kindof NSURLRequest *)request
                        completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error))completionHandler;
 
 /**
@@ -41,8 +41,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @returns AFURLSessionOperation that can be added to a NSOperationQueue.
  */
-+ (instancetype)dataOperationWithManager:(AFURLSessionManager *)manager
-                                 request:(NSURLRequest *)request
++ (instancetype)dataOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                 request:(__kindof NSURLRequest *)request
                           uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                         downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
                        completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error))completionHandler;
@@ -64,8 +64,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @see `attemptsToRecreateUploadTasksForBackgroundSessions`
  */
-- (instancetype)uploadOperationWithManager:(AFURLSessionManager *)manager
-                                   request:(NSURLRequest *)request
+- (instancetype)uploadOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                   request:(__kindof NSURLRequest *)request
                                   fromFile:(NSURL *)fileURL
                                   progress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                          completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject, NSError * _Nullable error))completionHandler;
@@ -81,8 +81,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @returns AFURLSessionOperation that can be added to a NSOperationQueue.
  */
-+ (instancetype)uploadOperationWithManager:(AFURLSessionManager *)manager
-                                   request:(NSURLRequest *)request
++ (instancetype)uploadOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                   request:(__kindof NSURLRequest *)request
                                   fromData:(nullable NSData *)bodyData
                                   progress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                          completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject, NSError * _Nullable error))completionHandler;
@@ -97,8 +97,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @returns AFURLSessionOperation that can be added to a NSOperationQueue.
  */
-+ (instancetype)uploadOperationWithManager:(AFURLSessionManager *)manager
-                           streamedRequest:(NSURLRequest *)request
++ (instancetype)uploadOperationWithManager:(__kindof AFURLSessionManager *)manager
+                           streamedRequest:(__kindof NSURLRequest *)request
                                   progress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                          completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject, NSError * _Nullable error))completionHandler;
 
@@ -119,8 +119,8 @@ NS_ASSUME_NONNULL_BEGIN
  
  @warning If using a background `NSURLSessionConfiguration` on iOS, these blocks will be lost when the app is terminated. Background sessions may prefer to use `-setDownloadTaskDidFinishDownloadingBlock:` to specify the URL for saving the downloaded file, rather than the destination block of this method.
  */
-+ (instancetype)downloadOperationWithManager:(AFURLSessionManager *)manager
-                                     request:(NSURLRequest *)request
++ (instancetype)downloadOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                     request:(__kindof NSURLRequest *)request
                                     progress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
                                  destination:(nullable NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
                            completionHandler:(nullable void (^)(NSURLResponse *response, NSURL * _Nullable filePath, NSError * _Nullable error))completionHandler;
@@ -136,7 +136,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @returns AFURLSessionOperation that can be added to a NSOperationQueue.
  */
-+ (instancetype)downloadOperationWithManager:(AFURLSessionManager *)manager
++ (instancetype)downloadOperationWithManager:(__kindof AFURLSessionManager *)manager
                                   resumeData:(NSData *)resumeData
                                     progress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
                                  destination:(nullable NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination

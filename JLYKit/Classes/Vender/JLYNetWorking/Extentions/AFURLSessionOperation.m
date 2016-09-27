@@ -16,8 +16,8 @@
 
 @implementation AFURLSessionOperation
 
-+ (instancetype)dataOperationWithManager:(AFURLSessionManager *)manager
-                                 request:(NSURLRequest *)request
++ (instancetype)dataOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                 request:(__kindof NSURLRequest *)request
                        completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error))completionHandler {
     AFURLSessionOperation *operation = [[AFURLSessionOperation alloc] init];
     
@@ -29,8 +29,8 @@
     return operation;
 }
 
-+ (instancetype)dataOperationWithManager:(AFURLSessionManager *)manager
-                                 request:(NSURLRequest *)request
++ (instancetype)dataOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                 request:(__kindof NSURLRequest *)request
                           uploadProgress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                         downloadProgress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
                        completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject,  NSError * _Nullable error))completionHandler {
@@ -47,8 +47,8 @@
     return operation;
 }
 
-- (instancetype)uploadOperationWithManager:(AFURLSessionManager *)manager
-                                   request:(NSURLRequest *)request
+- (instancetype)uploadOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                   request:(__kindof NSURLRequest *)request
                                   fromFile:(NSURL *)fileURL
                                   progress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                          completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject, NSError  * _Nullable error))completionHandler {
@@ -65,8 +65,8 @@
     return operation;
 }
 
-+ (instancetype)uploadOperationWithManager:(AFURLSessionManager *)manager
-                                   request:(NSURLRequest *)request
++ (instancetype)uploadOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                   request:(__kindof NSURLRequest *)request
                                   fromData:(nullable NSData *)bodyData
                                   progress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                          completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject, NSError * _Nullable error))completionHandler {
@@ -83,8 +83,8 @@
     return operation;
 }
 
-+ (instancetype)uploadOperationWithManager:(AFURLSessionManager *)manager
-                           streamedRequest:(NSURLRequest *)request
++ (instancetype)uploadOperationWithManager:(__kindof AFURLSessionManager *)manager
+                           streamedRequest:(__kindof NSURLRequest *)request
                                   progress:(nullable void (^)(NSProgress *uploadProgress)) uploadProgressBlock
                          completionHandler:(nullable void (^)(NSURLResponse *response, id _Nullable responseObject, NSError * _Nullable error))completionHandler {
     AFURLSessionOperation *operation = [[AFURLSessionOperation alloc] init];
@@ -98,8 +98,8 @@
     return operation;
 }
 
-+ (instancetype)downloadOperationWithManager:(AFURLSessionManager *)manager
-                                     request:(NSURLRequest *)request
++ (instancetype)downloadOperationWithManager:(__kindof AFURLSessionManager *)manager
+                                     request:(__kindof NSURLRequest *)request
                                     progress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
                                  destination:(nullable NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination
                            completionHandler:(nullable void (^)(NSURLResponse *response, NSURL * _Nullable filePath, NSError * _Nullable error))completionHandler {
@@ -115,7 +115,7 @@
     return operation;
 }
 
-+ (instancetype)downloadOperationWithManager:(AFURLSessionManager *)manager
++ (instancetype)downloadOperationWithManager:(__kindof AFURLSessionManager *)manager
                                   resumeData:(NSData *)resumeData
                                     progress:(nullable void (^)(NSProgress *downloadProgress)) downloadProgressBlock
                                  destination:(nullable NSURL * (^)(NSURL *targetPath, NSURLResponse *response))destination

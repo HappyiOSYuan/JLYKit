@@ -31,7 +31,7 @@ NS_ASSUME_NONNULL_BEGIN
  
  @returns AFURLSessionOperation that can be added to a NSOperationQueue.
  */
-+ (instancetype)operationWithManager:(AFHTTPSessionManager *)manager
++ (instancetype)operationWithManager:(__kindof AFHTTPSessionManager *)manager
                           HTTPMethod:(NSString *)method
                            URLString:(NSString *)URLString
                           parameters:(nullable id)parameters

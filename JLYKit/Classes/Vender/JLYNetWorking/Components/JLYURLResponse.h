@@ -23,13 +23,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithResponseString:(NSString * _Nullable)responseString
                              requestId:(NSNumber *)requestId
-                               request:(NSURLRequest *)request
+                               request:(__kindof NSURLRequest *)request
                           responseData:(NSData * _Nullable)responseData
                                 status:(JLYURLResponseStatus)status;
 
 - (instancetype)initWithResponseString:(NSString * _Nullable)responseString
                              requestId:(NSNumber *)requestId
-                               request:(NSURLRequest *)request
+                               request:(__kindof NSURLRequest *)request
                           responseData:(NSData * _Nullable)responseData
                                  error:(NSError * _Nullable)error;
 

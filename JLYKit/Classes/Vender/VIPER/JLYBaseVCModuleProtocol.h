@@ -26,7 +26,7 @@ typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error
 
 - (void)jly_dissmissVC;
 - (void)jly_popVC;
-- (NSArray<UIViewController *> *)jly_listViewControllers;
+- (NSArray<__kindof UIViewController *> *)jly_listViewControllers;
 
 @end
 NS_ASSUME_NONNULL_END

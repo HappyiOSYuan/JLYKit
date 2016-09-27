@@ -13,7 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JLYServiceFactory : NSObject
 
 + (instancetype)sharedInstance;
-- (JLYService<JLYServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier;
+- (__kindof JLYService<JLYServiceProtocal> *)serviceWithIdentifier:(NSString *)identifier;
 
 @end
 NS_ASSUME_NONNULL_END

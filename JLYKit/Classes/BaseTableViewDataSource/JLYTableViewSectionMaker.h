@@ -27,8 +27,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (JLYTableViewSectionMaker * (^)(NSString * _Nullable))headerTitle;
 - (JLYTableViewSectionMaker * (^)(NSString * _Nullable))footerTitle;
 
-- (JLYTableViewSectionMaker * (^)(UIView * (^)()))headerView;
-- (JLYTableViewSectionMaker * (^)(UIView * (^)()))footerView;
+- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * (^)()))headerView;
+- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * (^)()))footerView;
 
 @property(nonatomic, strong) JLYDataSourceSection * section;
 

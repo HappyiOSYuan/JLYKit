@@ -13,7 +13,7 @@
 @synthesize columnsWidths = _columnsWidths;
 @synthesize dy = _dy;
 
-- (id)initWithFrame:(CGRect)frame andColumnsWidths:(nonnull NSArray<NSNumber *> *)columns{
+- (id)initWithFrame:(CGRect)frame andColumnsWidths:(__kindof NSArray<NSNumber *> *)columns{
     self = [super initWithFrame:frame];
     if (self) {
         _numRows = 0;
@@ -35,7 +35,7 @@
     }];
 }
 
-- (void)addRecord:(nonnull NSArray<NSString *>*)record{
+- (void)addRecord:(__kindof NSArray<NSString *>*)record{
     __block uint rowHeight = 50;
     __block uint dx = 0;
     
