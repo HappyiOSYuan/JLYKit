@@ -65,7 +65,7 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *  @param URL        带 Scheme 的 URL，如 mgj://beauty/4
  *  @param completion URL 处理完成后的 callback，完成的判定跟具体的业务相关
  */
-+ (void)openURL:(NSString *)URL completion:(void (^)(id _Nullable result))completion;
++ (void)openURL:(NSString *)URL completion:(nullable void (^)(id _Nullable result))completion;
 
 /**
  *  打开此 URL，带上附加信息，同时当操作完成时，执行额外的代码
@@ -75,8 +75,8 @@ typedef id  _Nonnull (^JLYURLRouterObjectHandler)(NSDictionary<NSString * ,id>  
  *  @param completion URL 处理完成后的 callback，完成的判定跟具体的业务相关
  */
 + (void)openURL:(NSString *)URL
-   withUserInfo:(NSDictionary<NSString * ,id>*)userInfo
-     completion:(void (^)(id _Nullable result))completion;
+   withUserInfo:(NSDictionary<NSString * ,id>* _Nullable)userInfo
+     completion:(nullable void (^)(id _Nullable result))completion;
 
 /**
  * 查找谁对某个 URL 感兴趣，如果有的话，返回一个 object

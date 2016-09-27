@@ -33,6 +33,10 @@
     [self blindHandleWithKey:identifer ? : JLYVIEWMODELDATACOMPLETION CompletionHandler:completionHandler];
 }
 
+- (void)openVCWithParam:(NSDictionary<NSString *,id> *)params{
+    [self openVCWithIdentifer:nil andParam:params];
+}
+
 - (void)openVCWithIdentifer:(NSString *)identifer andParam:(NSDictionary<NSString *,id> *)params{
     
 }
