@@ -10,7 +10,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-typedef void (^CellConfigBlock)(id cell, id model, NSIndexPath *indexPath);
+typedef void (^CellConfigBlock)(__kindof UITableViewCell *cell, id model, NSIndexPath *indexPath);
 typedef void (^CellEventBlock)(NSIndexPath *indexPath, id model);
 
 @interface JLYDataSourceSection : NSObject

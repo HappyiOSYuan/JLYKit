@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (JLYTableViewSectionMaker * (^)(NSArray * _Nullable))dataList;
 
-- (JLYTableViewSectionMaker * (^)(void(^)(id cell, id model, NSIndexPath *indexPath)))cellConfig;
+- (JLYTableViewSectionMaker * (^)(void(^)(__kindof UITableViewCell *cell, id model, NSIndexPath *indexPath)))cellConfig;
 
 - (JLYTableViewSectionMaker * (^)(CGFloat))height;
 

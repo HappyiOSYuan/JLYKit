@@ -9,6 +9,7 @@
 #import "JLYAPIBaseManager.h"
 #import "JLYCityListManager.h"
 #import <CoreLocation/CoreLocation.h>
+#import <UIKit/UIKit.h>
 
 NS_ASSUME_NONNULL_BEGIN
 

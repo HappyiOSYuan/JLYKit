@@ -22,10 +22,10 @@ NS_ASSUME_NONNULL_BEGIN
 - (JLYTableViewDataSourceMaker * (^)(UIView * (^)()))headerView;
 - (JLYTableViewDataSourceMaker * (^)(UIView * (^)()))footerView;
 
-- (void)commitEditing:(void(^)(UITableView *tableView, UITableViewCellEditingStyle *editingStyle, NSIndexPath *indexPath))block;
+- (void)commitEditing:(void(^)(__kindof UITableView *tableView, UITableViewCellEditingStyle *editingStyle, NSIndexPath *indexPath))block;
 - (void)scrollViewDidScroll:(void(^)(UIScrollView *scrollView))block;
 
-@property(nonatomic, copy ,nullable) void(^commitEditingBlock)(UITableView *tableView,UITableViewCellEditingStyle *editingStyle,NSIndexPath *indexPath);
+@property(nonatomic, copy ,nullable) void(^commitEditingBlock)(__kindof UITableView *tableView,UITableViewCellEditingStyle *editingStyle,NSIndexPath *indexPath);
 @property(nonatomic, copy ,nullable) void(^scrollViewDidScrollBlock)(UIScrollView *scrollView);
 
 @end

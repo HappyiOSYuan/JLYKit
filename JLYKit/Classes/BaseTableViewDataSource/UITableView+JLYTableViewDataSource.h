@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @end
 
-__attribute__((unused)) static void commitEditing(id self, SEL cmd, UITableView *tableView, UITableViewCellEditingStyle editingStyle, NSIndexPath *indexPath);
+__attribute__((unused)) static void commitEditing(id self, SEL cmd ,__kindof UITableView *tableView ,UITableViewCellEditingStyle editingStyle ,NSIndexPath *indexPath);
 
 __attribute__((unused)) static void scrollViewDidScroll(id self, SEL cmd, UIScrollView *scrollView);
 NS_ASSUME_NONNULL_END

@@ -14,7 +14,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface JLYMaterialTextView : JLYFloatTextView
 
 @property (nonatomic ,assign) BOOL valid;
-@property (nonatomic, copy) NSString *errorMessage;
+@property (nonatomic, copy ,nullable) NSString *errorMessage;
 @property (nonatomic, strong) CALayer *underlineLayer;
 @property (nonatomic, strong) JLYDottedLineLayer *dottedLayer;
 @property (nonatomic, strong) UILabel *errorLabel;
