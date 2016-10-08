@@ -1,8 +1,8 @@
 //
 //  UINavigationBar+Awesome.m
-//  LTNavigationBar
+//  UINavigationBar
 //
-//  Created by ltebean on 15-2-15.
+//  Created by tjbt on 16-2-15.
 //  Copyright (c) 2015 ltebean. All rights reserved.
 //
 
@@ -11,43 +11,29 @@
 
 @implementation UINavigationBar (Awesome)
 
+static char overlayKey;
+
+- (UIView *)overlay{
+    return objc_getAssociatedObject(self, &overlayKey);
+}
+
+- (void)setOverlay:(UIView *)overlay{
+    objc_setAssociatedObject(self, &overlayKey, overlay, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
 - (void)jly_setBackgroundColor:(UIColor *)backgroundColor{
-    if ([self respondsToSelector:@selector(setBackgroundImage:forBarMetrics:)]) {
-        [self.subviews enumerateObjectsUsingBlock:^(UIView *viewObj ,NSUInteger idx ,BOOL *stop){
-#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_10_0
-            NSString *classStr = [NSString stringWithUTF8String:object_getClassName(viewObj)];
-            if ([classStr isEqualToString:@"_UIBarBackground"]) {
-                UIImageView *imageView=(UIImageView *)viewObj;
-                imageView.hidden=YES;
-            }
-#else
-            NSString *classStr = [NSString stringWithUTF8String:object_getClassName(viewObj)];
-            if ([classStr isEqualToString:@"_UINavigationBarBackground"]) {
-                UIImageView *imageView=(UIImageView *)viewObj;
-                imageView.hidden=YES;
-            }
-#endif
-        }];
+    if (!self.overlay) {
+        [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        self.overlay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) + 20)];
+        self.overlay.userInteractionEnabled = NO;
+        self.overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth;    // Should not set `UIViewAutoresizingFlexibleHeight`
+        [[self.subviews firstObject] insertSubview:self.overlay atIndex:0];
     }
-    UIImageView *imageView = [self viewWithTag:111];
-    if (!imageView) {
-        imageView=[[UIImageView alloc] initWithFrame:CGRectMake(0.0f, -20.0f, self.frame.size.width, 64.0f)];
-        imageView.tag = 111;
-        [imageView setBackgroundColor:backgroundColor];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self insertSubview:imageView atIndex:0];
-        });
-    }else{
-        [imageView setBackgroundColor:backgroundColor];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self sendSubviewToBack:imageView];
-        });
-        
-    }
+    self.overlay.backgroundColor = backgroundColor;
 }
 
 - (void)jly_setTranslationY:(CGFloat)translationY{
-    self.transform = CGAffineTransformMakeTranslation(0.0f, translationY);
+    self.transform = CGAffineTransformMakeTranslation(0, translationY);
 }
 
 - (void)jly_setElementsAlpha:(CGFloat)alpha{
@@ -61,7 +47,7 @@
     
     UIView *titleView = [self valueForKey:@"_titleView"];
     titleView.alpha = alpha;
-//    when viewController first load, the titleView maybe nil
+    //    when viewController first load, the titleView maybe nil
     [[self subviews] enumerateObjectsUsingBlock:^(UIView *obj, NSUInteger idx, BOOL *stop) {
         if ([obj isKindOfClass:NSClassFromString(@"UINavigationItemView")]) {
             obj.alpha = alpha;
@@ -72,6 +58,8 @@
 
 - (void)jly_reset{
     [self setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.overlay removeFromSuperview];
+    self.overlay = nil;
 }
 
 @end

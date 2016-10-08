@@ -23,6 +23,7 @@
 #import "JLYMaterialTextFeild.h"
 #import "JLYMaterialTextView.h"
 #import "JLYBaseVCModuleProtocol.h"
+#import "UIControl+JLYFixMultiClick.h"
 
 #define WeakObj(o) autoreleasepool{} __weak typeof(o) Weak##o = o;
 #define StrongObj(o) autoreleasepool{} __strong typeof(o) o = Weak##o;

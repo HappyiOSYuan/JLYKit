@@ -145,7 +145,9 @@ static JLYURLRouter *instance = nil;
 }
 
 + (id)objectForURL:(NSString *)URL{
-    return [self objectForURL:URL withUserInfo:nil];
+    id obj = [self objectForURL:URL withUserInfo:nil];
+    NSAssert(obj != nil, @"请检查url");
+    return obj;
 }
 
 + (void)registerURLPattern:(NSString *)URLPattern withObjectHandler:(JLYURLRouterObjectHandler)handler{

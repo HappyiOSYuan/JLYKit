@@ -81,7 +81,6 @@ static NSString * getIdentifier (){
     self.dataSource = ds;
     self.delegate = ds;
 }
-
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Warc-performSelector-leaks"
 - (void)jly_makeSectionWithData:(NSArray *)dataList andCellClass:(Class)cellClass {

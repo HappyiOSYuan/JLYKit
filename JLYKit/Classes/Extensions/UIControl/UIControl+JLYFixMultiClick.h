@@ -14,7 +14,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface UIControl (JLYFixMultiClick)
 
-@property (nonatomic, assign) NSTimeInterval cs_acceptEventTime;
+@property (nonatomic, assign) NSTimeInterval jly_acceptEventTime;
 
 @end
 NS_ASSUME_NONNULL_END

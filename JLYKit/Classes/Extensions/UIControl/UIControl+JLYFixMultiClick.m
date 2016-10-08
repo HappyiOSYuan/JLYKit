@@ -14,12 +14,12 @@
 
 static const char *UIControl_acceptEventTime = "UIControl_acceptEventTime";
 
-- (NSTimeInterval)cs_acceptEventTime {
+- (NSTimeInterval)jly_acceptEventTime{
     return  [objc_getAssociatedObject(self, UIControl_acceptEventTime) doubleValue];
 }
 
-- (void)setCs_acceptEventTime:(NSTimeInterval)cs_acceptEventTime {
-    objc_setAssociatedObject(self, UIControl_acceptEventTime, @(cs_acceptEventTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+- (void)setJly_acceptEventTime:(NSTimeInterval)jly_acceptEventTime {
+    objc_setAssociatedObject(self, UIControl_acceptEventTime, @(jly_acceptEventTime), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
 
@@ -32,14 +32,14 @@ static const char *UIControl_acceptEventTime = "UIControl_acceptEventTime";
                     );
 }
 
-- (void)cs_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
-    if ([NSDate date].timeIntervalSince1970 - self.cs_acceptEventTime < 1.0f) {
+- (void)jly_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
+    if ([NSDate date].timeIntervalSince1970 - self.jly_acceptEventTime < 1.0f) {
         return;
     }
     
-    self.cs_acceptEventTime = [NSDate date].timeIntervalSince1970;
+    self.jly_acceptEventTime = [NSDate date].timeIntervalSince1970;
     
-    [self cs_sendAction:action to:target forEvent:event];
+    [self jly_sendAction:action to:target forEvent:event];
 }
 
 @end
