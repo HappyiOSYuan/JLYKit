@@ -10,6 +10,10 @@
 #import "UIView+Additions.h"
 
 @implementation JLYBaseTableViewCell
+@synthesize tableView = _tableView;
+@synthesize row = _row;
+@synthesize section = _section;
+@synthesize indexPath = _indexPath;
 
 - (void)configSubviews{
     
@@ -23,6 +27,7 @@
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
         [self configSubviews];
         [self configConstraints];
+        _tableView = [self superTable];
     }
     return self;
 }
@@ -50,6 +55,18 @@
     NSAssert(model != nil, @"model should not be nil");
     if (_model != model) {
         _model = model;
+    }
+    _indexPath = [_tableView indexPathForCell:self];
+    _row = _indexPath.row;
+    _section = _indexPath.section;
+}
+
+- (UITableView *)superTable{
+    for (UIView* next = [self superview]; next; next = next.superview) {
+        UIResponder* nextResponder = [next nextResponder];
+        if ([nextResponder isKindOfClass:[UITableView class]]) {
+            return (UITableView *)nextResponder;
+        }
     }
 }
 

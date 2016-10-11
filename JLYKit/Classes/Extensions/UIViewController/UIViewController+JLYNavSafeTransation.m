@@ -18,7 +18,9 @@
 
 
 - (void)sofaViewDidAppear:(BOOL)animated{
-    self.navigationController.transitionInProgress = NO;
+    if ([self.navigationController isKindOfClass:[JLYBaseNavigationController class]]) {
+        self.navigationController.transitionInProgress = NO;
+    }
     [self sofaViewDidAppear:animated];
 }
 
