@@ -28,7 +28,7 @@ static const char *UIControl_acceptEventTime = "UIControl_acceptEventTime";
     SwizzlingMethod(
                     self,
                     @selector(sendAction:to:forEvent:),
-                    @selector(cs_sendAction:to:forEvent:)
+                    @selector(jly_sendAction:to:forEvent:)
                     );
 }
 

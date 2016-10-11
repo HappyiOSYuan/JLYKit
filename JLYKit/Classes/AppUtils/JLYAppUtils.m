@@ -44,15 +44,27 @@
     }
     NSDate *fromDate;
     NSDate *toDate;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
+    [gregorian rangeOfUnit:NSCalendarUnitDay startDate:&fromDate interval:NULL forDate:[dateFormatter dateFromString:s_date]];
+    [gregorian rangeOfUnit:NSCalendarUnitDay startDate:&toDate interval:NULL forDate:e_date];
+    NSDateComponents *dayComponents = [gregorian components:NSCalendarUnitDay fromDate:toDate toDate:fromDate options:0];
+#else
     [gregorian rangeOfUnit:NSDayCalendarUnit startDate:&fromDate interval:NULL forDate:[dateFormatter dateFromString:s_date]];
-    [gregorian rangeOfUnit:NSDayCalendarUnit startDate:&toDate interval:NULL forDate:[dateFormatter dateFromString:e_date]];
+    [gregorian rangeOfUnit:NSDayCalendarUnit startDate:&toDate interval:NULL forDate:e_date];
     NSDateComponents *dayComponents = [gregorian components:NSDayCalendarUnit fromDate:toDate toDate:fromDate options:0];
+#endif
+
     return @(dayComponents.day).intValue;
 }
 
 + (NSString *)caculateDayByDate:(NSString *)date{
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
     NSCalendar *gregorian = [[NSCalendar alloc]
-                             initWithCalendarIdentifier:NSGregorianCalendar];
+                            initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+#else
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                            initWithCalendarIdentifier:NSGregorianCalendar];
+#endif
     [gregorian setFirstWeekday:2];
     static NSDateFormatter* dateFormatter = nil;
     if (!dateFormatter) {
@@ -62,9 +74,15 @@
     }
     NSDate *fromDate;
     NSDate *toDate;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
+    [gregorian rangeOfUnit:NSCalendarUnitDay startDate:&fromDate interval:NULL forDate:[dateFormatter dateFromString:date]];
+    [gregorian rangeOfUnit:NSCalendarUnitDay startDate:&toDate interval:NULL forDate:[NSDate date]];
+    NSDateComponents *dayComponents = [gregorian components:NSCalendarUnitDay fromDate:toDate toDate:fromDate options:0];
+#else
     [gregorian rangeOfUnit:NSDayCalendarUnit startDate:&fromDate interval:NULL forDate:[dateFormatter dateFromString:date]];
     [gregorian rangeOfUnit:NSDayCalendarUnit startDate:&toDate interval:NULL forDate:[NSDate date]];
     NSDateComponents *dayComponents = [gregorian components:NSDayCalendarUnit fromDate:toDate toDate:fromDate options:0];
+#endif
     return @(dayComponents.day).stringValue;
 }
 
