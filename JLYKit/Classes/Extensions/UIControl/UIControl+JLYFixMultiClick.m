@@ -34,9 +34,10 @@ static const char *UIControl_acceptEventTime = "UIControl_acceptEventTime";
 
 - (void)jly_sendAction:(SEL)action to:(id)target forEvent:(UIEvent *)event {
     if ([NSDate date].timeIntervalSince1970 - self.jly_acceptEventTime < 1.0f) {
-        return;
+        if (![NSStringFromClass([self class]) isEqualToString:@"UITabBarButton"]) {
+            return;
+        }
     }
-    
     self.jly_acceptEventTime = [NSDate date].timeIntervalSince1970;
     
     [self jly_sendAction:action to:target forEvent:event];
