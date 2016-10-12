@@ -20,12 +20,6 @@ typedef void (^BaseTableViewCellBlock)(id obj);
  */
 @property (nonatomic, copy) id model;
 
-@property (nonatomic, strong ,readonly) UITableView *tableView;
-
-@property (nonatomic, assign ,readonly) NSUInteger row;
-
-@property (nonatomic, assign ,readonly) NSUInteger section;
-
 @property (nonatomic ,strong) NSIndexPath *indexPath;
 
 - (void)handlerButtonAction:(BaseTableViewCellBlock)block;
