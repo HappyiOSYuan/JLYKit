@@ -16,9 +16,11 @@ static const char *jly_placeHolder = "jly_placeHolderTextView";
 - (UITextView *)jly_placeHolderTextView {
     return objc_getAssociatedObject(self, jly_placeHolder);
 }
+
 - (void)setJly_placeHolderTextView:(UITextView *)jly_placeHolderTextView {
     objc_setAssociatedObject(self, jly_placeHolder, jly_placeHolderTextView, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
+
 - (void)jly_addPlaceHolder:(NSString *)placeHolder {
     if (![self jly_placeHolderTextView]) {
         self.delegate = self;

@@ -18,7 +18,6 @@
 #import "JLYAlertController.h"
 #import <SDAutoLayout/UIView+SDAutoLayout.h>
 #import <SDAutoLayout/UITableView+SDAutoTableViewCellHeight.h>
-#import <MJRefresh/MJRefresh.h>
 #import "UINavigationBar+Awesome.h"
 #import "JLYMaterialTextFeild.h"
 #import "JLYMaterialTextView.h"
