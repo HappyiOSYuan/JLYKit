@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.4.4'
+s.version = '0.4.5'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -24,6 +24,7 @@ s.subspec 'Config' do |config|
     config.dependency 'JLYKit/Vender'
     config.dependency 'JLYKit/AppUtils'
     config.dependency 'JLYKit/JLYLaunchAnimation'
+    config.dependency 'JLYKit/JLYVIPER'
   end
   
 s.subspec 'AppDelegate' do |appDelegate|
@@ -42,6 +43,7 @@ s.subspec 'JLYBaseKit' do |baseKit|
 s.subspec 'JLYVIPER' do |viper|
     viper.source_files = 'JLYKit/Classes/JLYVIPER/**/*.{h,m}'
     viper.dependency 'JLYKit/JLYURLRouter'
+    viper.dependency 'JLYKit/UIExtensions'
   end  
  
 s.subspec 'JLYBaseViewModel' do |viewmodel|
@@ -58,6 +60,7 @@ s.subspec 'JLYNetworking' do |networking|
 s.subspec 'UIExtensions' do |ui|
     ui.source_files = 'JLYKit/Classes/UIExtensions/**/*.{h,m}'
     ui.dependency 'JDStatusBarNotification'
+    ui.dependency 'JLYKit/FoundationExtensions'
   end
 
 s.subspec 'FoundationExtensions' do |foundation|
@@ -84,6 +87,7 @@ s.subspec 'YYModel' do |model|
 s.subspec 'AppUtils' do |utils|
     utils.source_files = 'JLYKit/Classes/AppUtils/**/*.{h,m}'
     utils.dependency 'JLYKit/FoundationExtensions'
+    utils.dependency 'JLYKit/UIExtensions'
   end  
   
 s.dependency 'SDWebImage'

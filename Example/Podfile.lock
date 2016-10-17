@@ -42,12 +42,14 @@ PODS:
   - JLYKit/AppUtils (0.4.4):
     - ISHPermissionKit
     - JLYKit/FoundationExtensions
+    - JLYKit/UIExtensions
     - SDWebImage
   - JLYKit/Config (0.4.4):
     - ISHPermissionKit
     - JDStatusBarNotification
     - JLYKit/AppUtils
     - JLYKit/JLYLaunchAnimation
+    - JLYKit/JLYVIPER
     - JLYKit/UIExtensions
     - JLYKit/Vender
     - Masonry
@@ -84,10 +86,12 @@ PODS:
   - JLYKit/JLYVIPER (0.4.4):
     - ISHPermissionKit
     - JLYKit/JLYURLRouter
+    - JLYKit/UIExtensions
     - SDWebImage
   - JLYKit/UIExtensions (0.4.4):
     - ISHPermissionKit
     - JDStatusBarNotification
+    - JLYKit/FoundationExtensions
     - SDWebImage
   - JLYKit/Vender (0.4.4):
     - ISHPermissionKit
@@ -118,7 +122,7 @@ SPEC CHECKSUMS:
   DGActivityIndicatorView: 1942ae657a8d247c035f229422b2d15a8adbe5b6
   ISHPermissionKit: 2b652da64a374104bbe87954da07275a53e44251
   JDStatusBarNotification: d47dded0594a50a39c84a2cc5aa356fcf6750d0e
-  JLYKit: 0fa05e7b8f69cece47da3da0f9b1001e4483c570
+  JLYKit: 16f8ee71a1be47beaeab9f7bba93547f7c82be11
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLInputDodger: 79cbc9e07a573565e14dcb271965ec9ef5ff7b7f

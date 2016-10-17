@@ -7,7 +7,9 @@
 //
 
 #import "JLYBaseNavigationController.h"
-#import "viewControllerConfig.h"
+
+#define WeakObj(o) autoreleasepool{} __weak typeof(o) Weak##o = o;
+#define StrongObj(o) autoreleasepool{} __strong typeof(o) o = Weak##o;
 
 typedef void (^JLYTransitionBlock)(void);
 

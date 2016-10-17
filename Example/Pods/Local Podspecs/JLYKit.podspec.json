@@ -66,6 +66,9 @@
         ],
         "JLYKit/JLYLaunchAnimation": [
 
+        ],
+        "JLYKit/JLYVIPER": [
+
         ]
       }
     },
@@ -102,6 +105,9 @@
       "dependencies": {
         "JLYKit/JLYURLRouter": [
 
+        ],
+        "JLYKit/UIExtensions": [
+
         ]
       }
     },
@@ -131,6 +137,9 @@
       "source_files": "JLYKit/Classes/UIExtensions/**/*.{h,m}",
       "dependencies": {
         "JDStatusBarNotification": [
+
+        ],
+        "JLYKit/FoundationExtensions": [
 
         ]
       }
@@ -165,6 +174,9 @@
       "source_files": "JLYKit/Classes/AppUtils/**/*.{h,m}",
       "dependencies": {
         "JLYKit/FoundationExtensions": [
+
+        ],
+        "JLYKit/UIExtensions": [
 
         ]
       }
