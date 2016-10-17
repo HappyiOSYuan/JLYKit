@@ -1,6 +1,6 @@
 {
   "name": "JLYKit",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "license": "MIT",
   "summary": "A simple framework on iOS.",
   "homepage": "https://github.com/HappyiOSYuan/JLYKit",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/HappyiOSYuan/JLYKit.git",
-    "tag": "0.4.3"
+    "tag": "0.4.4"
   },
   "requires_arc": true,
   "platforms": {
@@ -34,8 +34,8 @@
   },
   "subspecs": [
     {
-      "name": "AppDelegate",
-      "source_files": "JLYKit/Classes/AppDelegate/**/*.{h,m}",
+      "name": "Config",
+      "source_files": "JLYKit/Classes/Config/**/*.{h,m}",
       "dependencies": {
         "Reachability": [
 
@@ -52,7 +52,28 @@
         "SVProgressHUD": [
 
         ],
-        "JLYKit/JLYBaseKit": [
+        "JDStatusBarNotification": [
+
+        ],
+        "JLYKit/UIExtensions": [
+
+        ],
+        "JLYKit/Vender": [
+
+        ],
+        "JLYKit/AppUtils": [
+
+        ],
+        "JLYKit/JLYLaunchAnimation": [
+
+        ]
+      }
+    },
+    {
+      "name": "AppDelegate",
+      "source_files": "JLYKit/Classes/AppDelegate/**/*.{h,m}",
+      "dependencies": {
+        "Reachability": [
 
         ]
       }
@@ -64,7 +85,10 @@
         "MJRefresh": [
 
         ],
-        "MLInputDodger": [
+        "JLYKit/Config": [
+
+        ],
+        "JLYKit/UIExtensions": [
 
         ],
         "DGActivityIndicatorView": [
@@ -83,13 +107,21 @@
     },
     {
       "name": "JLYBaseViewModel",
-      "source_files": "JLYKit/Classes/JLYBaseViewModel/**/*.{h,m}"
+      "source_files": "JLYKit/Classes/JLYBaseViewModel/**/*.{h,m}",
+      "dependencies": {
+        "JLYKit/JLYURLRouter": [
+
+        ]
+      }
     },
     {
       "name": "JLYNetworking",
       "source_files": "JLYKit/Classes/JLYNetworking/**/*.{h,m}",
       "dependencies": {
         "AFNetworking": [
+
+        ],
+        "JLYKit/FoundationExtensions": [
 
         ]
       }
@@ -113,7 +145,12 @@
     },
     {
       "name": "Vender",
-      "source_files": "JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController}/**/*.{h,m}"
+      "source_files": "JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController}/**/*.{h,m}",
+      "dependencies": {
+        "SDAutoLayout": [
+
+        ]
+      }
     },
     {
       "name": "JLYLaunchAnimation",
