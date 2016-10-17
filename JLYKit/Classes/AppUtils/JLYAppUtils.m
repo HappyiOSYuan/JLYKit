@@ -8,16 +8,15 @@
 
 #import "JLYAppUtils.h"
 #import "UIImage+colorImage.h"
-#import "viewControllerConfig.h"
 #import "UINavigationBar+Awesome.h"
 
 @implementation JLYAppUtils
 
-+ (void)setNavigationBarStyle{
++ (void)setNavigationBarStyleWithColor:(UIColor *)color{
     [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
-    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,font(20.0f),NSFontAttributeName, nil]];
+    [[UINavigationBar appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName,[UIFont systemFontOfSize:20.0f],NSFontAttributeName, nil]];
     [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    [[UINavigationBar appearance] jly_setBackgroundColor:themeColor];
+    [[UINavigationBar appearance] jly_setBackgroundColor:color];
     
 }
 

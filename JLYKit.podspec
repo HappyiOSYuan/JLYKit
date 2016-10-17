@@ -37,6 +37,7 @@ s.subspec 'JLYBaseKit' do |baseKit|
     baseKit.dependency 'MJRefresh'
     baseKit.dependency 'JLYKit/Config'
     baseKit.dependency 'JLYKit/UIExtensions'
+    baseKit.dependency 'JLYKit/FoundationExtensions'
 	baseKit.dependency 'DGActivityIndicatorView'
   end 
   
@@ -88,6 +89,7 @@ s.subspec 'AppUtils' do |utils|
     utils.source_files = 'JLYKit/Classes/AppUtils/**/*.{h,m}'
     utils.dependency 'JLYKit/FoundationExtensions'
     utils.dependency 'JLYKit/UIExtensions'
+    utils.dependency 'SVProgressHUD'
   end  
   
 s.dependency 'SDWebImage'

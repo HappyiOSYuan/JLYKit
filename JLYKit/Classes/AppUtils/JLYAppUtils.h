@@ -12,7 +12,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface JLYAppUtils : NSObject
 
-+ (void)setNavigationBarStyle;
++ (void)setNavigationBarStyleWithColor:(UIColor *)color;
 + (UIImage *)createImageWithColor:(UIColor *)color;
 + (int)caculateDayByStartDate:(NSString *)s_date andEndDate:(NSString *)e_date;
 + (NSString *)caculateDayByDate:(NSString *)date;
