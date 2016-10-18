@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.4.5'
+s.version = '0.4.6'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -45,6 +45,7 @@ s.subspec 'JLYVIPER' do |viper|
     viper.source_files = 'JLYKit/Classes/JLYVIPER/**/*.{h,m}'
     viper.dependency 'JLYKit/JLYURLRouter'
     viper.dependency 'JLYKit/UIExtensions'
+    viper.dependency 'JLYKit/AppDelegate'
   end  
  
 s.subspec 'JLYBaseViewModel' do |viewmodel|
@@ -62,6 +63,7 @@ s.subspec 'UIExtensions' do |ui|
     ui.source_files = 'JLYKit/Classes/UIExtensions/**/*.{h,m}'
     ui.dependency 'JDStatusBarNotification'
     ui.dependency 'JLYKit/FoundationExtensions'
+    ui.dependency 'SVProgressHUD'
   end
 
 s.subspec 'FoundationExtensions' do |foundation|
