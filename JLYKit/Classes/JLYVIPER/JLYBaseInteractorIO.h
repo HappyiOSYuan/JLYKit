@@ -15,7 +15,7 @@ typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error
 
 @optional
 
-- (void)callBackBeforeSuccess:(id)obj;
+- (void)callBackBeforeSuccess:(id _Nullable)obj;
 
 @end
 NS_ASSUME_NONNULL_END

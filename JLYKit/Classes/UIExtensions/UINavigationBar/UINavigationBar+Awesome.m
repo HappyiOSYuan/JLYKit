@@ -57,7 +57,7 @@ static char overlayKey;
 }
 
 - (void)jly_reset{
-    [self setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
     [self.overlay removeFromSuperview];
     self.overlay = nil;
 }

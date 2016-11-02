@@ -53,15 +53,15 @@ static void *NDBViewControllerPassParams;
 }
 
 - (void)showMessageSuccess:(NSString *)messege andInfo:(NSString *)info{
-    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@  %@" ,messege ,info] dismissAfter:1.5f styleName:JDStatusBarStyleSuccess];
+    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@  %@" ,messege ,info ? : @""] dismissAfter:1.5f styleName:JDStatusBarStyleSuccess];
 }
 
 - (void)showMessageFailed:(NSString *)messege andInfo:(NSString *)info{
-    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@  %@" ,messege ,info] dismissAfter:1.5f styleName:JDStatusBarStyleError];
+    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@  %@" ,messege ,info ? : @""] dismissAfter:1.5f styleName:JDStatusBarStyleError];
 }
 
 - (void)showMessageWarning:(NSString *)messege andInfo:(NSString *)info{
-    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@  %@" ,messege ,info] dismissAfter:1.5f styleName:JDStatusBarStyleWarning];
+    [JDStatusBarNotification showWithStatus:[NSString stringWithFormat:@"%@  %@" ,messege ,info ? : @""] dismissAfter:1.5f styleName:JDStatusBarStyleWarning];
 }
 
 @end

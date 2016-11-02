@@ -11,14 +11,20 @@
 #import "ISHPermissionRequestMotion.h"
 #import "ISHPermissionRequestMicrophone.h"
 #import "ISHPermissionRequestPhotoLibrary.h"
+#import "ISHPermissionRequestModernPhotoLibrary.h"
 #import "ISHPermissionRequestPhotoCamera.h"
 #import "ISHPermissionRequestNotificationsLocal.h"
 #import "ISHPermissionRequestNotificationsRemote.h"
+#import "ISHPermissionRequestUserNotification.h"
 #import "ISHPermissionRequestAccount.h"
 #import "ISHPermissionRequestHealth.h"
 #import "ISHPermissionRequestAddressBook.h"
+#import "ISHPermissionRequestContacts.h"
 #import "ISHPermissionRequestEventStore.h"
 #import "ISHPermissionRequest+Private.h"
+#import "ISHPermissionRequestSiri.h"
+#import "ISHPermissionRequestSpeechRecognition.h"
+#import "ISHPermissionRequestMusicLibrary.h"
 
 @interface ISHPermissionRequest (Private)
 - (void)setPermissionCategory:(ISHPermissionCategory)category;
@@ -30,31 +36,48 @@
     ISHPermissionRequest *request = nil;
     
     switch (category) {
+#ifdef ISHPermissionRequestLocationEnabled
         case ISHPermissionCategoryLocationAlways:
-        case ISHPermissionCategoryLocationWhenInUse: {
+        case ISHPermissionCategoryLocationWhenInUse:
             request = [ISHPermissionRequestLocation new];
             break;
-        }
-            
+#endif
+
+#ifdef ISHPermissionRequestMotionEnabled
         case ISHPermissionCategoryActivity:
             request = [ISHPermissionRequestMotion new];
             break;
+#endif
+
+#ifdef ISHPermissionRequestHealthKitEnabled
         case ISHPermissionCategoryHealth:
             request = [ISHPermissionRequestHealth new];
             break;
-            
+#endif
+
+#ifdef ISHPermissionRequestMicrophoneEnabled
         case ISHPermissionCategoryMicrophone:
             request = [ISHPermissionRequestMicrophone new];
             break;
-            
+#endif
+
+#ifdef ISHPermissionRequestPhotoLibraryEnabled
         case ISHPermissionCategoryPhotoLibrary:
             request = [ISHPermissionRequestPhotoLibrary new];
             break;
-            
+
+        case ISHPermissionCategoryModernPhotoLibrary:
+            request = [ISHPermissionRequestModernPhotoLibrary new];
+            break;
+#endif
+
+#ifdef ISHPermissionRequestCameraEnabled
         case ISHPermissionCategoryPhotoCamera:
             request = [ISHPermissionRequestPhotoCamera new];
             break;
-            
+#endif
+
+#ifdef ISHPermissionRequestNotificationsEnabled
         case ISHPermissionCategoryNotificationLocal:
             request = [ISHPermissionRequestNotificationsLocal new];
             break;
@@ -62,20 +85,65 @@
         case ISHPermissionCategoryNotificationRemote:
             request = [ISHPermissionRequestNotificationsRemote new];
             break;
-            
+#endif
+
+#ifdef ISHPermissionRequestSocialAccountsEnabled
         case ISHPermissionCategorySocialFacebook:
         case ISHPermissionCategorySocialTwitter:
         case ISHPermissionCategorySocialSinaWeibo:
         case ISHPermissionCategorySocialTencentWeibo:
             request = [ISHPermissionRequestAccount new];
             break;
-            
+#endif
+
+#ifdef ISHPermissionRequestContactsEnabled
         case ISHPermissionCategoryAddressBook:
             request = [ISHPermissionRequestAddressBook new];
             break;
+        case ISHPermissionCategoryContacts:
+            request = [ISHPermissionRequestContacts new];
+            break;
+#endif
+
+#ifdef ISHPermissionRequestCalendarEnabled
         case ISHPermissionCategoryEvents:
+            request = [ISHPermissionRequestEventStore new];
+            break;
+#endif
+
+#ifdef ISHPermissionRequestRemindersEnabled
         case ISHPermissionCategoryReminders:
             request = [ISHPermissionRequestEventStore new];
+            break;
+#endif
+
+#ifdef ISHPermissionRequestMusicLibraryEnabled
+        case ISHPermissionCategoryMusicLibrary:
+            request = [ISHPermissionRequestMusicLibrary new];
+            break;
+#endif
+
+#ifdef NSFoundationVersionNumber_iOS_9_0
+#ifdef ISHPermissionRequestSiriEnabled
+        case ISHPermissionCategorySiri:
+            request = [ISHPermissionRequestSiri new];
+            break;
+#endif
+
+#ifdef ISHPermissionRequestSpeechEnabled
+        case ISHPermissionCategorySpeechRecognition:
+            request = [ISHPermissionRequestSpeechRecognition new];
+            break;
+#endif
+
+#ifdef ISHPermissionRequestNotificationsEnabled
+        case ISHPermissionCategoryUserNotification:
+            request = [ISHPermissionRequestUserNotification new];
+            break;
+#endif
+#endif
+
+        case ISHPermissionCategoryInvalid:
             break;
     }
     
@@ -83,32 +151,6 @@
     
     NSAssert(request, @"Request not implemented for category %@", @(category));
     return request;
-}
-
-+ (NSArray<NSNumber *> *)grantedPermissionsForCategories:(NSArray<NSNumber *> *)categories {
-    return [self permissionsForCategories:categories passingTest:^BOOL (ISHPermissionState state) {
-        return state == ISHPermissionStateAuthorized;
-    }];
-}
-
-+ (NSArray<NSNumber *> *)requestablePermissionsForCategories:(NSArray<NSNumber *> *)categories {
-    return [self permissionsForCategories:categories passingTest:^BOOL (ISHPermissionState state) {
-        return ISHPermissionStateAllowsUserPrompt(state);
-    }];
-}
-
-+ (NSArray<NSNumber *> *)permissionsForCategories:(NSArray<NSNumber *> *)categories passingTest:(BOOL (^_Nonnull)(ISHPermissionState))testBlock {
-    NSMutableArray *grantedPermissions = [NSMutableArray array];
-
-    for (NSNumber *boxedCategory in categories) {
-        ISHPermissionRequest *request = [ISHPermissionRequest requestForCategory:boxedCategory.unsignedIntegerValue];
-
-        if (testBlock([request permissionState])) {
-            [grantedPermissions addObject:boxedCategory];
-        }
-    }
-
-    return [grantedPermissions copy];
 }
 
 @end

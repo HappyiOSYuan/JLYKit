@@ -9,6 +9,8 @@
 #import "ISHPermissionRequestPhotoLibrary.h"
 #import "ISHPermissionRequest+Private.h"
 
+#ifdef ISHPermissionRequestPhotoLibraryEnabled
+
 @import AssetsLibrary;
 
 @implementation ISHPermissionRequestPhotoLibrary
@@ -31,10 +33,7 @@
         return;
     }
 
-    // TODO: migrate to PHPhotoLibrary API on iOS 9+ (https://github.com/iosphere/ISHPermissionKit/issues/42)
-
     ALAssetsLibrary *assetsLibrary = [ALAssetsLibrary new];
-
     [assetsLibrary enumerateGroupsWithTypes:ALAssetsGroupSavedPhotos usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
         if (!group) {
             // ensure that completion is only called once
@@ -51,4 +50,12 @@
     }];
 }
 
+#if DEBUG
+- (NSArray<NSString *> *)staticUsageDescriptionKeyss {
+    return @[@"NSPhotoLibraryUsageDescription"];
+}
+#endif
+
 @end
+
+#endif

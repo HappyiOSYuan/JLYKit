@@ -9,6 +9,8 @@
 #import "ISHPermissionRequestAddressBook.h"
 #import "ISHPermissionRequest+Private.h"
 
+#ifdef ISHPermissionRequestContactsEnabled
+
 @import AddressBook;
 
 @implementation ISHPermissionRequestAddressBook {
@@ -76,4 +78,12 @@
     }
 }
 
+#if DEBUG
+- (NSArray<NSString *> *)staticUsageDescriptionKeys {
+    return @[@"NSContactsUsageDescription"];
+}
+#endif
+
 @end
+
+#endif

@@ -93,6 +93,9 @@ static const CGFloat kDGActivityIndicatorDefaultSize = 40.0f;
     
     _animationLayer = [[CALayer alloc] init];
     [self.layer addSublayer:_animationLayer];
+
+    [self setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [self setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
 }
 
 - (void)setupAnimation {
@@ -137,6 +140,7 @@ static const CGFloat kDGActivityIndicatorDefaultSize = 40.0f;
         _size = size;
         
         [self setupAnimation];
+        [self invalidateIntrinsicContentSize];
     }
 }
 
@@ -239,12 +243,20 @@ static const CGFloat kDGActivityIndicatorDefaultSize = 40.0f;
     [super layoutSubviews];
     
     _animationLayer.frame = self.bounds;
-    
-    if (_animating) {
+
+    BOOL animating = _animating;
+
+    if (animating)
         [self stopAnimating];
-        [self setupAnimation];
+
+    [self setupAnimation];
+
+    if (animating)
         [self startAnimating];
-    }
+}
+
+- (CGSize)intrinsicContentSize {
+    return CGSizeMake(_size, _size);
 }
 
 @end

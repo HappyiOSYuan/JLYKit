@@ -14,38 +14,38 @@ PODS:
   - AFNetworking/Serialization (3.1.0)
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
-  - DGActivityIndicatorView (2.1)
-  - ISHPermissionKit (1.2.0):
-    - ISHPermissionKit/Core (= 1.2.0)
-  - ISHPermissionKit/Core (1.2.0)
+  - DGActivityIndicatorView (2.1.1)
+  - ISHPermissionKit (2.0.0):
+    - ISHPermissionKit/Core (= 2.0.0)
+  - ISHPermissionKit/Core (2.0.0)
   - JDStatusBarNotification (1.5.4)
-  - JLYKit (0.4.9):
+  - JLYKit (0.5.0):
     - ISHPermissionKit
-    - JLYKit/AppDelegate (= 0.4.9)
-    - JLYKit/AppUtils (= 0.4.9)
-    - JLYKit/Config (= 0.4.9)
-    - JLYKit/FoundationExtensions (= 0.4.9)
-    - JLYKit/JLYBaseKit (= 0.4.9)
-    - JLYKit/JLYBaseViewModel (= 0.4.9)
-    - JLYKit/JLYLaunchAnimation (= 0.4.9)
-    - JLYKit/JLYNetworking (= 0.4.9)
-    - JLYKit/JLYURLRouter (= 0.4.9)
-    - JLYKit/JLYVIPER (= 0.4.9)
-    - JLYKit/UIExtensions (= 0.4.9)
-    - JLYKit/Vender (= 0.4.9)
-    - JLYKit/YYModel (= 0.4.9)
+    - JLYKit/AppDelegate (= 0.5.0)
+    - JLYKit/AppUtils (= 0.5.0)
+    - JLYKit/Config (= 0.5.0)
+    - JLYKit/FoundationExtensions (= 0.5.0)
+    - JLYKit/JLYBaseKit (= 0.5.0)
+    - JLYKit/JLYBaseViewModel (= 0.5.0)
+    - JLYKit/JLYLaunchAnimation (= 0.5.0)
+    - JLYKit/JLYNetworking (= 0.5.0)
+    - JLYKit/JLYURLRouter (= 0.5.0)
+    - JLYKit/JLYVIPER (= 0.5.0)
+    - JLYKit/UIExtensions (= 0.5.0)
+    - JLYKit/Vender (= 0.5.0)
+    - JLYKit/YYModel (= 0.5.0)
     - SDWebImage
-  - JLYKit/AppDelegate (0.4.9):
+  - JLYKit/AppDelegate (0.5.0):
     - ISHPermissionKit
     - Reachability
     - SDWebImage
-  - JLYKit/AppUtils (0.4.9):
+  - JLYKit/AppUtils (0.5.0):
     - ISHPermissionKit
     - JLYKit/FoundationExtensions
     - JLYKit/UIExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Config (0.4.9):
+  - JLYKit/Config (0.5.0):
     - ISHPermissionKit
     - JDStatusBarNotification
     - JLYKit/AppUtils
@@ -59,10 +59,10 @@ PODS:
     - SDAutoLayout
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/FoundationExtensions (0.4.9):
+  - JLYKit/FoundationExtensions (0.5.0):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYBaseKit (0.4.9):
+  - JLYKit/JLYBaseKit (0.5.0):
     - DGActivityIndicatorView
     - ISHPermissionKit
     - JLYKit/Config
@@ -70,38 +70,38 @@ PODS:
     - JLYKit/UIExtensions
     - MJRefresh
     - SDWebImage
-  - JLYKit/JLYBaseViewModel (0.4.9):
+  - JLYKit/JLYBaseViewModel (0.5.0):
     - ISHPermissionKit
     - JLYKit/JLYURLRouter
     - SDWebImage
-  - JLYKit/JLYLaunchAnimation (0.4.9):
+  - JLYKit/JLYLaunchAnimation (0.5.0):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYNetworking (0.4.9):
+  - JLYKit/JLYNetworking (0.5.0):
     - AFNetworking
     - ISHPermissionKit
     - JLYKit/FoundationExtensions
     - SDWebImage
-  - JLYKit/JLYURLRouter (0.4.9):
+  - JLYKit/JLYURLRouter (0.5.0):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYVIPER (0.4.9):
+  - JLYKit/JLYVIPER (0.5.0):
     - ISHPermissionKit
     - JLYKit/AppDelegate
     - JLYKit/JLYURLRouter
     - JLYKit/UIExtensions
     - SDWebImage
-  - JLYKit/UIExtensions (0.4.9):
+  - JLYKit/UIExtensions (0.5.0):
     - ISHPermissionKit
     - JDStatusBarNotification
     - JLYKit/FoundationExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Vender (0.4.9):
+  - JLYKit/Vender (0.5.0):
     - ISHPermissionKit
     - SDAutoLayout
     - SDWebImage
-  - JLYKit/YYModel (0.4.9):
+  - JLYKit/YYModel (0.5.0):
     - ISHPermissionKit
     - SDWebImage
   - Masonry (1.0.2)
@@ -123,10 +123,10 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
-  DGActivityIndicatorView: 1942ae657a8d247c035f229422b2d15a8adbe5b6
-  ISHPermissionKit: 2b652da64a374104bbe87954da07275a53e44251
+  DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
+  ISHPermissionKit: 27288b2de1dcd7dc87b947130ef88173db7054c9
   JDStatusBarNotification: d47dded0594a50a39c84a2cc5aa356fcf6750d0e
-  JLYKit: c23f2352013e1da7852ac6e14c55c7285fab43a2
+  JLYKit: 17532850a5a454374f0cffa3b6bbdb13b3bb08d1
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLInputDodger: 79cbc9e07a573565e14dcb271965ec9ef5ff7b7f

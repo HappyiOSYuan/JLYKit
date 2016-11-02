@@ -8,6 +8,11 @@
 
 #import "ISHPermissionRequestNotificationsLocal.h"
 #import "ISHPermissionRequest+Private.h"
+#import "ISHPermissionRequestUserNotification.h"
+
+#ifdef ISHPermissionRequestNotificationsEnabled
+
+@import UIKit;
 
 @interface ISHPermissionRequestNotificationsLocal ()
 @property (copy) ISHPermissionRequestCompletionBlock completionBlock;
@@ -43,7 +48,6 @@
         return [self internalPermissionState];
     }
     
-    // To be discussed: should types/categories differing from self.noticationSettings lead to denied state?
     return ISHPermissionStateAuthorized;
 }
 
@@ -82,6 +86,14 @@
             self.completionBlock = nil;
         });
     }
+
+#ifdef NSFoundationVersionNumber_iOS_9_0
+    // we also load a new instance of the related user notification so it can update
+    // its internal state
+    __unused id modernPermission = [[ISHPermissionRequestUserNotification alloc] init];
+#endif
 }
 
 @end
+
+#endif

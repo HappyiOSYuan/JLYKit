@@ -10,6 +10,7 @@
 #import "ISHPermissionRequestHealth.h"
 #import "ISHPermissionRequestNotificationsLocal.h"
 #import "ISHPermissionRequestNotificationsRemote.h"
+#import "ISHPermissionRequestUserNotification.h"
 
 FOUNDATION_EXPORT double ISHPermissionKitVersionNumber;
 FOUNDATION_EXPORT const unsigned char ISHPermissionKitVersionString[];

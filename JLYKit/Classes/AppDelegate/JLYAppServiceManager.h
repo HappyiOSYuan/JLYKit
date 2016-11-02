@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-
 #define JLY_EXPORT_SERVICE(name) \
 + (void)load {[[JLYAppServiceManager sharedManager] registerService:[self new]];} \
 - (NSString *)serviceName { return @#name; }

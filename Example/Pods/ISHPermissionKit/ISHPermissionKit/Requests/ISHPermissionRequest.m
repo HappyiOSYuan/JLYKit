@@ -7,7 +7,11 @@
 //
 
 #import "ISHPermissionRequest.h"
-@import CoreLocation;
+#import "ISHPermissionRequest+Private.h"
+
+#ifdef DEBUG
+@import UIKit;
+#endif
 
 @interface ISHPermissionRequest ()
 @property (nonatomic, readwrite) ISHPermissionCategory permissionCategory;
@@ -16,15 +20,19 @@
 @implementation ISHPermissionRequest
 
 - (ISHPermissionState)permissionState {
-    NSAssert(false, @"Subclasses should implement permission state and not call super.");
+    NSAssert(NO, @"Subclasses should implement permission state and not call super.");
     return [self internalPermissionState];
 }
 
 - (void)requestUserPermissionWithCompletionBlock:(ISHPermissionRequestCompletionBlock)completion {
-    NSAssert(false, @"Subclasses should implement -requestUserPermissionWithCompletionBlock: and not call super.");
+    NSAssert(NO, @"Subclasses should implement -requestUserPermissionWithCompletionBlock: and not call super.");
 }
 
 - (BOOL)mayRequestUserPermissionWithCompletionBlock:(ISHPermissionRequestCompletionBlock)completion {
+#if DEBUG
+    [self verifyUsageDescriptions];
+#endif
+
     if (!completion) {
         NSAssert(completion, @"requestUserPermissionWithCompletionBlock: requires a completion block");
         return NO;
@@ -70,6 +78,27 @@
     }
     return error;
 }
+
+#pragma mark - Usage Key Verification
+
+#if DEBUG
+- (NSArray<NSString *> *)staticUsageDescriptionKeys {
+    return nil;
+}
+
+- (void)verifyUsageDescriptions {
+    // we need to get the app's info plist, not the framework's
+    Class delegateClass = [UIApplication sharedApplication].delegate.class;
+    NSBundle *appBundle = [NSBundle bundleForClass:delegateClass];
+    NSDictionary *infoPlist = appBundle.infoDictionary;
+
+    for (NSString *usageKey in [self staticUsageDescriptionKeys]) {
+        id content = infoPlist[usageKey];
+        NSString *stringContent = [content isKindOfClass:[NSString class]] ? (NSString *)content : nil;
+        NSAssert(stringContent.length > 0, @"You must provide %@ in your info plist when using %@", usageKey, ISHStringFromPermissionCategory(self.permissionCategory));
+    }
+}
+#endif
 
 @end
 

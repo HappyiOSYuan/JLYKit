@@ -120,6 +120,8 @@ typedef void (^ISHPermissionRequestCompletionBlock)(ISHPermissionRequest *reques
  *
  *  @return The current permission state.
  *  @note Calling this method does not trigger any user interaction.
+ *  @warning If the request needs to be configured, the configuration must be 
+ *           applied before relying on the value returned from this method.
  */
 - (ISHPermissionState)permissionState;
 
@@ -136,9 +138,9 @@ typedef void (^ISHPermissionRequestCompletionBlock)(ISHPermissionRequest *reques
 
 /**
  *  Some permission requests allow or require further configuration
- *  (such as those for local notifications and Health app). Subclasses for such
+ *  (such as those for notifications and Health). Subclasses for such
  *  permission categories should overwrite this method and return YES.
- *  The default implementation returns NO. 
+ *  The default implementation returns NO.
  *
  *  @return Boolean value indicating if the request  
  *          allows further configuration.

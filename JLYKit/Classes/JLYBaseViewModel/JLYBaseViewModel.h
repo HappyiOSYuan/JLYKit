@@ -29,7 +29,7 @@ typedef void (^JLYCompletionHandler)(id _Nullable obj ,  NSError * _Nullable  er
 - (void)handleMoreDataWithIdentifer:(NSString * _Nullable)identifer
                   CompletionHandler:(JLYCompletionHandler)completionHandler;
 
-- (void)blindHandleWithKey:(NSString *)key CompletionHandler:(JLYCompletionHandler)completionHandler;
+- (void)blindHandleWithKey:(NSString * _Nullable)key CompletionHandler:(JLYCompletionHandler)completionHandler;
 
 - (void)openVCWithParam:(nullable NSDictionary<NSString * ,id>*)params;
 - (void)openVCWithIdentifer:(NSString * _Nullable)identifer

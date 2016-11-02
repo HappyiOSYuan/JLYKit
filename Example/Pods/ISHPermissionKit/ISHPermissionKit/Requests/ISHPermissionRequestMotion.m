@@ -9,6 +9,8 @@
 #import "ISHPermissionRequestMotion.h"
 #import "ISHPermissionRequest+Private.h"
 
+#ifdef ISHPermissionRequestMotionEnabled
+
 @import CoreMotion;
 
 @interface ISHPermissionRequestMotion ()
@@ -54,4 +56,12 @@
     }];
 }
 
+#if DEBUG
+- (NSArray<NSString *> *)staticUsageDescriptionKeyss {
+    return @[@"NSMotionUsageDescription"];
+}
+#endif
+
 @end
+
+#endif
