@@ -43,11 +43,9 @@
     return self.sections[section].footerTitle;
 }
 
-
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     return self.sections[section].headerView;
 }
-
 
 - (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
     return self.sections[section].footerView;

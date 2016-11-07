@@ -13,11 +13,11 @@ static void *NDBViewControllerPassParams;
 
 @implementation UIViewController (JLYAdditions)
 
-- (void)setPassParams:(NSDictionary *)passParams{
+- (void)setPassParams:(NSDictionary<NSString *,id> *)passParams{
     objc_setAssociatedObject(self, &NDBViewControllerPassParams, passParams, OBJC_ASSOCIATION_COPY_NONATOMIC);
 }
 
-- (NSDictionary *)passParams{
+- (NSDictionary<NSString *,id> *)passParams{
     return objc_getAssociatedObject(self, &NDBViewControllerPassParams);
 }
 
@@ -86,9 +86,9 @@ static void *NDBViewControllerPassParams;
         });
     } else {
         [[navigationBar subviews] enumerateObjectsUsingBlock:^(UIView *subview ,NSUInteger idx ,BOOL *stop){
-            if(0. < subview.alpha && subview.alpha < 1.) {
-                [UIView animateWithDuration:.25 animations:^{
-                    subview.alpha = 1.;
+            if(0.0f < subview.alpha && subview.alpha < 1.0f) {
+                [UIView animateWithDuration:0.25f animations:^{
+                    subview.alpha = 1.0f;
                 }];
             }
         }];

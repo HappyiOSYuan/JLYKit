@@ -20,13 +20,6 @@ NS_ASSUME_NONNULL_BEGIN
  *  @since 1.0
  */
 @property (nonatomic, strong) NSMutableArray *dataArray;
-/*!
- *  @brief 分组数据源
- *
- *  @since 1.0
- */
-@property (nonatomic, strong) NSMutableArray *sectionArray;
-
 //*****************是否开启头部刷新和脚部刷新 子类可在ViewDidLoad方法设置开启与否 默认都不开启******************************//
 /*!
  *  @brief 开启头部刷新

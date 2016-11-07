@@ -48,88 +48,84 @@ typedef void (^JLYTransitionBlock)(void);
 #pragma mark - Pushing and Popping Stack Items
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated{
-    if (8.0 <= _systemVersion) {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
+    [super pushViewController:viewController animated:animated];
+#else
+    [self addTransitionBlock:^{
         [super pushViewController:viewController animated:animated];
-    }
-    else {
-        [self addTransitionBlock:^{
-            [super pushViewController:viewController animated:animated];
-        }];
-    }
+    }];
+
+#endif
 }
 
 - (UIViewController *)popViewControllerAnimated:(BOOL)animated{
     UIViewController *poppedViewController = nil;
-    if (8.0 <= _systemVersion) {
-        poppedViewController = [super popViewControllerAnimated:animated];
-    }
-    else {
-        @WeakObj(self);
-        [self addTransitionBlock:^{
-            UIViewController *viewController = [super popViewControllerAnimated:animated];
-            if (viewController == nil) {
-                Weakself.transitionInProgress = NO;
-            }
-        }];
-    }
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
+    poppedViewController = [super popViewControllerAnimated:animated];
+#else
+    @WeakObj(self);
+    [self addTransitionBlock:^{
+        UIViewController *viewController = [super popViewControllerAnimated:animated];
+        if (viewController == nil) {
+            Weakself.transitionInProgress = NO;
+        }
+    }];
+#endif
     return poppedViewController;
 }
 
 - (NSArray *)popToViewController:(UIViewController *)viewController animated:(BOOL)animated{
     NSArray *poppedViewControllers = nil;
-    if (8.0 <= _systemVersion) {
-        poppedViewControllers = [super popToViewController:viewController animated:animated];
-    }
-    else {
-        @WeakObj(self);
-        [self addTransitionBlock:^{
-            if ([Weakself.viewControllers containsObject:viewController]) {
-                NSArray *viewControllers = [super popToViewController:viewController animated:animated];
-                if (viewControllers.count == 0) {
-                    Weakself.transitionInProgress = NO;
-                }
-            }
-            else {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
+    poppedViewControllers = [super popToViewController:viewController animated:animated];
+#else
+    @WeakObj(self);
+    [self addTransitionBlock:^{
+        if ([Weakself.viewControllers containsObject:viewController]) {
+            NSArray *viewControllers = [super popToViewController:viewController animated:animated];
+            if (viewControllers.count == 0) {
                 Weakself.transitionInProgress = NO;
             }
-        }];
-    }
+        }
+        else {
+            Weakself.transitionInProgress = NO;
+        }
+    }];
+#endif
     return poppedViewControllers;
 }
 
 - (NSArray *)popToRootViewControllerAnimated:(BOOL)animated{
     NSArray *poppedViewControllers = nil;
-    if (8.0 <= _systemVersion) {
-        poppedViewControllers = [super popToRootViewControllerAnimated:animated];
-    }
-    else {
-        @WeakObj(self);
-        [self addTransitionBlock:^{
-            NSArray *viewControllers = [super popToRootViewControllerAnimated:animated];
-            if (viewControllers.count == 0) {
-                Weakself.transitionInProgress = NO;
-            }
-        }];
-    }
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
+    poppedViewControllers = [super popToRootViewControllerAnimated:animated];
+#else
+    @WeakObj(self);
+    [self addTransitionBlock:^{
+        NSArray *viewControllers = [super popToRootViewControllerAnimated:animated];
+        if (viewControllers.count == 0) {
+            Weakself.transitionInProgress = NO;
+        }
+    }];
+#endif
     return poppedViewControllers;
 }
 
 #pragma mark - Accessing Items on the Navigation Stack
 
 - (void)setViewControllers:(NSArray<UIViewController *> *)viewControllers animated:(BOOL)animated{
-    if (8.0 <= _systemVersion) {
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
+    [super setViewControllers:viewControllers animated:animated];
+#else
+    @WeakObj(self);
+    [self addTransitionBlock:^{
+        NSArray<UIViewController *> *originalViewControllers = Weakself.viewControllers;
         [super setViewControllers:viewControllers animated:animated];
-    }
-    else {
-        @WeakObj(self);
-        [self addTransitionBlock:^{
-            NSArray<UIViewController *> *originalViewControllers = Weakself.viewControllers;
-            [super setViewControllers:viewControllers animated:animated];
-            if (!animated || originalViewControllers.lastObject == viewControllers.lastObject) {
-                Weakself.transitionInProgress = NO;
-            }
-        }];
-    }
+        if (!animated || originalViewControllers.lastObject == viewControllers.lastObject) {
+            Weakself.transitionInProgress = NO;
+        }
+    }];
+#endif
 }
 
 #pragma mark - Transition Manager

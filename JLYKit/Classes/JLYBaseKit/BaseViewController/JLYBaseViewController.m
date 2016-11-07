@@ -138,13 +138,6 @@
             }else{
                 //导航条透明
                 if (self.navigationController.navigationBar.isTranslucent) {
-                    _viewToTop = 20.0f;
-                    //判断有没有背景图片
-//                    UIImage *image = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
-//                    if (image) {
-//                        _viewToTop = 64.0f;
-//                    }
-                    //导航条不透明
                     _viewToTop = 64.0f;
                 }else{
                     self.extendedLayoutIncludesOpaqueBars = YES;
@@ -170,12 +163,6 @@
                 _viewToBottom =  49.0f;
                 //导航条透明
                 if (self.navigationController.navigationBar.isTranslucent) {
-                    _viewToTop = 20.0f;
-                    //判断有没有背景图片
-//                    UIImage *image = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
-//                    if (image) {
-//                        _viewToTop = 64.0f;
-//                    }
                     _viewToTop = 64.0f;
                 }else{
                     self.extendedLayoutIncludesOpaqueBars = YES;
@@ -194,12 +181,6 @@
                           || self.hidesBottomBarWhenPushed)){
                           //导航条透明
                           if (self.navigationController.navigationBar.isTranslucent) {
-                              _viewToTop = 20.0f;
-                              //判断有没有背景图片
-//                              UIImage *image = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
-//                              if (image) {
-//                                  _viewToTop = 64.0f;
-//                              }
                               _viewToTop = 64.0f;
                           }else{
                               self.extendedLayoutIncludesOpaqueBars = YES;

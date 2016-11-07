@@ -11,6 +11,7 @@
 @implementation UIImage (colorImage)
 
 - (UIImage *)jly_imageWithColor:(UIColor *)color{
+    NSAssert(color != nil, @"颜色不能为空");
     UIGraphicsBeginImageContextWithOptions(self.size, NO, self.scale);
     CGContextRef context = UIGraphicsGetCurrentContext();
     CGContextTranslateCTM(context, 0, self.size.height);
@@ -26,6 +27,7 @@
 }
 
 + (UIImage *)jly_imageWithColor:(UIColor *)color{
+    NSAssert(color != nil, @"颜色不能为空");
     UIImage *newImage = [[UIImage alloc] init];
     [newImage jly_imageWithColor:color];
     return newImage;

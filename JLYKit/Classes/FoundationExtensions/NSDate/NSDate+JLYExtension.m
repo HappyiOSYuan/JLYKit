@@ -252,7 +252,7 @@
     return [self jly_weekArray][[date jly_weekday]];
 }
 
-+ (NSArray *)jly_weekArray{
++ (NSArray<NSString *> *)jly_weekArray{
     return @[
              @"星期天" ,
              @"星期一" ,
@@ -299,7 +299,7 @@
     return [self jly_monthArr][month];
 }
 
-+ (NSArray *)jly_monthArr{
++ (NSArray<NSString *> *)jly_monthArr{
     return @[
              @"January" ,
              @"February" ,

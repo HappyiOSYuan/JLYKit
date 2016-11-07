@@ -18,7 +18,6 @@
         if ([next isKindOfClass:[UIViewController class]]) {
             return (UIViewController *)next;
         }
-        
         next = [next nextResponder];
         
     } while (next != nil);

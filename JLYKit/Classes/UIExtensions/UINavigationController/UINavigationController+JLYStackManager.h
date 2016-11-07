@@ -32,7 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return pop之后的controllers
  */
-- (NSArray<id> *)jly_popToViewControllerWithClassName:(NSString *)className animated:(BOOL)animated;
+- (NSArray<__kindof UIViewController *> *)jly_popToViewControllerWithClassName:(NSString *)className animated:(BOOL)animated;
 
 @end
 NS_ASSUME_NONNULL_END

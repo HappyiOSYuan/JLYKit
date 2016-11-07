@@ -16,13 +16,13 @@
         hexString = [NSString stringWithFormat:@"#%@", hexString];
     }
     
-    CGFloat alpha = 1.0;
+    CGFloat alpha = 1.0f;
     if (5 == hexString.length || 9 == hexString.length) {
         NSString * alphaHex = [hexString substringWithRange:NSMakeRange(1, 9 == hexString.length ? 2 : 1)];
         if (1 == alphaHex.length) alphaHex = [NSString stringWithFormat:@"%@%@", alphaHex, alphaHex];
         hexString = [NSString stringWithFormat:@"#%@", [hexString substringFromIndex:9 == hexString.length ? 3 : 2]];
         unsigned alpha_u = [[self class] ndb_hexValueToUnsigned:alphaHex];
-        alpha = ((CGFloat) alpha_u) / 255.0;
+        alpha = ((CGFloat) alpha_u) / 255.0f;
     }
     
     return [[self class] ndb_colorWithHexString:hexString alpha:alpha];
@@ -43,7 +43,7 @@
         NSString *defaultHex    = [NSString stringWithFormat:@"0xff"];
         unsigned defaultInt = [[self class] ndb_hexValueToUnsigned:defaultHex];
         
-        JLYColor *color = [JLYColor ndb_colorWith8BitRed:defaultInt green:defaultInt blue:defaultInt alpha:1.0];
+        JLYColor *color = [JLYColor ndb_colorWith8BitRed:defaultInt green:defaultInt blue:defaultInt alpha:1.0f];
         return color;
     }
     
@@ -64,16 +64,16 @@
     return color;
 }
 
-+ (JLYColor *)ndb_colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue{
-    return [[self class] ndb_colorWith8BitRed:red green:green blue:blue alpha:1.0];
++ (JLYColor *)ndb_colorWith8BitRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue{
+    return [[self class] ndb_colorWith8BitRed:red green:green blue:blue alpha:1.0f];
 }
 
-+ (JLYColor *)ndb_colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha{
++ (JLYColor *)ndb_colorWith8BitRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha{
     JLYColor *color = nil;
 #if (TARGET_IPHONE_SIMULATOR || TARGET_OS_IPHONE)
-    color = [JLYColor colorWithRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
+    color = [JLYColor colorWithRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha];
 #else
-    color = [JLYColor colorWithCalibratedRed:(float)red/255 green:(float)green/255 blue:(float)blue/255 alpha:alpha];
+    color = [JLYColor colorWithCalibratedRed:red/255.0f green:green/255.0f blue:blue/255.0f alpha:alpha];
 #endif
     
     return color;

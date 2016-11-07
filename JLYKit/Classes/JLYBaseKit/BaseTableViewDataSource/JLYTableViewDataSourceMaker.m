@@ -70,9 +70,9 @@
     [self.sections addObject:sectionMaker.section];
 }
 
-- (NSMutableArray *)sections {
+- (NSMutableArray<JLYDataSourceSection *> *)sections {
     if (! _sections) {
-        _sections = [NSMutableArray new];
+        _sections = [NSMutableArray array];
     }
     return _sections;
 }

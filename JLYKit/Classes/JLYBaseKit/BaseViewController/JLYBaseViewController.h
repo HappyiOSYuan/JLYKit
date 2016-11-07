@@ -71,10 +71,14 @@ typedef NS_ENUM(NSUInteger, FitViewType){
  *  @brief 布局
  */
 - (void)configConstraints;
-
-
+/*!
+ *  @brief 初始化一些数据
+ */
 - (void)initializeData;
 - (void)textResignFirstResponder;
+/*!
+ *  @brief 清空文本
+ */
 - (void)clearText;
 
 @end

@@ -11,6 +11,8 @@
 @implementation UIImageView (JLYAdditions)
 
 + (id)jly_imageViewWithImageNamed:(NSString*)imageName{
+    NSAssert(imageName != nil, @"图片名字不能为空");
+    NSAssert([UIImage imageNamed:imageName] != nil, @"图片不存在");
     return [[UIImageView alloc] initWithImage:[UIImage imageNamed:imageName]];
 }
 

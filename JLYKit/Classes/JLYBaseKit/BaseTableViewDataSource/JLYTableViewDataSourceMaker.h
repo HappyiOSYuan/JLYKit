@@ -10,12 +10,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @class JLYTableViewSectionMaker;
+@class JLYDataSourceSection;
 @interface JLYTableViewDataSourceMaker : NSObject
 
 - (void)makeSection:(void (^)(JLYTableViewSectionMaker * section))block;
 
 @property (nonatomic, weak) UITableView * tableView;
-@property (nonatomic, strong) NSMutableArray * sections;
+@property (nonatomic, strong) NSMutableArray<JLYDataSourceSection *> * sections;
 
 - (instancetype)initWithTableView:(UITableView *)tableView;
 - (JLYTableViewDataSourceMaker * (^)(CGFloat))height;

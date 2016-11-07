@@ -26,7 +26,6 @@
 
 - (void)configSubviews{
     [super configSubviews];
-    [self.view addSubview:self.tableView];
 }
 
 - (void)configConstraints{
@@ -38,13 +37,16 @@
     //添加tableView
     [self.view addSubview:self.tableView];
     // Do any additional setup after loading the view, typically from a nib.
-    self.isOpenHeaderRefresh = YES;
-    self.isOpenFooterRefresh = YES;
+    self.isOpenHeaderRefresh = NO;
+    self.isOpenFooterRefresh = NO;
 }
 //视图将要出现
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [self.dataArray removeAllObjects];
+    if (self.dataArray.count > 0) {
+        [self.dataArray removeAllObjects];
+        [self.tableView reloadData];
+    }
 }
 //视图已经出现
 - (void)viewDidAppear:(BOOL)animated{
@@ -53,8 +55,10 @@
 }
 //视图将要消失
 - (void)viewWillDisappear:(BOOL)animated{
-    [self.dataArray removeAllObjects];
-    [self.tableView reloadData];
+    if (self.dataArray.count > 0) {
+        [self.dataArray removeAllObjects];
+        [self.tableView reloadData];
+    }
 }
 //视图已经消失
 - (void)viewDidDisappear:(BOOL)animated{
@@ -140,10 +144,6 @@
     if (self.dataArray.count > 0) {
         [self.dataArray removeAllObjects];
     }
-    if (self.sectionArray.count > 0) {
-        [self.sectionArray removeAllObjects];
-        
-    }
     [self.tableView reloadData];
 }
 
@@ -161,13 +161,6 @@
         _dataArray = [[NSMutableArray alloc]init];
     }
     return _dataArray;
-}
-
-- (NSMutableArray *)sectionArray{
-    if (!_sectionArray ) {
-        _sectionArray = [[NSMutableArray alloc]init];
-    }
-    return _sectionArray;
 }
 
 - (UITableView *)tableView{

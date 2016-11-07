@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface UIView (Additions)
 
-- (nullable UIViewController *)jly_viewController;
+- (UIViewController * _Nullable)jly_viewController;
 
 @end
 NS_ASSUME_NONNULL_END

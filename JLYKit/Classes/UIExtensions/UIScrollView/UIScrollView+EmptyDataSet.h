@@ -59,7 +59,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param scrollView A scrollView subclass informing the data source.
  @return An attributed string for the dataset description text, combining font, text color, text pararaph style, etc.
  */
-- (NSAttributedString *)ndb_descriptionForEmptyDataSet:(UIScrollView *)scrollView;
+- (NSAttributedString * _Nullable)ndb_descriptionForEmptyDataSet:(UIScrollView *)scrollView;
 
 /**
  Asks the data source for the image of the dataset.
@@ -67,7 +67,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param scrollView A scrollView subclass informing the data source.
  @return An image for the dataset.
  */
-- (UIImage *)ndb_imageForEmptyDataSet:(UIScrollView *)scrollView;
+- (UIImage *_Nullable)ndb_imageForEmptyDataSet:(UIScrollView *)scrollView;
 
 /**
  Asks the data source for a tint color of the image dataset. Default is nil.
@@ -75,7 +75,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param scrollView A scrollView subclass object informing the data source.
  @return A color to tint the image of the dataset.
  */
-- (UIColor *)ndb_imageTintColorForEmptyDataSet:(UIScrollView *)scrollView;
+- (UIColor *_Nullable)ndb_imageTintColorForEmptyDataSet:(UIScrollView *)scrollView;
 
 /**
  Asks the data source for the title to be used for the specified button state.
@@ -85,7 +85,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param state The state that uses the specified title. The possible values are described in UIControlState.
  @return An attributed string for the dataset button title, combining font, text color, text pararaph style, etc.
  */
-- (NSAttributedString *)ndb_buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state;
+- (NSAttributedString *_Nullable)ndb_buttonTitleForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state;
 
 /**
  Asks the data source for a background image to be used for the specified button state.
@@ -95,7 +95,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param state The state that uses the specified image. The values are described in UIControlState.
  @return An attributed string for the dataset button title, combining font, text color, text pararaph style, etc.
  */
-- (UIImage *)ndb_buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state;
+- (UIImage *_Nullable)ndb_buttonBackgroundImageForEmptyDataSet:(UIScrollView *)scrollView forState:(UIControlState)state;
 
 /**
  Asks the data source for the background color of the dataset. Default is clear color.
@@ -103,7 +103,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param scrollView A scrollView subclass object informing the data source.
  @return A color to be applied to the dataset background view.
  */
-- (UIColor *)ndb_backgroundColorForEmptyDataSet:(UIScrollView *)scrollView;
+- (UIColor *_Nullable)ndb_backgroundColorForEmptyDataSet:(UIScrollView *)scrollView;
 
 /**
  Asks the data source for a custom view to be displayed instead of the default views such as labels, imageview and button. Default is nil.
@@ -113,7 +113,7 @@ NS_ASSUME_NONNULL_BEGIN
  @param scrollView A scrollView subclass object informing the delegate.
  @return The custom view.
  */
-- (UIView *)ndb_customViewForEmptyDataSet:(UIScrollView *)scrollView;
+- (UIView *_Nullable)ndb_customViewForEmptyDataSet:(UIScrollView *)scrollView;
 /**
  Asks the data source for a offset for vertical and horizontal alignment of the content. Default is CGPointZero.
  

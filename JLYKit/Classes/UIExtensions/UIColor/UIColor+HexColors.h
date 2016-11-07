@@ -22,8 +22,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (JLYColor *)ndb_colorWithHexString:(NSString *)hexString;
 + (JLYColor *)ndb_colorWithHexString:(NSString *)hexString alpha:(CGFloat)alpha;
 
-+ (JLYColor *)ndb_colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue;
-+ (JLYColor *)ndb_colorWith8BitRed:(NSInteger)red green:(NSInteger)green blue:(NSInteger)blue alpha:(CGFloat)alpha;
++ (JLYColor *)ndb_colorWith8BitRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue;
++ (JLYColor *)ndb_colorWith8BitRed:(CGFloat)red green:(CGFloat)green blue:(CGFloat)blue alpha:(CGFloat)alpha;
 
 @end
 NS_ASSUME_NONNULL_END
