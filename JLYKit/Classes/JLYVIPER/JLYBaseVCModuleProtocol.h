@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+typedef void (^JLYCallBackHandler)(id _Nullable callBackParameters);
+
 typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error);
 
 @protocol JLYBaseVCModuleProtocol <NSObject>
