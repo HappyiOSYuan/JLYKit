@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.5.2'
+s.version = '0.5.3'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -75,7 +75,7 @@ s.subspec 'JLYURLRouter' do |router|
   end 
   
 s.subspec 'Vender' do |vender|
-    vender.source_files = 'JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController}/**/*.{h,m}'
+    vender.source_files = 'JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController,JLYNavigationSubtitleView}/**/*.{h,m}'
     vender.dependency 'SDAutoLayout'
   end
   

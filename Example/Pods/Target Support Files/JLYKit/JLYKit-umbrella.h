@@ -102,6 +102,7 @@
 #import "JLYMaterialTextFeild.h"
 #import "JLYMaterialTextView.h"
 #import "NSString+TextDirectionality.h"
+#import "JLYNavigationSubtitleView.h"
 #import "JLYPopMenuModel.h"
 #import "JLYPopMenuTableViewCell.h"
 #import "JLYPopMenuView.h"
