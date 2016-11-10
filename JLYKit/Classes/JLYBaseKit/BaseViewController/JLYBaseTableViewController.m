@@ -45,8 +45,11 @@
     [super viewWillAppear:animated];
     if (self.dataArray.count > 0) {
         [self.dataArray removeAllObjects];
-        [self.tableView reloadData];
     }
+    if (self.sectionArray.count > 0) {
+        [self.sectionArray removeAllObjects];
+    }
+    [self.tableView reloadData];
 }
 //视图已经出现
 - (void)viewDidAppear:(BOOL)animated{
@@ -57,8 +60,11 @@
 - (void)viewWillDisappear:(BOOL)animated{
     if (self.dataArray.count > 0) {
         [self.dataArray removeAllObjects];
-        [self.tableView reloadData];
     }
+    if (self.sectionArray.count > 0) {
+        [self.sectionArray removeAllObjects];
+    }
+    [self.tableView reloadData];
 }
 //视图已经消失
 - (void)viewDidDisappear:(BOOL)animated{
@@ -144,6 +150,9 @@
     if (self.dataArray.count > 0) {
         [self.dataArray removeAllObjects];
     }
+    if (self.sectionArray.count > 0) {
+        [self.sectionArray removeAllObjects];
+    }
     [self.tableView reloadData];
 }
 
@@ -161,6 +170,13 @@
         _dataArray = [[NSMutableArray alloc]init];
     }
     return _dataArray;
+}
+
+- (NSMutableArray *)sectionArray{
+    if (!_sectionArray ) {
+        _sectionArray = [[NSMutableArray alloc]init];
+    }
+    return _sectionArray;
 }
 
 - (UITableView *)tableView{
