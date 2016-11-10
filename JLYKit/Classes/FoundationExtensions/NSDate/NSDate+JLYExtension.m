@@ -321,19 +321,23 @@
 }
 
 - (NSString *)jly_stringWithFormat:(NSString *)format {
-    NSDateFormatter *outputFormatter = [[NSDateFormatter alloc] init];
-    [outputFormatter setDateFormat:format];
-    
-    NSString *retStr = [outputFormatter stringFromDate:self];
+    static NSDateFormatter* formatter = nil;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setLocale:[NSLocale currentLocale]];
+    }
+    NSString *retStr = [formatter stringFromDate:self];
     
     return retStr;
 }
 
 + (NSDate *)jly_dateWithString:(NSString *)string format:(NSString *)format {
-    NSDateFormatter *inputFormatter = [[NSDateFormatter alloc] init];
-    [inputFormatter setDateFormat:format];
-    
-    NSDate *date = [inputFormatter dateFromString:string];
+    static NSDateFormatter* formatter = nil;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setLocale:[NSLocale currentLocale]];
+    }
+    NSDate *date = [formatter dateFromString:string];
     
     return date;
 }
@@ -444,7 +448,7 @@
 }
 
 + (NSString *)jly_ymdFormat {
-    return @"yyyy-MM-dd";
+    return @"YYYY-MM-dd";
 }
 
 + (NSString *)jly_hmsFormat {

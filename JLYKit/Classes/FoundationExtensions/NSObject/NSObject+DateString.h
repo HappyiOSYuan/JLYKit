@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "NSDate+JLYExtension.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @interface NSObject (DateString)
@@ -34,18 +35,34 @@ NS_ASSUME_NONNULL_BEGIN
  *  @return 时间字符串
  */
 - (NSString *)todayString;
-/*!
- *  @brief 月初时间
- *
- *  @return 时间字符串
+
+/**
+ 当月第一天
+
+ @return 当月第一天字符串
  */
-- (NSString *)monthBeginDay;
-/*!
- *  @brief 月末时间
- *
- *  @return 时间字符串
+- (NSString *)currentMonthBeginDay;
+
+/**
+ 当月最后一天
+
+ @return 当月最后一天字符串
  */
-- (NSString *)monthEndDay;
+- (NSString *)currentMonthEndDay;
+
+/**
+ 上月第一天
+
+ @return 上月第一天字符串
+ */
+- (NSString *)lastMonthBeginDay;
+
+/**
+ 上月最后一天
+
+ @return 上月最后一天字符串
+ */
+- (NSString *)lastMonthEndDay;
 /*!
  *  @brief 月末时间数据转化
  *
@@ -55,13 +72,13 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)monthEndDay:(NSDate *)date;
 /*!
- *  @brief 月末时间Date数据
+ *  @brief 月初时间数据转化
  *
- *  @param date 时间数据
+ *  @param date 月初时间NSDate类型数据
  *
- *  @return 时间NSDate类型数据
+ *  @return 时间字符串
  */
-- (NSDate *)monthEndDate:(NSDate *)date;
+- (NSString *)monthBeginDay:(NSDate *)date;
 /*!
  *  @brief 当前月份
  *
@@ -75,7 +92,7 @@ NS_ASSUME_NONNULL_BEGIN
  *
  *  @return 相隔天数
  */
-- (int)calculateFromDate:(long long)time;
+- (NSString *)calculateFromDate:(long long)time;
 
 @end
 NS_ASSUME_NONNULL_END

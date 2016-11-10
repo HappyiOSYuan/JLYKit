@@ -60,8 +60,8 @@
 }
 
 - (void)applyDefaults{
-    self.regularTitleFont = self.regularTitleFont ?: [UIFont boldSystemFontOfSize:17];
-    self.compactTitleFont = self.compactTitleFont ?: [UIFont boldSystemFontOfSize:16];
+    self.regularTitleFont = self.regularTitleFont ?: [UIFont systemFontOfSize:17];
+    self.compactTitleFont = self.compactTitleFont ?: [UIFont systemFontOfSize:16];
     self.regularSubtitleFont = self.regularSubtitleFont ?: [UIFont systemFontOfSize:12];
     self.compactSubtitleFont = self.compactSubtitleFont ?: [UIFont systemFontOfSize:12];
     self.titleColor = self.titleColor ?: [UIColor blackColor];
