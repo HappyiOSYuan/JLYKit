@@ -10,6 +10,10 @@
 
 @implementation JLYBasePresenter
 
+- (void)jly_blindVC:(__kindof UIViewController<JLYBaseVCModuleProtocol> *)viewController{
+    [self setValue:viewController forKey:@"userInterface"];
+}
+
 - (void)jly_handleDataWithIdentifer:(NSString *)identifer
                           andParams:(NSDictionary<NSString *,id> *)params
                   CompletionHandler:(JLYCompletionHandler)completionHandler{

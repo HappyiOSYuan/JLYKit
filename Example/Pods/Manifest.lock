@@ -18,34 +18,34 @@ PODS:
   - ISHPermissionKit (2.0.0):
     - ISHPermissionKit/Core (= 2.0.0)
   - ISHPermissionKit/Core (2.0.0)
-  - JDStatusBarNotification (1.5.4)
-  - JLYKit (0.5.5):
+  - JDStatusBarNotification (1.5.5)
+  - JLYKit (0.5.6):
     - ISHPermissionKit
-    - JLYKit/AppDelegate (= 0.5.5)
-    - JLYKit/AppUtils (= 0.5.5)
-    - JLYKit/Config (= 0.5.5)
-    - JLYKit/FoundationExtensions (= 0.5.5)
-    - JLYKit/JLYBaseKit (= 0.5.5)
-    - JLYKit/JLYBaseViewModel (= 0.5.5)
-    - JLYKit/JLYLaunchAnimation (= 0.5.5)
-    - JLYKit/JLYNetworking (= 0.5.5)
-    - JLYKit/JLYURLRouter (= 0.5.5)
-    - JLYKit/JLYVIPER (= 0.5.5)
-    - JLYKit/UIExtensions (= 0.5.5)
-    - JLYKit/Vender (= 0.5.5)
-    - JLYKit/YYModel (= 0.5.5)
+    - JLYKit/AppDelegate (= 0.5.6)
+    - JLYKit/AppUtils (= 0.5.6)
+    - JLYKit/Config (= 0.5.6)
+    - JLYKit/FoundationExtensions (= 0.5.6)
+    - JLYKit/JLYBaseKit (= 0.5.6)
+    - JLYKit/JLYBaseViewModel (= 0.5.6)
+    - JLYKit/JLYLaunchAnimation (= 0.5.6)
+    - JLYKit/JLYNetworking (= 0.5.6)
+    - JLYKit/JLYURLRouter (= 0.5.6)
+    - JLYKit/JLYVIPER (= 0.5.6)
+    - JLYKit/UIExtensions (= 0.5.6)
+    - JLYKit/Vender (= 0.5.6)
+    - JLYKit/YYModel (= 0.5.6)
     - SDWebImage
-  - JLYKit/AppDelegate (0.5.5):
+  - JLYKit/AppDelegate (0.5.6):
     - ISHPermissionKit
     - Reachability
     - SDWebImage
-  - JLYKit/AppUtils (0.5.5):
+  - JLYKit/AppUtils (0.5.6):
     - ISHPermissionKit
     - JLYKit/FoundationExtensions
     - JLYKit/UIExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Config (0.5.5):
+  - JLYKit/Config (0.5.6):
     - ISHPermissionKit
     - JDStatusBarNotification
     - JLYKit/AppUtils
@@ -59,49 +59,50 @@ PODS:
     - SDAutoLayout
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/FoundationExtensions (0.5.5):
+  - JLYKit/FoundationExtensions (0.5.6):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYBaseKit (0.5.5):
+  - JLYKit/JLYBaseKit (0.5.6):
     - DGActivityIndicatorView
     - ISHPermissionKit
     - JLYKit/Config
     - JLYKit/FoundationExtensions
+    - JLYKit/JLYVIPER
     - JLYKit/UIExtensions
     - MJRefresh
     - SDWebImage
-  - JLYKit/JLYBaseViewModel (0.5.5):
+  - JLYKit/JLYBaseViewModel (0.5.6):
     - ISHPermissionKit
     - JLYKit/JLYURLRouter
     - SDWebImage
-  - JLYKit/JLYLaunchAnimation (0.5.5):
+  - JLYKit/JLYLaunchAnimation (0.5.6):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYNetworking (0.5.5):
+  - JLYKit/JLYNetworking (0.5.6):
     - AFNetworking
     - ISHPermissionKit
     - JLYKit/FoundationExtensions
     - SDWebImage
-  - JLYKit/JLYURLRouter (0.5.5):
+  - JLYKit/JLYURLRouter (0.5.6):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYVIPER (0.5.5):
+  - JLYKit/JLYVIPER (0.5.6):
     - ISHPermissionKit
     - JLYKit/AppDelegate
     - JLYKit/JLYURLRouter
     - JLYKit/UIExtensions
     - SDWebImage
-  - JLYKit/UIExtensions (0.5.5):
+  - JLYKit/UIExtensions (0.5.6):
     - ISHPermissionKit
     - JDStatusBarNotification
     - JLYKit/FoundationExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Vender (0.5.5):
+  - JLYKit/Vender (0.5.6):
     - ISHPermissionKit
     - SDAutoLayout
     - SDWebImage
-  - JLYKit/YYModel (0.5.5):
+  - JLYKit/YYModel (0.5.6):
     - ISHPermissionKit
     - SDWebImage
   - Masonry (1.0.2)
@@ -112,7 +113,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SVProgressHUD (2.0.3)
+  - SVProgressHUD (2.0.4)
 
 DEPENDENCIES:
   - JLYKit (from `../`)
@@ -125,16 +126,16 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   ISHPermissionKit: 27288b2de1dcd7dc87b947130ef88173db7054c9
-  JDStatusBarNotification: d47dded0594a50a39c84a2cc5aa356fcf6750d0e
-  JLYKit: 2cbea143f9ef9fec7f31365349ed460b084c80a9
+  JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
+  JLYKit: 4f59071c75805f3a5cd9b407f7d1ff08b93b6c84
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLInputDodger: 79cbc9e07a573565e14dcb271965ec9ef5ff7b7f
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SVProgressHUD: b0830714205bea1317ea1a2ebc71e5633af334d4
+  SVProgressHUD: bfde85ed6c573ea802b9cb37894ed9b629034f1b
 
 PODFILE CHECKSUM: 02e4dfbafb5a82afe75dce02e10f29cfbc49e14f
 
-COCOAPODS: 1.1.1
+COCOAPODS: 1.2.0.beta.1

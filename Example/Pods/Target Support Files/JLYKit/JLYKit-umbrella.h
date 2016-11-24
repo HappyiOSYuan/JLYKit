@@ -1,5 +1,13 @@
 #ifdef __OBJC__
 #import <UIKit/UIKit.h>
+#else
+#ifndef FOUNDATION_EXPORT
+#if defined(__cplusplus)
+#define FOUNDATION_EXPORT extern "C"
+#else
+#define FOUNDATION_EXPORT extern
+#endif
+#endif
 #endif
 
 #import "JLYAppDelegate+Method.h"
@@ -72,11 +80,13 @@
 #import "JLYService.h"
 #import "JLYServiceFactory.h"
 #import "JLYURLRouter.h"
+#import "JLYBaseDAO.h"
 #import "JLYBaseInteractor.h"
 #import "JLYBaseInteractorIO.h"
 #import "JLYBasePresenter.h"
 #import "JLYBaseRouter.h"
 #import "JLYBaseVCModuleProtocol.h"
+#import "UIViewController+JLYVIPER.h"
 #import "UIColor+HexColors.h"
 #import "UIControl+JLYFixMultiClick.h"
 #import "UIImage+colorImage.h"

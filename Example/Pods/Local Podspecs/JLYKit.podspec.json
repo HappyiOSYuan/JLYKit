@@ -1,6 +1,6 @@
 {
   "name": "JLYKit",
-  "version": "0.5.5",
+  "version": "0.5.6",
   "license": "MIT",
   "summary": "A simple framework on iOS.",
   "homepage": "https://github.com/HappyiOSYuan/JLYKit",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/HappyiOSYuan/JLYKit.git",
-    "tag": "0.5.5"
+    "tag": "0.5.6"
   },
   "requires_arc": true,
   "platforms": {
@@ -89,6 +89,9 @@
 
         ],
         "JLYKit/Config": [
+
+        ],
+        "JLYKit/JLYVIPER": [
 
         ],
         "JLYKit/UIExtensions": [

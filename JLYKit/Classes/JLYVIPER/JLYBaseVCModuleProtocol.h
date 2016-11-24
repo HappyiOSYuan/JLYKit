@@ -9,11 +9,17 @@
 #import <Foundation/Foundation.h>
 
 NS_ASSUME_NONNULL_BEGIN
+
 typedef void (^JLYCallBackHandler)(id _Nullable callBackParameters);
 
 typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error);
 
 @protocol JLYBaseVCModuleProtocol <NSObject>
+
+@property (nonatomic, weak, readonly) UIViewController<JLYBaseVCModuleProtocol> *userInterface;
+
+
+- (void)jly_blindVC:(__kindof UIViewController<JLYBaseVCModuleProtocol> *)viewController;
 
 - (void)jly_handleDataWithIdentifer:(NSString * _Nullable)identifer
                           andParams:(NSDictionary<NSString * ,id> * _Nullable)params
@@ -31,4 +37,5 @@ typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error
 - (NSArray<__kindof UIViewController *> *)jly_listViewControllers;
 
 @end
+
 NS_ASSUME_NONNULL_END

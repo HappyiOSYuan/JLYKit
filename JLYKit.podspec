@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.5.5'
+s.version = '0.5.6'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -36,6 +36,7 @@ s.subspec 'JLYBaseKit' do |baseKit|
     baseKit.source_files = 'JLYKit/Classes/JLYBaseKit/{BaseTableViewCell,BaseTableViewDataSource,BaseViewController}/**/*.{h,m}'
     baseKit.dependency 'MJRefresh'
     baseKit.dependency 'JLYKit/Config'
+    baseKit.dependency 'JLYKit/JLYVIPER'
     baseKit.dependency 'JLYKit/UIExtensions'
     baseKit.dependency 'JLYKit/FoundationExtensions'
 	baseKit.dependency 'DGActivityIndicatorView'

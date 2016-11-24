@@ -6,10 +6,8 @@
 //  Copyright (c) 2016 HappyiOSYuan. All rights reserved.
 //
 
-@import UIKit;
+#import <JLYKit/JLYAppDelegate.h>
 
-@interface JLYAppDelegate : UIResponder <UIApplicationDelegate>
-
-@property (strong, nonatomic) UIWindow *window;
+@interface AppDelegate : JLYAppDelegate
 
 @end

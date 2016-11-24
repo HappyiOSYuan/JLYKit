@@ -6,8 +6,8 @@
 //  Copyright (c) 2016 HappyiOSYuan. All rights reserved.
 //
 
-@import UIKit;
+#import <JLYKit/JLYBaseViewController.h>
 
-@interface JLYViewController : UIViewController
+@interface JLYViewController : JLYBaseViewController
 
 @end

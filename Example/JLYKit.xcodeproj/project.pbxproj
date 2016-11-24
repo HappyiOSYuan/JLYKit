@@ -13,7 +13,7 @@
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F598195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F596195388D20070C39A /* InfoPlist.strings */; };
 		6003F59A195388D20070C39A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F599195388D20070C39A /* main.m */; };
-		6003F59E195388D20070C39A /* JLYAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* JLYAppDelegate.m */; };
+		6003F59E195388D20070C39A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F59D195388D20070C39A /* AppDelegate.m */; };
 		6003F5A7195388D20070C39A /* JLYViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5A6195388D20070C39A /* JLYViewController.m */; };
 		6003F5A9195388D20070C39A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5A8195388D20070C39A /* Images.xcassets */; };
 		6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F5AF195388D20070C39A /* XCTest.framework */; };
@@ -21,8 +21,14 @@
 		6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
-		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
 		87CB0E390DEA7007BF13212E /* Pods_JLYKit_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AF41DC2DF8DE60EC0692A5E5 /* Pods_JLYKit_Tests.framework */; };
+		AF6D1AA01DE6AE480088F830 /* JLYRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D1A9F1DE6AE480088F830 /* JLYRouter.m */; };
+		AF6D1AA31DE6AEA50088F830 /* JLYPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D1AA21DE6AEA50088F830 /* JLYPresenter.m */; };
+		AF6D1AA61DE6AEB50088F830 /* JLYInteractor.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D1AA51DE6AEB50088F830 /* JLYInteractor.m */; };
+		AF6D1AAA1DE6B89E0088F830 /* JLYRootUIService.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D1AA91DE6B89E0088F830 /* JLYRootUIService.m */; };
+		AF6D1AAF1DE6D9020088F830 /* JLYPushViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D1AAE1DE6D9020088F830 /* JLYPushViewController.m */; };
+		AF6D1AB21DE6D9110088F830 /* JLYPushRouter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D1AB11DE6D9110088F830 /* JLYPushRouter.m */; };
+		AF6D1AB51DE6D9200088F830 /* JLYPushPresenter.m in Sources */ = {isa = PBXBuildFile; fileRef = AF6D1AB41DE6D9200088F830 /* JLYPushPresenter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,8 +51,8 @@
 		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* JLYKit-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "JLYKit-Prefix.pch"; sourceTree = "<group>"; };
-		6003F59C195388D20070C39A /* JLYAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLYAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* JLYAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLYAppDelegate.m; sourceTree = "<group>"; };
+		6003F59C195388D20070C39A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		6003F59D195388D20070C39A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		6003F5A5195388D20070C39A /* JLYViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JLYViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* JLYViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JLYViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -58,11 +64,26 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		780273FB427DE2227CA7324E /* Pods-JLYKit_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLYKit_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JLYKit_Tests/Pods-JLYKit_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		7A7378631283B6B50BE29EE7 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
-		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A0B5BD051B7DC93187A35690 /* Pods-JLYKit_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLYKit_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JLYKit_Tests/Pods-JLYKit_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		A59523B93AAC9A2FD12B095E /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		ABD0FB15C06E5C2CC89DE718 /* Pods-JLYKit_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLYKit_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JLYKit_Example/Pods-JLYKit_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		AF41DC2DF8DE60EC0692A5E5 /* Pods_JLYKit_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JLYKit_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF6D1A9E1DE6AE480088F830 /* JLYRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYRouter.h; sourceTree = "<group>"; };
+		AF6D1A9F1DE6AE480088F830 /* JLYRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLYRouter.m; sourceTree = "<group>"; };
+		AF6D1AA11DE6AEA50088F830 /* JLYPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYPresenter.h; sourceTree = "<group>"; };
+		AF6D1AA21DE6AEA50088F830 /* JLYPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLYPresenter.m; sourceTree = "<group>"; };
+		AF6D1AA41DE6AEB50088F830 /* JLYInteractor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYInteractor.h; sourceTree = "<group>"; };
+		AF6D1AA51DE6AEB50088F830 /* JLYInteractor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLYInteractor.m; sourceTree = "<group>"; };
+		AF6D1AA71DE6AFBF0088F830 /* JLYInteractorIO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYInteractorIO.h; sourceTree = "<group>"; };
+		AF6D1AA81DE6B89E0088F830 /* JLYRootUIService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYRootUIService.h; sourceTree = "<group>"; };
+		AF6D1AA91DE6B89E0088F830 /* JLYRootUIService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLYRootUIService.m; sourceTree = "<group>"; };
+		AF6D1AAD1DE6D9020088F830 /* JLYPushViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYPushViewController.h; sourceTree = "<group>"; };
+		AF6D1AAE1DE6D9020088F830 /* JLYPushViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLYPushViewController.m; sourceTree = "<group>"; };
+		AF6D1AB01DE6D9110088F830 /* JLYPushRouter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYPushRouter.h; sourceTree = "<group>"; };
+		AF6D1AB11DE6D9110088F830 /* JLYPushRouter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLYPushRouter.m; sourceTree = "<group>"; };
+		AF6D1AB31DE6D9200088F830 /* JLYPushPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYPushPresenter.h; sourceTree = "<group>"; };
+		AF6D1AB41DE6D9200088F830 /* JLYPushPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLYPushPresenter.m; sourceTree = "<group>"; };
+		AF6D1AB61DE6DB310088F830 /* JLYRouterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYRouterProtocol.h; sourceTree = "<group>"; };
 		BC5F747484AA57ED8AA4C574 /* JLYKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JLYKit.podspec; path = ../JLYKit.podspec; sourceTree = "<group>"; };
 		C5F1D39D492E6FD6CF17115E /* Pods-JLYKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLYKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JLYKit_Example/Pods-JLYKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -130,11 +151,12 @@
 		6003F593195388D20070C39A /* Example for JLYKit */ = {
 			isa = PBXGroup;
 			children = (
-				6003F59C195388D20070C39A /* JLYAppDelegate.h */,
-				6003F59D195388D20070C39A /* JLYAppDelegate.m */,
-				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
-				6003F5A5195388D20070C39A /* JLYViewController.h */,
-				6003F5A6195388D20070C39A /* JLYViewController.m */,
+				AF6D1AAC1DE6D8EC0088F830 /* push */,
+				AF6D1AAB1DE6D1850088F830 /* Root */,
+				6003F59C195388D20070C39A /* AppDelegate.h */,
+				6003F59D195388D20070C39A /* AppDelegate.m */,
+				AF6D1AA81DE6B89E0088F830 /* JLYRootUIService.h */,
+				AF6D1AA91DE6B89E0088F830 /* JLYRootUIService.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
 				6003F594195388D20070C39A /* Supporting Files */,
 			);
@@ -191,6 +213,36 @@
 				A0B5BD051B7DC93187A35690 /* Pods-JLYKit_Tests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		AF6D1AAB1DE6D1850088F830 /* Root */ = {
+			isa = PBXGroup;
+			children = (
+				6003F5A5195388D20070C39A /* JLYViewController.h */,
+				6003F5A6195388D20070C39A /* JLYViewController.m */,
+				AF6D1A9E1DE6AE480088F830 /* JLYRouter.h */,
+				AF6D1A9F1DE6AE480088F830 /* JLYRouter.m */,
+				AF6D1AB61DE6DB310088F830 /* JLYRouterProtocol.h */,
+				AF6D1AA11DE6AEA50088F830 /* JLYPresenter.h */,
+				AF6D1AA21DE6AEA50088F830 /* JLYPresenter.m */,
+				AF6D1AA41DE6AEB50088F830 /* JLYInteractor.h */,
+				AF6D1AA51DE6AEB50088F830 /* JLYInteractor.m */,
+				AF6D1AA71DE6AFBF0088F830 /* JLYInteractorIO.h */,
+			);
+			name = Root;
+			sourceTree = "<group>";
+		};
+		AF6D1AAC1DE6D8EC0088F830 /* push */ = {
+			isa = PBXGroup;
+			children = (
+				AF6D1AAD1DE6D9020088F830 /* JLYPushViewController.h */,
+				AF6D1AAE1DE6D9020088F830 /* JLYPushViewController.m */,
+				AF6D1AB01DE6D9110088F830 /* JLYPushRouter.h */,
+				AF6D1AB11DE6D9110088F830 /* JLYPushRouter.m */,
+				AF6D1AB31DE6D9200088F830 /* JLYPushPresenter.h */,
+				AF6D1AB41DE6D9200088F830 /* JLYPushPresenter.m */,
+			);
+			name = push;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -276,7 +328,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 			);
@@ -390,9 +441,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6003F59E195388D20070C39A /* JLYAppDelegate.m in Sources */,
+				AF6D1AAF1DE6D9020088F830 /* JLYPushViewController.m in Sources */,
+				AF6D1AB21DE6D9110088F830 /* JLYPushRouter.m in Sources */,
+				AF6D1AAA1DE6B89E0088F830 /* JLYRootUIService.m in Sources */,
+				6003F59E195388D20070C39A /* AppDelegate.m in Sources */,
 				6003F5A7195388D20070C39A /* JLYViewController.m in Sources */,
+				AF6D1AA01DE6AE480088F830 /* JLYRouter.m in Sources */,
+				AF6D1AB51DE6D9200088F830 /* JLYPushPresenter.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				AF6D1AA61DE6AEB50088F830 /* JLYInteractor.m in Sources */,
+				AF6D1AA31DE6AEA50088F830 /* JLYPresenter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +525,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -500,7 +558,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;

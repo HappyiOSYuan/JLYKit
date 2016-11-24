@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "viewControllerConfig.h"
+#import "UIViewController+JLYVIPER.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class DGActivityIndicatorView;
@@ -50,8 +51,6 @@ typedef NS_ENUM(NSUInteger, FitViewType){
  *  @brief 是否监听网络变化
  */
 @property (nonatomic, assign) BOOL isOpenNetListen;
-#pragma mark - Api
-@property (nonatomic, strong ,nullable) id<JLYBaseVCModuleProtocol>eventHandler;
 
 - (void)reachabilityChanged:(NSNotification *)note;
 - (void)goNetNotUse:(UIButton*)sender;
