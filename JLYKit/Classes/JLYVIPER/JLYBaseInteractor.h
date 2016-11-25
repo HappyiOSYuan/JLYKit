@@ -14,11 +14,10 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class JLYBaseDAO;
 @interface JLYBaseInteractor : NSObject<JLYBaseInteractorIO>
 
 @property (nonatomic, strong) NSMutableDictionary<NSString * ,id> *blockDic;
-@property (nonatomic, strong, nullable, readonly) JLYBaseDAO *baseDAO;
+@property (nonatomic, strong, nullable, readonly) id baseDAO;
 @property (nonatomic, weak, readonly, nullable) id<JLYBaseInteractorIO>output;
 
 - (void)blindHandleWithCompletionHandler:(JLYCompletionHandler)completionHandler;

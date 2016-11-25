@@ -16,6 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @property (strong, nonatomic) UIWindow *window;
 @property (nonatomic, strong) Reachability *reach;
 
+/**
+ 监听网络状态
+ */
 - (void)startNetWorkListen;
 
 @end

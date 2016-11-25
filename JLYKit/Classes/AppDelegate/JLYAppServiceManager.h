@@ -10,8 +10,14 @@
 #import <UIKit/UIKit.h>
 
 #define JLY_EXPORT_SERVICE(name) \
-+ (void)load {[[JLYAppServiceManager sharedManager] registerService:[self new]];} \
-- (NSString *)serviceName { return @#name; }
++ (void)load \
+{ \
+[[JLYAppServiceManager sharedManager] registerService:[self new]]; \
+} \
+- (NSString *)serviceName \
+{ \
+return @#name; \
+}
 
 NS_ASSUME_NONNULL_BEGIN
 

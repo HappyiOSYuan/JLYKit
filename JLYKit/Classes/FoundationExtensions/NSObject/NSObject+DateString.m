@@ -9,7 +9,7 @@
 #import "NSObject+DateString.h"
 
 #define CurrentCalender [NSCalendar currentCalendar]
-#define CalendarComponent [CurrentCalender components:( NSHourCalendarUnit | NSMinuteCalendarUnit | NSSecondCalendarUnit ) fromDate:[NSDate date]]
+#define CalendarComponent [CurrentCalender components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]]
 
 @implementation NSObject (DateString)
 

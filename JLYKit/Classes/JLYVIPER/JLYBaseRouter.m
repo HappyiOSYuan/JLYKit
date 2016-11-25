@@ -56,7 +56,6 @@
                           PresenterClass:(Class)presentClass
                          interactorClass:(Class)interactorClass
                                 daoClass:(Class)daoClass{
-    
     if (vcClass == [self.viewController class]) {
         self.currentUserInterface = self.viewController;
         

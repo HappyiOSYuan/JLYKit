@@ -10,7 +10,7 @@
 #import "JLYBaseVCModuleProtocol.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@interface UIViewController (JLYVIPER)<JLYBaseVCModuleProtocol>
+@interface UIViewController (JLYVIPER)
 
 @property (nonatomic, strong, nullable) id<JLYBaseVCModuleProtocol>eventHandler;
 

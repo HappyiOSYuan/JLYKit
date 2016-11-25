@@ -11,6 +11,7 @@
 #import "JLYPresenter.h"
 #import "JLYInteractor.h"
 #import "JLYPushRouter.h"
+
 @implementation JLYRouter
 JLY_BuildMoudleWith_VNPI(
                          JLY_Class(JLYViewController),
@@ -24,7 +25,6 @@ JLY_BuildMoudleWith_VNPI(
         JLYViewController *vc = [[JLYViewController alloc] init];
         [self setValue:vc forKey:@"viewController"];
         [JLYURLRouter registerURLPattern:@"url" withObjectHandler:^(NSDictionary<NSString *, id>* params){
-            NSLog(@"222");
             return self.viewController;
         }];
     }
