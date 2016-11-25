@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)logDebugInfoWithResponse:(NSHTTPURLResponse * _Nullable)response
                    resposeString:(NSString * _Nullable)responseString
                          request:(NSURLRequest *)request
-                           error:(NSError *)error;
+                           error:(NSError *_Nullable)error;
 + (void)logDebugInfoWithCachedResponse:(JLYURLResponse *)response
                             methodName:(NSString *)methodName
                      serviceIdentifier:(JLYService *)service;

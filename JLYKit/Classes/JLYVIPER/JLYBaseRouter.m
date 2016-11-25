@@ -106,7 +106,7 @@
 
 - (JLYBaseNavigationController *)currentNavVC{
     [self removePresenterForCurrentInterface];
-    return self.currentNavigator ? : [[_presenter userInterface] navigationController];
+    return self.currentNavigator ? : (JLYBaseNavigationController *)[[_presenter userInterface] navigationController];
 }
 
 - (__kindof id<JLYBaseVCModuleProtocol>)realVC{

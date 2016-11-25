@@ -13,10 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol JLYBaseVCModuleProtocol <NSObject>
 
-@property (nonatomic, weak, readonly) UIViewController<JLYBaseVCModuleProtocol> *userInterface;
+@property (nonatomic, weak, readonly) UIViewController *userInterface;
 
 
-- (void)jly_blindVC:(__kindof UIViewController<JLYBaseVCModuleProtocol> *)viewController;
+- (void)jly_blindVC:(__kindof UIViewController *)viewController;
 
 - (void)jly_handleDataWithIdentifer:(NSString * _Nullable)identifer
                           andParams:(NSDictionary<NSString * ,id> * _Nullable)params

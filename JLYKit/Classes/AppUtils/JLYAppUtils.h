@@ -14,8 +14,6 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)setNavigationBarStyleWithColor:(UIColor *)color;
 + (UIImage *)createImageWithColor:(UIColor *)color;
-+ (int)caculateDayByStartDate:(NSString *)s_date andEndDate:(NSString *)e_date;
-+ (NSString *)caculateDayByDate:(NSString *)date;
 
 @end
 NS_ASSUME_NONNULL_END

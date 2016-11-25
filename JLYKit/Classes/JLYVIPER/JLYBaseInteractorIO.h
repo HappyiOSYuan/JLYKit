@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @protocol JLYBaseInteractorIO <NSObject>
 
+@optional
 - (void)callBackBeforeSuccess:(id _Nullable)obj;
 
 @end

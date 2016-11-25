@@ -19,33 +19,33 @@ PODS:
     - ISHPermissionKit/Core (= 2.0.0)
   - ISHPermissionKit/Core (2.0.0)
   - JDStatusBarNotification (1.5.5)
-  - JLYKit (0.5.7):
+  - JLYKit (0.5.8):
     - ISHPermissionKit
-    - JLYKit/AppDelegate (= 0.5.7)
-    - JLYKit/AppUtils (= 0.5.7)
-    - JLYKit/Config (= 0.5.7)
-    - JLYKit/FoundationExtensions (= 0.5.7)
-    - JLYKit/JLYBaseKit (= 0.5.7)
-    - JLYKit/JLYBaseViewModel (= 0.5.7)
-    - JLYKit/JLYLaunchAnimation (= 0.5.7)
-    - JLYKit/JLYNetworking (= 0.5.7)
-    - JLYKit/JLYURLRouter (= 0.5.7)
-    - JLYKit/JLYVIPER (= 0.5.7)
-    - JLYKit/UIExtensions (= 0.5.7)
-    - JLYKit/Vender (= 0.5.7)
-    - JLYKit/YYModel (= 0.5.7)
+    - JLYKit/AppDelegate (= 0.5.8)
+    - JLYKit/AppUtils (= 0.5.8)
+    - JLYKit/Config (= 0.5.8)
+    - JLYKit/FoundationExtensions (= 0.5.8)
+    - JLYKit/JLYBaseKit (= 0.5.8)
+    - JLYKit/JLYBaseViewModel (= 0.5.8)
+    - JLYKit/JLYLaunchAnimation (= 0.5.8)
+    - JLYKit/JLYNetworking (= 0.5.8)
+    - JLYKit/JLYURLRouter (= 0.5.8)
+    - JLYKit/JLYVIPER (= 0.5.8)
+    - JLYKit/UIExtensions (= 0.5.8)
+    - JLYKit/Vender (= 0.5.8)
+    - JLYKit/YYModel (= 0.5.8)
     - SDWebImage
-  - JLYKit/AppDelegate (0.5.7):
+  - JLYKit/AppDelegate (0.5.8):
     - ISHPermissionKit
     - Reachability
     - SDWebImage
-  - JLYKit/AppUtils (0.5.7):
+  - JLYKit/AppUtils (0.5.8):
     - ISHPermissionKit
     - JLYKit/FoundationExtensions
     - JLYKit/UIExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Config (0.5.7):
+  - JLYKit/Config (0.5.8):
     - ISHPermissionKit
     - JDStatusBarNotification
     - JLYKit/AppUtils
@@ -59,10 +59,10 @@ PODS:
     - SDAutoLayout
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/FoundationExtensions (0.5.7):
+  - JLYKit/FoundationExtensions (0.5.8):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYBaseKit (0.5.7):
+  - JLYKit/JLYBaseKit (0.5.8):
     - DGActivityIndicatorView
     - ISHPermissionKit
     - JLYKit/Config
@@ -71,38 +71,38 @@ PODS:
     - JLYKit/UIExtensions
     - MJRefresh
     - SDWebImage
-  - JLYKit/JLYBaseViewModel (0.5.7):
+  - JLYKit/JLYBaseViewModel (0.5.8):
     - ISHPermissionKit
     - JLYKit/JLYURLRouter
     - SDWebImage
-  - JLYKit/JLYLaunchAnimation (0.5.7):
+  - JLYKit/JLYLaunchAnimation (0.5.8):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYNetworking (0.5.7):
+  - JLYKit/JLYNetworking (0.5.8):
     - AFNetworking
     - ISHPermissionKit
     - JLYKit/FoundationExtensions
     - SDWebImage
-  - JLYKit/JLYURLRouter (0.5.7):
+  - JLYKit/JLYURLRouter (0.5.8):
     - ISHPermissionKit
     - SDWebImage
-  - JLYKit/JLYVIPER (0.5.7):
+  - JLYKit/JLYVIPER (0.5.8):
     - ISHPermissionKit
     - JLYKit/AppDelegate
     - JLYKit/JLYURLRouter
     - JLYKit/UIExtensions
     - SDWebImage
-  - JLYKit/UIExtensions (0.5.7):
+  - JLYKit/UIExtensions (0.5.8):
     - ISHPermissionKit
     - JDStatusBarNotification
     - JLYKit/FoundationExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Vender (0.5.7):
+  - JLYKit/Vender (0.5.8):
     - ISHPermissionKit
     - SDAutoLayout
     - SDWebImage
-  - JLYKit/YYModel (0.5.7):
+  - JLYKit/YYModel (0.5.8):
     - ISHPermissionKit
     - SDWebImage
   - Masonry (1.0.2)
@@ -127,7 +127,7 @@ SPEC CHECKSUMS:
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   ISHPermissionKit: 27288b2de1dcd7dc87b947130ef88173db7054c9
   JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
-  JLYKit: 1cee709561810a83d6f4298d4dd4fe2cff9dfdba
+  JLYKit: da6cd8f70acc4ccbf2d764709725f30b5cace060
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLInputDodger: 79cbc9e07a573565e14dcb271965ec9ef5ff7b7f

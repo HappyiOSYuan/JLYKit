@@ -10,7 +10,6 @@
 #import "NSObject+JLYNetworkingMethods.h"
 #import "UIDevice+IdentifierAddition.h"
 #import "AFNetworkReachabilityManager.h"
-#import "JLYLocationManager.h"
 #import "JLYLogger.h"
 #import <ifaddrs.h>
 #import <arpa/inet.h>
@@ -135,7 +134,7 @@
 }
 
 - (NSString *)cid{
-    return [[JLYLocationManager sharedInstance] currentCityId];
+    return @"";
 }
 
 - (void)setCurrentPageNumber:(NSString *)currentPageNumber{
@@ -239,12 +238,11 @@
 }
 
 - (NSString *)geo{
-    CLLocationCoordinate2D coordinate = [[JLYLocationManager sharedInstance].locatedCityLocation coordinate];
-    return [NSString stringWithFormat:@"%f, %f", coordinate.latitude, coordinate.longitude];
+    return @"";
 }
 
 - (NSString *)gcid{
-    return [JLYLocationManager sharedInstance].locatedCityId;
+    return @"";
 }
 
 - (NSString *)p{
@@ -298,7 +296,6 @@ static JLYAppContext * instance = nil;
     dispatch_once(&onceToken, ^{
         instance = [[self alloc] init];
         [[AFNetworkReachabilityManager sharedManager] startMonitoring];
-        [JLYLocationManager sharedInstance];
     });
     return instance;
 }
