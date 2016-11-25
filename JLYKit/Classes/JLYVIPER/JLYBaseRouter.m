@@ -16,12 +16,12 @@
 /**
  当前视图
  */
-@property (nonatomic, strong) id<JLYBaseVCModuleProtocol> currentUserInterface;
+@property (nonatomic, strong) id currentUserInterface;
 
 /**
  当前导航
  */
-@property (nonatomic, strong) UINavigationController *currentNavigator;
+@property (nonatomic, strong) JLYBaseNavigationController *currentNavigator;
 
 @end
 

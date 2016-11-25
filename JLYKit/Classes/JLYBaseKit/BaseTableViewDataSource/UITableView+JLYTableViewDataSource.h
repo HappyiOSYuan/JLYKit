@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)jly_makeSectionWithData:(NSArray *)dataList andCellClass:(Class)cellClass;
 
 @end
+NS_ASSUME_NONNULL_END
 
 __attribute__((unused)) static void commitEditing(id self, SEL cmd ,__kindof UITableView *tableView ,UITableViewCellEditingStyle editingStyle ,NSIndexPath *indexPath);
 
 __attribute__((unused)) static void scrollViewDidScroll(id self, SEL cmd, UIScrollView *scrollView);
-NS_ASSUME_NONNULL_END
