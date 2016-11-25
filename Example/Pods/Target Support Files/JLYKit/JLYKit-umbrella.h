@@ -86,6 +86,7 @@
 #import "JLYBasePresenter.h"
 #import "JLYBaseRouter.h"
 #import "JLYBaseVCModuleProtocol.h"
+#import "JLYVIPERMacro.h"
 #import "UIViewController+JLYVIPER.h"
 #import "UIColor+HexColors.h"
 #import "UIControl+JLYFixMultiClick.h"

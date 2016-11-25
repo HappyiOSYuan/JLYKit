@@ -19,15 +19,16 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-    
+    self.title = @"JLYKit";
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn.frame = CGRectMake(50.0f, 100.0f, 70.0f, 30.0f);
+    btn.frame = CGRectMake(0.0f, 0.0f, 70.0f, 30.0f);
+    btn.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
     [btn setTitle:@"push" forState:UIControlStateNormal];
     [btn addTarget:self action:@selector(push:) forControlEvents:UIControlEventTouchUpInside];
     btn.layer.borderColor = btn.titleLabel.textColor.CGColor;
     btn.layer.borderWidth = 2.0f;
     btn.layer.cornerRadius = 15.0f;
-    [self.view  addSubview:btn];
+    [self.view addSubview:btn];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
@@ -36,7 +37,7 @@
                                          andParams:nil
                                  CompletionHandler:^(id result, NSError *error){
                                      @StrongObj(self);
-                                     self.title = @"JLYKit";
+                                     NSLog(@"title--->%@" ,self.title);
                                  }];
     [self hideLoadingUI];
 }

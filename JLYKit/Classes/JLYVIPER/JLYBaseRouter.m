@@ -86,7 +86,7 @@
 }
 
 // 移除当前路由对视图层的强引用
-- (void)delayDestoryInterfaceRef{
+- (void)removePresenterForCurrentInterface{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         while (true) {
             // 当事件层能拿到视图时，立即释放对它的强引用
@@ -106,12 +106,12 @@
 }
 
 - (JLYBaseNavigationController *)currentNavVC{
-    [self delayDestoryInterfaceRef];
+    [self removePresenterForCurrentInterface];
     return self.currentNavigator ? : [[_presenter userInterface] navigationController];
 }
 
 - (__kindof id<JLYBaseVCModuleProtocol>)realVC{
-    [self delayDestoryInterfaceRef];
+    [self removePresenterForCurrentInterface];
     return self.currentUserInterface ? : [_presenter userInterface];
 }
 

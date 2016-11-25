@@ -10,8 +10,8 @@
 #import <UIKit/UIKit.h>
 #import "JLYBaseVCModuleProtocol.h"
 #import "JLYBaseInteractorIO.h"
+#import "JLYVIPERMacro.h"
 
-#define JLYRealProtocol(nowPort,oldPort) ((nowPort)(oldPort))
 #define JLYConvertInteractorToProtocol(protocol) JLYRealProtocol(protocol, self.interactor)
 #define JLYConvertRoutingToProtocol(protocol) JLYRealProtocol(protocol, self.router)
 

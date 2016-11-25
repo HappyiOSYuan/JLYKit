@@ -21,8 +21,11 @@
 
 - (NSString *)imageName{
     NSDate *date = [NSDate date];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
-    [formatter setLocale:[NSLocale currentLocale]];
+    static NSDateFormatter* formatter = nil;
+    if (!formatter) {
+        formatter = [[NSDateFormatter alloc] init];
+        [formatter setLocale:[NSLocale currentLocale]];
+    }
     [formatter setDateFormat:@"yyyyMMdd_HHmmss"];//设置系统时间格式
     NSString *imageName =[NSString stringWithFormat:@"IMG_%@", [[formatter stringFromDate:date] stringByAppendingPathExtension:@"png"]];
     return imageName;

@@ -15,7 +15,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame{
     if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = backColor;
+        self.backgroundColor = backColor(nil);
         self.alpha = 0.8f;
         [self addSubview:self.activityView];
     }
@@ -24,7 +24,7 @@
 
 - (DGActivityIndicatorView *)activityView{
     if (!_activityView) {
-        _activityView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeNineDots tintColor:themeColor size:60.0f];
+        _activityView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeNineDots tintColor:themeColor(nil) size:60.0f];
         _activityView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
         [_activityView startAnimating];
     }
@@ -74,7 +74,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isOpenNetListen = YES;
-    self.view.backgroundColor = backColor;
+    self.view.backgroundColor = backColor(nil);
     [self fitViewWithFitViewType:self.fitViewType];
     [self configSubviews];
     [self configConstraints];

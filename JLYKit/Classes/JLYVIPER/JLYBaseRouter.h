@@ -12,8 +12,7 @@
 #import "JLYBaseNavigationController.h"
 #import "JLYBaseVCModuleProtocol.h"
 
-//获取一个类的类
-#define JLY_Class(Class) [Class class]
+
 //跳转页面
 #define JLY_OPENVC(RouterClass, RouterURL, Params, customCode) \
 RouterClass *router = [RouterClass routing]; \

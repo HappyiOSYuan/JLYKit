@@ -23,7 +23,7 @@
 }
 
 - (void)callBackBeforeSuccess:(id)obj{
-    NSLog(@"obj");
+    NSLog(@"callBackBeforeSuccess");
 }
 
 @end

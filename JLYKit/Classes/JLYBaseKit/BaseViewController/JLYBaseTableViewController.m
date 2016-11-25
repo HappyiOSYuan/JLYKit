@@ -114,7 +114,7 @@
 }
 
 - (UIColor *)ndb_backgroundColorForEmptyDataSet:(UIScrollView *)scrollView{
-    return backColor;
+    return backColor(nil);
 }
 
 - (UIView *)ndb_customViewForEmptyDataSet:(UIScrollView *)scrollView{
@@ -185,7 +185,7 @@
         _tableView.emptyDataSetDelegate = self;
         _tableView.emptyDataSetSource = self;
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, screenWidth, 0.1f)];
-        _tableView.backgroundColor = backColor;
+        _tableView.backgroundColor = backColor(nil);
     }
     return _tableView;
 }
@@ -193,9 +193,10 @@
 - (void)setIsOpenHeaderRefresh:(BOOL)isOpenHeaderRefresh{
     _isOpenHeaderRefresh =  isOpenHeaderRefresh;
     if (_isOpenHeaderRefresh) {
-        @WeakObj(self)
+        @WeakObj(self);
         self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            [Weakself headerRefresh];
+            @StrongObj(self);
+            [self headerRefresh];
         }];
     }else{
         self.tableView.mj_header = nil;
@@ -205,10 +206,11 @@
 - (void)setIsOpenFooterRefresh:(BOOL)isOpenFooterRefresh{
     _isOpenFooterRefresh =  isOpenFooterRefresh;
     if (_isOpenFooterRefresh) {
-        @WeakObj(self)
+        @WeakObj(self);
         self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             // 进入刷新状态后会自动调用这个block
-            [Weakself footerRefresh];
+            @StrongObj(self);
+            [self footerRefresh];
         }];
     }else{
         self.tableView.mj_footer = nil;

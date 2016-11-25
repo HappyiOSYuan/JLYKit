@@ -17,7 +17,7 @@ JLY_EXPORT_SERVICE(rootUI)
     application.delegate.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     application.delegate.window.backgroundColor = [UIColor whiteColor];
     JLY_ShowRootWindow(JLYRouter, {
-        [JLYAppUtils setNavigationBarStyleWithColor:themeColor];
+        [JLYAppUtils setNavigationBarStyleWithColor:themeColor(nil)];
     });
     [application.delegate.window makeKeyAndVisible];
     

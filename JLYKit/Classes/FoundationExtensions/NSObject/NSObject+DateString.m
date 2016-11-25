@@ -22,7 +22,7 @@
 }
 
 - (NSString *)todayString{
-    return [self monthBeginDay:[NSDate date]];
+    return [NSDate jly_stringWithDate:[NSDate date] format:[NSDate jly_ymdFormat]];
 }
 
 - (NSString *)currentMonthBeginDay{

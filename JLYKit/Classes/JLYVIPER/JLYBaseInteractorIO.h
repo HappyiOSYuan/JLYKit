@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JLYVIPERMacro.h"
 
 NS_ASSUME_NONNULL_BEGIN
-typedef void (^JLYCompletionHandler)(id _Nullable obj ,NSError * _Nullable error);
 
 @protocol JLYBaseInteractorIO <NSObject>
 

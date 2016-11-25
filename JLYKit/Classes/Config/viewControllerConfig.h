@@ -27,19 +27,31 @@
 #define WeakObj(o) autoreleasepool{} __weak typeof(o) Weak##o = o;
 #define StrongObj(o) autoreleasepool{} __strong typeof(o) o = Weak##o;
 
-#define SuppressPerformSelectorLeakWarning(Stuff) \
+#define SUPPRESS_UNDECLARED_SELECTOR_LEAK_WARNING(customCode)                        \
+_Pragma("clang diagnostic push")                                        \
+_Pragma("clang diagnostic ignored \"-Wundeclared-selector\"")     \
+customCode;                                                                   \
+_Pragma("clang diagnostic pop")
+
+#define SUPPRESS_PERFORM_SELECTOR_LEAKWARNING(customCode) \
 do { \
 _Pragma("clang diagnostic push") \
 _Pragma("clang diagnostic ignored \"-Warc-performSelector-leaks\"") \
-Stuff; \
+customCode; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
-#define themeColor RGBA(54.0f, 182.0f, 169.0f, 1.0f)
-#define backColor RGBA(246.0f, 246.0f, 246.0f, 1.0f)
+
+#define themeColor(customColor) customColor ? : defaultTheme
+#define defaultTheme RGBA(54.0f, 182.0f, 169.0f, 1.0f)
+
+#define backColor(customColor) customColor ? : defaultBack
+#define defaultBack RGBA(246.0f, 246.0f, 246.0f, 1.0f)
+
 #define screenWidth [UIScreen mainScreen].bounds.size.width
 #define screenHeight [UIScreen mainScreen].bounds.size.height
+
 #define font(x) [UIFont systemFontOfSize:x]
 
 typedef void (^NextViewControllerBlock)(id obj);
