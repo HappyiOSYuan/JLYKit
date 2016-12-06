@@ -326,6 +326,7 @@
         formatter = [[NSDateFormatter alloc] init];
         [formatter setLocale:[NSLocale currentLocale]];
     }
+    [formatter setDateFormat:format];
     NSString *retStr = [formatter stringFromDate:self];
     
     return retStr;
@@ -337,6 +338,7 @@
         formatter = [[NSDateFormatter alloc] init];
         [formatter setLocale:[NSLocale currentLocale]];
     }
+    [formatter setDateFormat:format];
     NSDate *date = [formatter dateFromString:string];
     
     return date;

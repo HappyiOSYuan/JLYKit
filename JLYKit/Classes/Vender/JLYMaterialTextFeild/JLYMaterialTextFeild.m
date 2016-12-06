@@ -90,6 +90,7 @@
     }
     self.underlineLayer.backgroundColor = lineColor;
     self.dottedLayer.strokeColor = lineColor;
+    [self layoutIfNeeded];
 }
 #pragma mark - SettersAndGetters
 - (BOOL)valid{
@@ -100,6 +101,7 @@
     if (_errorMessage != errorMessage) {
         _errorMessage = errorMessage;
     }
+    NSLog(@"errorMessage--->%@" ,errorMessage);
     self.errorLabel.text = errorMessage;
     self.errorLabel.hidden = self.valid;
     self.errorImageView.hidden = self.valid;

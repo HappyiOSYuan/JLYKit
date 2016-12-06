@@ -8,15 +8,19 @@
 
 #import "JLYViewController.h"
 #import <JLYKit/JLYURLRouter.h>
+#import <JLYKit/JLYMaterialTextFeild.h>
+#import <JLYKit/NSString+JLYRegExKit.h>
+#import <JLYKit/UIControl+JLYFixMultiClick.h>
 
 @interface JLYViewController ()
+
+@property (nonatomic, strong) JLYMaterialTextFeild *test_TextFeild;
 
 @end
 
 @implementation JLYViewController
-
-- (void)viewDidLoad
-{
+#pragma mark - LifeCycle
+- (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"JLYKit";
@@ -29,9 +33,15 @@
     btn.layer.borderWidth = 2.0f;
     btn.layer.cornerRadius = 15.0f;
     [self.view addSubview:btn];
+    [self.view addSubview:self.test_TextFeild];
+}
+
+- (void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
 }
 
 - (void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
     @WeakObj(self);
     [self.eventHandler jly_handleDataWithIdentifer:nil
                                          andParams:nil
@@ -42,14 +52,46 @@
     [self hideLoadingUI];
 }
 
-- (void)didReceiveMemoryWarning
-{
+- (void)didReceiveMemoryWarning{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+#pragma mark - EventResponse
 - (void)push:(id)sender{
     [self.eventHandler jly_openVCWithIdentifer:nil andParam:nil];
+}
+#pragma mark - PrivateMethod
+- (void)validatePhone{
+    if ([self.test_TextFeild.text length] > 0) {
+        if ([self.test_TextFeild.text regExPhone]) {
+            [self.test_TextFeild setErrorMessage:NULL];
+        }else{
+            [self.test_TextFeild setErrorMessage:@"手机号不合法"];
+        }
+    }else{
+        [self.test_TextFeild setErrorMessage:@"请输入手机号"];
+    }
+}
+
+- (void)textChange:(JLYMaterialTextFeild *)textFeild{
+    NSLog(@"text--->%@", textFeild.text);
+    [self validatePhone];
+}
+#pragma mark - SettersAndGetters
+- (JLYMaterialTextFeild *)test_TextFeild{
+    if (!_test_TextFeild) {
+        _test_TextFeild = ({
+            JLYMaterialTextFeild *textFeild = [[JLYMaterialTextFeild alloc] init];
+            textFeild.frame = CGRectMake(30.0f, 300.0f, screenWidth - 60.0f, 50.0f);
+            textFeild.tintColor = [UIColor blueColor];
+            textFeild.underlineNormalColor = [UIColor blueColor];
+            [textFeild setPlaceholder:@"请输入密码" floatingTitle:@"密码"];
+            textFeild.jly_acceptEventTime = 0.1f;
+            [textFeild addTarget:self action:@selector(textChange:) forControlEvents:UIControlEventEditingChanged];
+            textFeild;
+        });
+    }
+    return _test_TextFeild;
 }
 
 @end

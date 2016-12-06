@@ -58,7 +58,6 @@ static JLYServiceFactory * instance = nil;
 
 #pragma mark - private methods
 - (__kindof JLYService<JLYServiceProtocal> *)newServiceWithIdentifier:(NSString *)identifier{
-    // Google Map API
     if ([identifier isEqualToString:kJLYServiceManager]) {
         return [[NSClassFromString(@"GFServiceManager") alloc] init];
     }
