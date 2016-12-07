@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.6.2'
+s.version = '0.6.3'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -25,6 +25,7 @@ s.subspec 'Config' do |config|
     config.dependency 'JLYKit/AppUtils'
     config.dependency 'JLYKit/JLYLaunchAnimation'
     config.dependency 'JLYKit/JLYVIPER'
+    config.dependency 'libextobjc'
   end
   
 s.subspec 'AppDelegate' do |appDelegate|
@@ -97,6 +98,5 @@ s.subspec 'AppUtils' do |utils|
   end  
   
 s.dependency 'SDWebImage'
-s.dependency 'ISHPermissionKit'
 
 end

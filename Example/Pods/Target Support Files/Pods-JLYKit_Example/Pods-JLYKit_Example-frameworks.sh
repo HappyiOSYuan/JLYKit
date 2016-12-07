@@ -91,7 +91,6 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DGActivityIndicatorView/DGActivityIndicatorView.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ISHPermissionKit/ISHPermissionKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JDStatusBarNotification/JDStatusBarNotification.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JLYKit/JLYKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MJRefresh/MJRefresh.framework"
@@ -101,11 +100,11 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SDAutoLayout/SDAutoLayout.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/libextobjc/libextobjc.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/AFNetworking/AFNetworking.framework"
   install_framework "$BUILT_PRODUCTS_DIR/DGActivityIndicatorView/DGActivityIndicatorView.framework"
-  install_framework "$BUILT_PRODUCTS_DIR/ISHPermissionKit/ISHPermissionKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JDStatusBarNotification/JDStatusBarNotification.framework"
   install_framework "$BUILT_PRODUCTS_DIR/JLYKit/JLYKit.framework"
   install_framework "$BUILT_PRODUCTS_DIR/MJRefresh/MJRefresh.framework"
@@ -115,6 +114,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "$BUILT_PRODUCTS_DIR/SDAutoLayout/SDAutoLayout.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SDWebImage/SDWebImage.framework"
   install_framework "$BUILT_PRODUCTS_DIR/SVProgressHUD/SVProgressHUD.framework"
+  install_framework "$BUILT_PRODUCTS_DIR/libextobjc/libextobjc.framework"
 fi
 if [ "${COCOAPODS_PARALLEL_CODE_SIGN}" == "true" ]; then
   wait

@@ -13,9 +13,9 @@
 @implementation JLYTableViewSectionMaker
 
 - (JLYTableViewSectionMaker * (^)(Class))cellClazz {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(Class cell) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.cellClazz = cell;
         if (!self.section.identifier) {
             self.section.identifier = [self getSectionIdentifer];
@@ -25,63 +25,63 @@
 }
 
 - (JLYTableViewSectionMaker * (^)(NSArray *))dataList {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(NSArray * data) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.dataList = data;
         return self;
     };
 }
 
 - (JLYTableViewSectionMaker * (^)(CellConfigBlock))cellConfig {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(CellConfigBlock cellConfigBlock) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.cellConfig = cellConfigBlock;
         return self;
     };
 }
 
 - (JLYTableViewSectionMaker * (^)(CGFloat))height {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(CGFloat height) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.staticHeight = height;
         return self;
     };
 }
 
 - (JLYTableViewSectionMaker * (^)())autoHeight {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker * {
-        @StrongObj(self);
+        @strongify(self);
         self.section.isAutoHeight = YES;
         return self;
     };
 }
 
 - (JLYTableViewSectionMaker * (^)(CellEventBlock))cellEvent {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(CellEventBlock cellEventBlock) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.cellEvent = cellEventBlock;
         return self;
     };
 }
 
 - (JLYTableViewSectionMaker * (^)(NSString *))headerTitle {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(NSString * title) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.headerTitle = title;
         return self;
     };
 }
 
 - (JLYTableViewSectionMaker * (^)(NSString *))footerTitle {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(NSString * title) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.footerTitle = title;
         return self;
     };
@@ -104,18 +104,18 @@
 }
 
 - (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * (^)()))headerView {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(__kindof UITableViewHeaderFooterView * (^view)()) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.headerView = view();
         return self;
     };
 }
 
 - (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * (^)()))footerView {
-    @WeakObj(self);
+    @weakify(self);
     return ^JLYTableViewSectionMaker *(__kindof UITableViewHeaderFooterView * (^view)()) {
-        @StrongObj(self);
+        @strongify(self);
         self.section.footerView = view();
         return self;
     };

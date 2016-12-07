@@ -42,11 +42,11 @@
 
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    @WeakObj(self);
+    @weakify(self);
     [self.eventHandler jly_handleDataWithIdentifer:nil
                                          andParams:nil
                                  CompletionHandler:^(id result, NSError *error){
-                                     @StrongObj(self);
+                                     @strongify(self);
                                      NSLog(@"title--->%@" ,self.title);
                                  }];
     [self hideLoadingUI];

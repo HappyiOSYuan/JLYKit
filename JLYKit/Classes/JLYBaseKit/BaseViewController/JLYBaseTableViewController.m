@@ -193,9 +193,9 @@
 - (void)setIsOpenHeaderRefresh:(BOOL)isOpenHeaderRefresh{
     _isOpenHeaderRefresh =  isOpenHeaderRefresh;
     if (_isOpenHeaderRefresh) {
-        @WeakObj(self);
+        @weakify(self);
         self.tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            @StrongObj(self);
+            @strongify(self);
             [self headerRefresh];
         }];
     }else{
@@ -206,10 +206,10 @@
 - (void)setIsOpenFooterRefresh:(BOOL)isOpenFooterRefresh{
     _isOpenFooterRefresh =  isOpenFooterRefresh;
     if (_isOpenFooterRefresh) {
-        @WeakObj(self);
+        @weakify(self);
         self.tableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingBlock:^{
             // 进入刷新状态后会自动调用这个block
-            @StrongObj(self);
+            @strongify(self);
             [self footerRefresh];
         }];
     }else{
