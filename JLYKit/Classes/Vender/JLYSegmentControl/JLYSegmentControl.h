@@ -21,7 +21,8 @@ typedef void(^ClickBlock)(NSInteger tag, NSString *title);
 @property (nonatomic, strong, nullable) UIFont *titlesFont;
 @property (nonatomic, assign) CGFloat duration;
 
--(void)setButtonOnClickBlock:(ClickBlock)clickBlock;
+- (void)setButtonOnClickBlock:(ClickBlock)clickBlock;
+- (void)setSegmentSelectedIndex:(NSUInteger)index;
 
 @end
 NS_ASSUME_NONNULL_END

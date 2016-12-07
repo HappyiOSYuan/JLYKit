@@ -38,7 +38,7 @@ NS_ASSUME_NONNULL_END
     if (self = [super init]) {
         _selectedIndex = 0;
         UIWindow *window = [UIApplication sharedApplication].keyWindow;
-        self.frame = CGRectMake(10.0f, kScreenHeight - 370.0f, kScreenWidth - 20.0f, 350.0f);
+        self.frame = CGRectMake(10.0f, kScreenHeight, kScreenWidth - 20.0f, 350.0f);
         self.layer.cornerRadius = 10.0f;
         self.backgroundColor = [UIColor whiteColor];
         self.clipsToBounds = YES;
@@ -60,9 +60,8 @@ NS_ASSUME_NONNULL_END
 }
 #pragma mark - PublicMethod
 - (void)show {
-    //[self beginDateBtnClick:self.beginDateBtn];
-    [UIView animateWithDuration:0.75f
-                          delay:0.0f
+    [UIView animateWithDuration:0.35f
+                          delay:0.1f
          usingSpringWithDamping:0.7f
           initialSpringVelocity:0.8f
                         options:UIViewAnimationOptionTransitionCurlUp
@@ -106,7 +105,7 @@ NS_ASSUME_NONNULL_END
 #pragma mark - EventResponse
 - (void)hide {
     [UIView animateWithDuration:0.35f
-                          delay:0.0f
+                          delay:0.1f
          usingSpringWithDamping:0.7f
           initialSpringVelocity:0.5f
                         options:0.0f
@@ -127,9 +126,11 @@ NS_ASSUME_NONNULL_END
     }
     [formatter setDateFormat:_dateFormat ? : @"YYYY-MM-dd"];
     if (self.selectedIndex) {
+        [self.segment setSegmentSelectedIndex:0];
         self.endTime_Label.text = [formatter stringFromDate:self.datePicker.date];
     }else{
         self.selectedIndex = 1;
+        [self.segment setSegmentSelectedIndex:1];
         self.startTime_Label.text = [formatter stringFromDate:self.datePicker.date];
         self.endTime_Label.text = [self monthEndDay:self.datePicker.date];
     }

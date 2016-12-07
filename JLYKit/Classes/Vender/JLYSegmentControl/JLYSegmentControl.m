@@ -20,7 +20,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, strong) UIView *heightLightView;
 @property (nonatomic, strong) UIView *heightTopView;
-@property (nonatomic, strong) UIView *heightColoreView;
+@property (nonatomic, strong) UIView *heightColorView;
 
 @property (nonatomic, strong) NSMutableArray<UILabel *> *labelMutableArray;
 @property (nonatomic, copy) ClickBlock clickBlock;
@@ -60,10 +60,15 @@ NS_ASSUME_NONNULL_END
 
 }
 #pragma mark - PublicMethod
--(void)setButtonOnClickBlock:(ClickBlock)clickBlock{
+- (void)setButtonOnClickBlock:(ClickBlock)clickBlock{
     if (clickBlock) {
         _clickBlock = clickBlock;
     }
+}
+
+- (void)setSegmentSelectedIndex:(NSUInteger)index{
+    NSAssert(index < _titles.count, @"下标越界，超过选项数量");
+    [self tapButton:[self viewWithTag:index]];
 }
 #pragma mark - EventResponse
 - (void)tapButton:(UIButton *) sender{
@@ -80,7 +85,7 @@ NS_ASSUME_NONNULL_END
         _heightLightView.frame = frame;
         _heightTopView.frame = changeFrame;
     } completion:^(BOOL finished){
-        [self shakeAnimationForView:_heightColoreView];
+        [self shakeAnimationForView:_heightColorView];
     }];
 }
 
@@ -119,10 +124,10 @@ NS_ASSUME_NONNULL_END
 }
 
 - (void)removeAllSubView{
-    if(_heightColoreView){
+    if(_heightColorView){
         [self removeSubView:_heightLightView];
         [self removeSubView:_heightTopView];
-        [self removeSubView:_heightColoreView];
+        [self removeSubView:_heightColorView];
         [self.labelMutableArray removeAllObjects];
         
         [self.subviews enumerateObjectsUsingBlock:^(UIView *view, NSUInteger idx, BOOL *stop){
@@ -157,18 +162,19 @@ NS_ASSUME_NONNULL_END
 - (void)createTopLables{
     CGRect heightLightViewFrame = CGRectMake(0.0f, 0.0f, _labelWidth, _viewHeight);
     _heightLightView = [[UIView alloc] initWithFrame:heightLightViewFrame];
-    _heightLightView.clipsToBounds = YES;
-    
-    _heightColoreView = [[UIView alloc] initWithFrame:heightLightViewFrame];
-    _heightColoreView.backgroundColor = _backgroundHighlightColor;
-    _heightColoreView.layer.cornerRadius = self.frame.size.height / 2;
     _heightLightView.layer.borderColor = _titlesHighlightColor.CGColor;
     _heightLightView.layer.borderWidth = 2.0f;
     _heightLightView.backgroundColor = [UIColor whiteColor];
     _heightLightView.layer.cornerRadius = self.frame.size.height / 2;
-    [_heightLightView addSubview:_heightColoreView];
+    _heightLightView.clipsToBounds = YES;
+    
+    _heightColorView = [[UIView alloc] initWithFrame:heightLightViewFrame];
+    _heightColorView.backgroundColor = _backgroundHighlightColor;
+    _heightColorView.layer.cornerRadius = self.frame.size.height / 2;
+    [_heightLightView addSubview:_heightColorView];
     
     _heightTopView = [[UIView alloc] initWithFrame: CGRectMake(0.0f, 0.0f, _viewWidth, _viewHeight)];
+    
     [_titles enumerateObjectsUsingBlock:^(NSString *obj, NSUInteger idx, BOOL *stop){
         UILabel *label = [self createLabelWithTitlesIndex:idx textColor:_titlesHighlightColor];
         [_heightTopView addSubview:label];
