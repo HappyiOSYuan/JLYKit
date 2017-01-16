@@ -20,6 +20,7 @@ JLY_BuildMoudleWith_VPI(
 
 - (instancetype)init{
     if (self = [super init]) {
+        NSLog(@"init");
         JLYPushViewController *vc = [[JLYPushViewController alloc] init];
         [self setValue:vc forKey:@"viewController"];
         [JLYURLRouter registerURLPattern:@"push" withHandler:^(NSDictionary<NSString *, id> *routerParameters){

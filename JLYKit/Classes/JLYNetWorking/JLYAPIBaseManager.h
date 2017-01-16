@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 @class JLYAPIBaseManager;
 
 // 在调用成功之后的params字典里面，用这个key可以取出requestID
-static NSString * const kRTAPIBaseManagerRequestID = @"kRTAPIBaseManagerRequestID";
+static NSString * const kRTAPIBaseManagerRequestID = @"kJLYAPIBaseManagerRequestID";
 
 /*!
  *  @brief api回调
@@ -59,7 +59,7 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerErrorType){
     JLYAPIManagerErrorTypeSuccess,       //API请求成功且返回数据正确，此时manager的数据是可以直接拿来使用的。
     JLYAPIManagerErrorTypeNoContent,     //API请求成功但返回数据不正确。如果回调数据验证函数返回值为NO，manager的状态就会是这个。
     JLYAPIManagerErrorTypeParamsError,   //参数错误，此时manager不会调用API，因为参数验证是在调用API之前做的。
-    JLYAPIManagerErrorTypeTimeout,       //请求超时。RTApiProxy设置的是20秒超时，具体超时时间的设置请自己去看RTApiProxy的相关代码。
+    JLYAPIManagerErrorTypeTimeout,       //请求超时。JLYApiProxy设置的是20秒超时，具体超时时间的设置请自己去看RTApiProxy的相关代码。
     JLYAPIManagerErrorTypeNoNetWork      //网络不通。在调用API之前会判断一下当前网络是否通畅，这个也是在调用API之前验证的，和上面超时的状态是有区别的。
 };
 
@@ -165,7 +165,7 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 /*
  用于给继承的类做重载，在调用API之前额外添加一些参数,但不应该在这个函数里面修改已有的参数。
  子类中覆盖这个函数的时候就不需要调用[super reformParams:params]了
- RTAPIBaseManager会先调用这个函数，然后才会调用到 id<JLYAPIManagerValidator> 中的 manager:isCorrectWithParamsData:
+ JLYAPIBaseManager会先调用这个函数，然后才会调用到 id<JLYAPIManagerValidator> 中的 manager:isCorrectWithParamsData:
  所以这里返回的参数字典还是会被后面的验证函数去验证的。
  
  假设同一个翻页Manager，ManagerA的paramSource提供page_size=15参数，ManagerB的paramSource提供page_size=2参数

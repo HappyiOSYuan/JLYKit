@@ -16,30 +16,30 @@ PODS:
     - AFNetworking/NSURLSession
   - DGActivityIndicatorView (2.1.1)
   - JDStatusBarNotification (1.5.5)
-  - JLYKit (0.6.3):
-    - JLYKit/AppDelegate (= 0.6.3)
-    - JLYKit/AppUtils (= 0.6.3)
-    - JLYKit/Config (= 0.6.3)
-    - JLYKit/FoundationExtensions (= 0.6.3)
-    - JLYKit/JLYBaseKit (= 0.6.3)
-    - JLYKit/JLYBaseViewModel (= 0.6.3)
-    - JLYKit/JLYLaunchAnimation (= 0.6.3)
-    - JLYKit/JLYNetworking (= 0.6.3)
-    - JLYKit/JLYURLRouter (= 0.6.3)
-    - JLYKit/JLYVIPER (= 0.6.3)
-    - JLYKit/UIExtensions (= 0.6.3)
-    - JLYKit/Vender (= 0.6.3)
-    - JLYKit/YYModel (= 0.6.3)
+  - JLYKit (0.6.5):
+    - JLYKit/AppDelegate (= 0.6.5)
+    - JLYKit/AppUtils (= 0.6.5)
+    - JLYKit/Config (= 0.6.5)
+    - JLYKit/FoundationExtensions (= 0.6.5)
+    - JLYKit/JLYBaseKit (= 0.6.5)
+    - JLYKit/JLYBaseViewModel (= 0.6.5)
+    - JLYKit/JLYLaunchAnimation (= 0.6.5)
+    - JLYKit/JLYNetworking (= 0.6.5)
+    - JLYKit/JLYURLRouter (= 0.6.5)
+    - JLYKit/JLYVIPER (= 0.6.5)
+    - JLYKit/UIExtensions (= 0.6.5)
+    - JLYKit/Vender (= 0.6.5)
+    - JLYKit/YYModel (= 0.6.5)
     - SDWebImage
-  - JLYKit/AppDelegate (0.6.3):
+  - JLYKit/AppDelegate (0.6.5):
     - Reachability
     - SDWebImage
-  - JLYKit/AppUtils (0.6.3):
+  - JLYKit/AppUtils (0.6.5):
     - JLYKit/FoundationExtensions
     - JLYKit/UIExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Config (0.6.3):
+  - JLYKit/Config (0.6.5):
     - JDStatusBarNotification
     - JLYKit/AppUtils
     - JLYKit/JLYLaunchAnimation
@@ -53,9 +53,9 @@ PODS:
     - SDAutoLayout
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/FoundationExtensions (0.6.3):
+  - JLYKit/FoundationExtensions (0.6.5):
     - SDWebImage
-  - JLYKit/JLYBaseKit (0.6.3):
+  - JLYKit/JLYBaseKit (0.6.5):
     - DGActivityIndicatorView
     - JLYKit/Config
     - JLYKit/FoundationExtensions
@@ -63,32 +63,33 @@ PODS:
     - JLYKit/UIExtensions
     - MJRefresh
     - SDWebImage
-  - JLYKit/JLYBaseViewModel (0.6.3):
+  - JLYKit/JLYBaseViewModel (0.6.5):
     - JLYKit/JLYURLRouter
     - SDWebImage
-  - JLYKit/JLYLaunchAnimation (0.6.3):
+  - JLYKit/JLYLaunchAnimation (0.6.5):
     - SDWebImage
-  - JLYKit/JLYNetworking (0.6.3):
+  - JLYKit/JLYNetworking (0.6.5):
     - AFNetworking
     - JLYKit/FoundationExtensions
     - SDWebImage
-  - JLYKit/JLYURLRouter (0.6.3):
+  - JLYKit/JLYURLRouter (0.6.5):
     - SDWebImage
-  - JLYKit/JLYVIPER (0.6.3):
+  - JLYKit/JLYVIPER (0.6.5):
     - JLYKit/AppDelegate
     - JLYKit/JLYURLRouter
     - JLYKit/UIExtensions
     - SDWebImage
-  - JLYKit/UIExtensions (0.6.3):
+  - JLYKit/UIExtensions (0.6.5):
     - JDStatusBarNotification
     - JLYKit/FoundationExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Vender (0.6.3):
+  - JLYKit/Vender (0.6.5):
     - JLYKit/FoundationExtensions
+    - libextobjc
     - SDAutoLayout
     - SDWebImage
-  - JLYKit/YYModel (0.6.3):
+  - JLYKit/YYModel (0.6.5):
     - SDWebImage
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -133,7 +134,7 @@ PODS:
   - SDWebImage (3.8.2):
     - SDWebImage/Core (= 3.8.2)
   - SDWebImage/Core (3.8.2)
-  - SVProgressHUD (2.1.1)
+  - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
   - JLYKit (from `../`)
@@ -146,7 +147,7 @@ SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
   JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
-  JLYKit: bb54ef47b20b6243936f6c3cbd971b1b931e3066
+  JLYKit: ea2b26d40996c12afe6a5f7ec92494b6d49af501
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -154,7 +155,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
   SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
-  SVProgressHUD: 1127180503b9a308ddf7006f3cc58fc05cc1092d
+  SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
 PODFILE CHECKSUM: 02e4dfbafb5a82afe75dce02e10f29cfbc49e14f
 

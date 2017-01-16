@@ -8,14 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+#ifndef JLYDatePickerInit
+#define JLYDatePickerInit ([[JLYDatePickerView alloc] init])
+#endif
+
 NS_ASSUME_NONNULL_BEGIN
+
+typedef void(^SelectDateBlock)(NSString *startTime,NSString *endTime);
+
 @interface JLYDatePickerView : UIView
 
-@property (nonatomic, strong, nullable) NSString *dateFormat;
-@property (nonatomic, strong, nullable) UIColor *themeColor;
-@property (nonatomic, strong, nullable) UIColor *titleColor;
-
-@property (nonatomic, copy) void(^SelectDateBlock)(NSString *startTime,NSString *endTime);
+@property (nonatomic, copy, readonly, nullable) JLYDatePickerView *(^DatePickerFormat)(NSString *format);
+@property (nonatomic, copy, readonly) JLYDatePickerView *(^DatePickerTheme)(UIColor *color);
+@property (nonatomic, copy, readonly) JLYDatePickerView *(^DatePickerTitleColor)(UIColor *color);
+@property (nonatomic, copy, readonly) JLYDatePickerView *(^DatePickerSelectedBlock)(void(^)(NSString *startTime,NSString *endTime));
 
 - (void)show;
 - (void)hide;

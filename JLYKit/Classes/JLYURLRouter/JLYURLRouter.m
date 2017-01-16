@@ -94,25 +94,27 @@ static JLYURLRouter *instance = nil;
     NSInteger startIndexOfColon = 0;
     
     NSMutableArray<NSString *>*placeholders = [NSMutableArray array];
-    
     for (int i = 0; i < pattern.length; i++) {
-        NSString *character = [NSString stringWithFormat:@"%c", [pattern characterAtIndex:i]];
-        if ([character isEqualToString:@":"]) {
-            startIndexOfColon = i;
-        }
-        if ([specialCharacters rangeOfString:character].location != NSNotFound && i > (startIndexOfColon + 1) && startIndexOfColon) {
-            NSRange range = NSMakeRange(startIndexOfColon, i - startIndexOfColon);
-            NSString *placeholder = [pattern substringWithRange:range];
-            if (![self checkIfContainsSpecialCharacter:placeholder]) {
-                [placeholders addObject:placeholder];
-                startIndexOfColon = 0;
+        @autoreleasepool {
+        
+            NSString *character = [NSString stringWithFormat:@"%c", [pattern characterAtIndex:i]];
+            if ([character isEqualToString:@":"]) {
+                startIndexOfColon = i;
             }
-        }
-        if (i == pattern.length - 1 && startIndexOfColon) {
-            NSRange range = NSMakeRange(startIndexOfColon, i - startIndexOfColon + 1);
-            NSString *placeholder = [pattern substringWithRange:range];
-            if (![self checkIfContainsSpecialCharacter:placeholder]) {
-                [placeholders addObject:placeholder];
+            if ([specialCharacters rangeOfString:character].location != NSNotFound && i > (startIndexOfColon + 1) && startIndexOfColon) {
+                NSRange range = NSMakeRange(startIndexOfColon, i - startIndexOfColon);
+                NSString *placeholder = [pattern substringWithRange:range];
+                if (![self checkIfContainsSpecialCharacter:placeholder]) {
+                    [placeholders addObject:placeholder];
+                    startIndexOfColon = 0;
+                }
+            }
+            if (i == pattern.length - 1 && startIndexOfColon) {
+                NSRange range = NSMakeRange(startIndexOfColon, i - startIndexOfColon + 1);
+                NSString *placeholder = [pattern substringWithRange:range];
+                if (![self checkIfContainsSpecialCharacter:placeholder]) {
+                    [placeholders addObject:placeholder];
+                }
             }
         }
     }
@@ -170,18 +172,19 @@ static JLYURLRouter *instance = nil;
 
 - (NSMutableDictionary<NSString * ,id>*)addURLPattern:(NSString *)URLPattern{
     NSArray <NSString *>*pathComponents = [self pathComponentsFromURL:URLPattern];
-    
     NSInteger index = 0;
     NSMutableDictionary<NSString * ,id>*subRoutes = self.routes;
-    
-    while (index < pathComponents.count) {
-        NSString *pathComponent = pathComponents[index];
-        if (![subRoutes objectForKey:pathComponent]) {
-            subRoutes[pathComponent] = [[NSMutableDictionary alloc] init];
+    @autoreleasepool {
+        while (index < pathComponents.count) {
+            NSString *pathComponent = pathComponents[index];
+            if (![subRoutes objectForKey:pathComponent]) {
+                subRoutes[pathComponent] = [[NSMutableDictionary alloc] init];
+            }
+            subRoutes = subRoutes[pathComponent];
+            index++;
         }
-        subRoutes = subRoutes[pathComponent];
-        index++;
     }
+    
     return subRoutes;
 }
 
@@ -197,41 +200,46 @@ static JLYURLRouter *instance = nil;
     
     // borrowed from HHRouter(https://github.com/Huohua/HHRouter)
     for (NSString *pathComponent in pathComponents) {
-        BOOL found = NO;
-        
-        // 对 key 进行排序，这样可以把 ~ 放到最后
-        NSArray<NSString *>*subRoutesKeys =[subRoutes.allKeys sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
-            return [obj1 compare:obj2];
-        }];
-        
-        for (NSString *key in subRoutesKeys) {
-            if ([key isEqualToString:pathComponent] || [key isEqualToString:JLY_ROUTER_WILDCARD_CHARACTER]) {
-                found = YES;
-                subRoutes = subRoutes[key];
-                break;
-            } else if ([key hasPrefix:@":"]) {
-                found = YES;
-                subRoutes = subRoutes[key];
-                NSString *newKey = [key substringFromIndex:1];
-                NSString *newPathComponent = pathComponent;
-                // 再做一下特殊处理，比如 :id.html -> :id
-                if ([self.class checkIfContainsSpecialCharacter:key]) {
-                    NSCharacterSet *specialCharacterSet = [NSCharacterSet characterSetWithCharactersInString:specialCharacters];
-                    NSRange range = [key rangeOfCharacterFromSet:specialCharacterSet];
-                    if (range.location != NSNotFound) {
-                        // 把 pathComponent 后面的部分也去掉
-                        newKey = [newKey substringToIndex:range.location - 1];
-                        NSString *suffixToStrip = [key substringFromIndex:range.location];
-                        newPathComponent = [newPathComponent stringByReplacingOccurrencesOfString:suffixToStrip withString:@""];
+        @autoreleasepool {
+            
+            BOOL found = NO;
+            
+            // 对 key 进行排序，这样可以把 ~ 放到最后
+            NSArray<NSString *>*subRoutesKeys =[subRoutes.allKeys sortedArrayUsingComparator:^NSComparisonResult(NSString *obj1, NSString *obj2) {
+                return [obj1 compare:obj2];
+            }];
+            
+            for (NSString *key in subRoutesKeys) {
+                @autoreleasepool {
+                    if ([key isEqualToString:pathComponent] || [key isEqualToString:JLY_ROUTER_WILDCARD_CHARACTER]) {
+                        found = YES;
+                        subRoutes = subRoutes[key];
+                        break;
+                    } else if ([key hasPrefix:@":"]) {
+                        found = YES;
+                        subRoutes = subRoutes[key];
+                        NSString *newKey = [key substringFromIndex:1];
+                        NSString *newPathComponent = pathComponent;
+                    // 再做一下特殊处理，比如 :id.html -> :id
+                        if ([self.class checkIfContainsSpecialCharacter:key]) {
+                            NSCharacterSet *specialCharacterSet = [NSCharacterSet characterSetWithCharactersInString:specialCharacters];
+                            NSRange range = [key rangeOfCharacterFromSet:specialCharacterSet];
+                            if (range.location != NSNotFound) {
+                            // 把 pathComponent 后面的部分也去掉
+                                newKey = [newKey substringToIndex:range.location - 1];
+                                NSString *suffixToStrip = [key substringFromIndex:range.location];
+                                newPathComponent = [newPathComponent stringByReplacingOccurrencesOfString:suffixToStrip withString:@""];
+                            }
+                        }
+                        parameters[newKey] = newPathComponent;
+                        break;
                     }
                 }
-                parameters[newKey] = newPathComponent;
-                break;
             }
-        }
-        // 如果没有找到该 pathComponent 对应的 handler，则以上一层的 handler 作为 fallback
-        if (!found && !subRoutes[@"_"]) {
-            return nil;
+            // 如果没有找到该 pathComponent 对应的 handler，则以上一层的 handler 作为 fallback
+            if (!found && !subRoutes[@"_"]) {
+                return nil;
+            }
         }
     }
     
@@ -295,12 +303,14 @@ static JLYURLRouter *instance = nil;
         
         URL = [URL substringFromIndex:[URL rangeOfString:@"://"].location + 3];
     }
-    
     for (NSString *pathComponent in [[NSURL URLWithString:URL] pathComponents]) {
-        if ([pathComponent isEqualToString:@"/"]) continue;
-        if ([[pathComponent substringToIndex:1] isEqualToString:@"?"]) break;
-        [pathComponents addObject:pathComponent];
+        @autoreleasepool {
+            if ([pathComponent isEqualToString:@"/"]) continue;
+            if ([[pathComponent substringToIndex:1] isEqualToString:@"?"]) break;
+            [pathComponents addObject:pathComponent];
+        }
     }
+    
     return [pathComponents copy];
 }
 #pragma mark - SettersAndGetters

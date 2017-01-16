@@ -87,17 +87,18 @@
 // 移除当前路由对视图层的强引用
 - (void)removePresenterForCurrentInterface{
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        while (true) {
-            // 当事件层能拿到视图时，立即释放对它的强引用
-            if ([_presenter userInterface]) {
-                self.currentUserInterface = nil;
-                self.currentNavigator = nil;
-                break;
+        @autoreleasepool {
+            while (true) {
+                // 当事件层能拿到视图时，立即释放对它的强引用
+                if ([_presenter userInterface]) {
+                    self.currentUserInterface = nil;
+                    self.currentNavigator = nil;
+                    break;
+                }
+                sleep(1);
             }
-            sleep(1);
         }
     });
-    
 }
 #pragma mark - SettersAndGetters
 - (JLYBaseNavigationController *)rootNav{

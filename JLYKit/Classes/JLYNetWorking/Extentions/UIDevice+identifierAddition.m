@@ -178,7 +178,7 @@
     return machineType;
 }
 
-- (NSString *) jly_ostype{
+- (NSString *)jly_ostype{
     UIDevice *device = [UIDevice currentDevice];
     NSString *os = [device systemVersion];
     NSArray *array = [os componentsSeparatedByString:@"."];
@@ -190,31 +190,31 @@
 }
 
 #pragma mark - 兼容旧版本
-- (NSString *) uuid{
+- (NSString *)uuid{
     return self.jly_uuid;
 }
 
-- (NSString *) udid{
+- (NSString *)udid{
     return self.jly_udid;
 }
 
-- (NSString *) macaddress{
+- (NSString *)macaddress{
     return self.jly_macaddress;
 }
 
-- (NSString *) macaddressMD5{
+- (NSString *)macaddressMD5{
     return self.jly_macaddressMD5;
 }
 
-- (NSString *) machineType{
+- (NSString *)machineType{
     return self.jly_machineType;
 }
 //显示“ios6，ios5”，只显示大版本号
-- (NSString *) ostype{
+- (NSString *)ostype{
     return self.jly_ostype;
 }
 
-- (NSString *) createUUID{
+- (NSString *)createUUID{
     return self.jly_createUUID;
 }
 

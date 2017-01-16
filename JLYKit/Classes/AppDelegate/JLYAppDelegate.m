@@ -23,8 +23,10 @@
         struct objc_method_description *methodList = protocol_copyMethodDescriptionList(@protocol(UIApplicationDelegate), NO, YES, &methodCount);
         methods = [NSMutableArray arrayWithCapacity:methodCount];
         for (int i = 0; i < methodCount; i ++) {
-            struct objc_method_description md = methodList[i];
-            [methods addObject:NSStringFromSelector(md.name)];
+            @autoreleasepool {
+                struct objc_method_description md = methodList[i];
+                [methods addObject:NSStringFromSelector(md.name)];
+            }
         }
         free(methodList);
     });

@@ -12,11 +12,11 @@
 
 @interface JLYPopMenuView ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic, strong) UITableView * tableView;
-@property (nonatomic, strong) UIView * backView;
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) UIView *backView;
 @property (nonatomic, assign) CGRect rect;
-@property (nonatomic, strong) NSArray * dataArray;
-@property (nonatomic, strong) UIViewController * target;
+@property (nonatomic, strong) NSArray *dataArray;
+@property (nonatomic, strong) UIViewController *target;
 
 @end
 

@@ -173,9 +173,7 @@
     NSCalendar *calendar = [NSCalendar currentCalendar];
     NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
     [componentsToAdd setDay:day];
-    
     NSDate *dateAfterDay = [calendar dateByAddingComponents:componentsToAdd toDate:date options:0];
-    
     return dateAfterDay;
 }
 
@@ -188,7 +186,7 @@
     NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
     [componentsToAdd setMonth:month];
     NSDate *dateAfterMonth = [calendar dateByAddingComponents:componentsToAdd toDate:date options:0];
-    
+    NSLog(@"dateAfterMonth--->%@", dateAfterMonth);
     return dateAfterMonth;
 }
 
@@ -206,6 +204,7 @@
 
 + (NSDate *)jly_lastdayOfMonth:(NSDate *)date {
     NSDate *lastDate = [self jly_begindayOfMonth:date];
+    NSLog(@"return--->%@", [[lastDate jly_dateAfterMonth:1] jly_dateAfterDay:-1]);
     return [[lastDate jly_dateAfterMonth:1] jly_dateAfterDay:-1];
 }
 
@@ -324,11 +323,10 @@
     static NSDateFormatter* formatter = nil;
     if (!formatter) {
         formatter = [[NSDateFormatter alloc] init];
-        [formatter setLocale:[NSLocale currentLocale]];
+        [formatter setLocale:[[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"]];
     }
     [formatter setDateFormat:format];
     NSString *retStr = [formatter stringFromDate:self];
-    
     return retStr;
 }
 

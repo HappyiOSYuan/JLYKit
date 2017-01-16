@@ -51,6 +51,7 @@ _Pragma("clang diagnostic pop") \
 #define screenHeight [UIScreen mainScreen].bounds.size.height
 
 #define font(x) [UIFont systemFontOfSize:x]
+#define Numfont(x) [UIFont fontWithName:@"AppleGothic" size:x]
 
 typedef void (^NextViewControllerBlock)(id obj);
 

@@ -6,7 +6,7 @@
 //  Copyright © 2016年 HappyiOSYuan. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import Foundation;
 #import <JLYKit/JLYAppDelegate.h>
 
 @interface JLYRootUIService : NSObject<JLYAppService>

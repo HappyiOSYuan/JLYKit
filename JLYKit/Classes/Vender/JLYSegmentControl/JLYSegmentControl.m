@@ -7,12 +7,20 @@
 //
 
 #import "JLYSegmentControl.h"
+#import <libextobjc/extobjc.h>
 
 #define DEFAULT_TITLES_FONT 20.0f
-#define DEFAULT_DURATION 3.0f
+#define DEFAULT_DURATION 1.0f
 
 NS_ASSUME_NONNULL_BEGIN
 @interface JLYSegmentControl ()
+
+@property (nonatomic, strong) NSArray<NSString *> *titles;
+@property (nonatomic, strong, nullable) UIColor *titlesCustomColor;
+@property (nonatomic, strong, nullable) UIColor *titlesHighlightColor;
+@property (nonatomic, strong, nullable) UIColor *backgroundHighlightColor;
+@property (nonatomic, strong, nullable) UIColor *borderHighlightColor;
+@property (nonatomic, strong, nullable) UIFont *titlesFont;
 
 @property (nonatomic, assign) CGFloat viewWidth;
 @property (nonatomic, assign) CGFloat viewHeight;
@@ -34,7 +42,7 @@ NS_ASSUME_NONNULL_END
 #pragma mark - LifeCycle
 - (instancetype)init{
     if(self = [super init]){
-        _duration = DEFAULT_DURATION;
+        
     }
     return self;
 }
@@ -60,12 +68,6 @@ NS_ASSUME_NONNULL_END
 
 }
 #pragma mark - PublicMethod
-- (void)setButtonOnClickBlock:(ClickBlock)clickBlock{
-    if (clickBlock) {
-        _clickBlock = clickBlock;
-    }
-}
-
 - (void)setSegmentSelectedIndex:(NSUInteger)index{
     NSAssert(index < _titles.count, @"下标越界，超过选项数量");
     [self tapButton:[self viewWithTag:index]];
@@ -81,7 +83,7 @@ NS_ASSUME_NONNULL_END
     CGRect frame = [self countCurrentRectWithIndex:sender.tag];
     CGRect changeFrame = [self countCurrentRectWithIndex:-sender.tag];
     
-    [UIView animateWithDuration:_duration animations:^{
+    [UIView animateWithDuration:0.35f animations:^{
         _heightLightView.frame = frame;
         _heightTopView.frame = changeFrame;
     } completion:^(BOOL finished){
@@ -101,6 +103,10 @@ NS_ASSUME_NONNULL_END
     
     if(!_titlesHighlightColor){
         _titlesHighlightColor = [UIColor whiteColor];
+    }
+    
+    if(!_borderHighlightColor){
+        _borderHighlightColor = [UIColor whiteColor];
     }
     
     if(!_backgroundHighlightColor){
@@ -162,7 +168,7 @@ NS_ASSUME_NONNULL_END
 - (void)createTopLables{
     CGRect heightLightViewFrame = CGRectMake(0.0f, 0.0f, _labelWidth, _viewHeight);
     _heightLightView = [[UIView alloc] initWithFrame:heightLightViewFrame];
-    _heightLightView.layer.borderColor = _titlesHighlightColor.CGColor;
+    _heightLightView.layer.borderColor = _borderHighlightColor.CGColor;
     _heightLightView.layer.borderWidth = 2.0f;
     _heightLightView.backgroundColor = [UIColor whiteColor];
     _heightLightView.layer.cornerRadius = self.frame.size.height / 2;
@@ -208,5 +214,73 @@ NS_ASSUME_NONNULL_END
     [viewLayer addAnimation:animation forKey:nil];
 }
 #pragma mark - SettersAndGetters
+- (JLYSegmentControl *(^)(NSArray <NSString *>* titlesArr))SegmentTitles{
+    NSAssert(self != nil, @"需要初始化segment");
+    @weakify(self);
+    return ^id(NSArray <NSString *>* titlesArr){
+        @strongify(self);
+        self.titles = titlesArr;
+        return self;
+    };
+}
 
+- (JLYSegmentControl *(^)(UIColor *color))SegmentTitlesCustomColor{
+    NSAssert(self != nil, @"需要初始化segment");
+    @weakify(self);
+    return ^id(UIColor *color){
+        @strongify(self);
+        self.titlesCustomColor = color;
+        return self;
+    };
+}
+
+- (JLYSegmentControl *(^)(UIColor *color))SegmentTitlesHighlightColor{
+    NSAssert(self != nil, @"需要初始化segment");
+    @weakify(self);
+    return ^id(UIColor *color){
+        @strongify(self);
+        self.titlesHighlightColor = color;
+        return self;
+    };
+}
+
+- (JLYSegmentControl *(^)(UIColor *color))SegmentBackgroundHighlightColor{
+    NSAssert(self != nil, @"需要初始化segment");
+    @weakify(self);
+    return ^id(UIColor *color){
+        @strongify(self);
+        self.backgroundHighlightColor = color;
+        return self;
+    };
+}
+
+- (JLYSegmentControl *(^)(UIColor *color))SegmentBorderHighlightColor{
+    NSAssert(self != nil, @"需要初始化segment");
+    @weakify(self);
+    return ^id(UIColor *color){
+        @strongify(self);
+        self.borderHighlightColor = color;
+        return self;
+    };
+}
+
+- (JLYSegmentControl *(^)(UIFont *font))SegmentTitlesFont{
+    NSAssert(self != nil, @"需要初始化segment");
+    @weakify(self);
+    return ^id(UIFont *font){
+        @strongify(self);
+        self.titlesFont = font;
+        return self;
+    };
+}
+
+- (JLYSegmentControl *(^)(ClickBlock))SegmentClickBlock{
+    NSAssert(self != nil, @"需要初始化segment");
+    @weakify(self);
+    return ^id(ClickBlock myblock){
+        @strongify(self);
+        self.clickBlock = myblock;
+        return self;
+    };
+}
 @end

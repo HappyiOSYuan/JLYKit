@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "viewControllerConfig.h"
 #import "UIViewController+JLYVIPER.h"
+#import "UIView+Additions.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @class DGActivityIndicatorView;

@@ -18,6 +18,9 @@ RouterClass *router = [RouterClass routing]; \
 NSAssert(router != nil, @"router不能为nil"); \
 customCode \
 [JLYURLRouter openURL:RouterURL withUserInfo:Params completion:nil];
+
+#define JLY_URLVC(RouterClass, RouterURL, customCode) \
+[RouterClass routing] ? [JLYURLRouter objectForURL:RouterURL] : nil
 //构建模块关系
 #define JLY_BuildMoudleWith_VNPID(_vcClass_, _NAVClass_, _PresenterClass_, _InteractorClass_, _JLYDaoClass_) \
 + (instancetype)routing \

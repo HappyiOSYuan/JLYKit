@@ -77,7 +77,9 @@
 - (NSString *)objcTypesFromSignature:(NSMethodSignature *)signature {
     NSMutableString *types = [NSMutableString stringWithFormat:@"%s", signature.methodReturnType?:"v"];
     for (NSUInteger i = 0; i < signature.numberOfArguments; i ++) {
-        [types appendFormat:@"%s", [signature getArgumentTypeAtIndex:i]];
+        @autoreleasepool {
+            [types appendFormat:@"%s", [signature getArgumentTypeAtIndex:i]];
+        }
     }
     return [types copy];
 }
@@ -109,13 +111,15 @@
         invok.selector = anInvocation.selector;
         // copy arguments
         for (NSUInteger i = 0; i < argCount; i ++) {
-            const char * argType = [signature getArgumentTypeAtIndex:i];
-            NSUInteger argSize = 0;
-            NSGetSizeAndAlignment(argType, &argSize, NULL);
-            
-            void * argValue = alloca(argSize);
-            [anInvocation getArgument:&argValue atIndex:i];
-            [invok setArgument:&argValue atIndex:i];
+            @autoreleasepool {
+                const char * argType = [signature getArgumentTypeAtIndex:i];
+                NSUInteger argSize = 0;
+                NSGetSizeAndAlignment(argType, &argSize, NULL);
+                
+                void * argValue = alloca(argSize);
+                [anInvocation getArgument:&argValue atIndex:i];
+                [invok setArgument:&argValue atIndex:i];
+            }
         }
         // reset the target
         invok.target = obj;

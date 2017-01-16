@@ -9,6 +9,7 @@
 #import "JLYDatePickerView.h"
 #import <JLYKit/JLYSegmentControl.h>
 #import <JLYKit/NSObject+DateString.h>
+#import <libextobjc/extobjc.h>
 
 #define kScreenWidth   ([UIScreen mainScreen].bounds.size.width)
 #define kScreenHeight  ([UIScreen mainScreen].bounds.size.height)
@@ -18,6 +19,13 @@
 
 NS_ASSUME_NONNULL_BEGIN
 @interface JLYDatePickerView ()
+
+
+@property (nonatomic, copy, nullable) NSString *dateFormat;
+@property (nonatomic, strong, nullable) UIColor *themeColor;
+@property (nonatomic, strong, nullable) UIColor *titleColor;
+
+@property (nonatomic, copy) SelectDateBlock dateBlock;
 
 @property (nonatomic, strong) UIView *back_View;
 @property (nonatomic, strong) UILabel *startTime_Label;
@@ -119,19 +127,14 @@ NS_ASSUME_NONNULL_END
 }
 
 - (void)selectTime:(id)sender{
-    static NSDateFormatter* formatter = nil;
-    if (!formatter) {
-        formatter = [[NSDateFormatter alloc] init];
-        [formatter setLocale:[NSLocale currentLocale]];
-    }
-    [formatter setDateFormat:_dateFormat ? : @"YYYY-MM-dd"];
     if (self.selectedIndex) {
         [self.segment setSegmentSelectedIndex:0];
-        self.endTime_Label.text = [formatter stringFromDate:self.datePicker.date];
+        self.endTime_Label.text = [self stringFromDate:self.datePicker.date DateFormat:_dateFormat ? : @"YYYY-MM-dd"];
     }else{
         self.selectedIndex = 1;
         [self.segment setSegmentSelectedIndex:1];
-        self.startTime_Label.text = [formatter stringFromDate:self.datePicker.date];
+        self.startTime_Label.text = [self stringFromDate:self.datePicker.date DateFormat:_dateFormat ? : @"YYYY-MM-dd"];
+        NSLog(@"self.datePicker.date--->%@", self.datePicker.date);
         self.endTime_Label.text = [self monthEndDay:self.datePicker.date];
     }
     [self refreshSelectState];
@@ -139,21 +142,58 @@ NS_ASSUME_NONNULL_END
 
 - (void)dateSelectComplete:(id)sender{
     [self hide];
-    if (self.SelectDateBlock) {
-        self.SelectDateBlock(self.startTime_Label.text, self.endTime_Label.text);
+    if (self.dateBlock) {
+        self.dateBlock(self.startTime_Label.text, self.endTime_Label.text);
     }
 }
 
 #pragma mark - SettersAndGetters
 - (void)setThemeColor:(UIColor *)themeColor{
     self.segment.layer.borderColor = themeColor.CGColor;
-    self.segment.titlesCustomColor = themeColor;
-    self.segment.backgroundHighlightColor = themeColor;
-    self.segment.titlesHighlightColor = [UIColor whiteColor];
+    self.segment
+    .SegmentTitlesCustomColor(themeColor)
+    .SegmentBackgroundHighlightColor(themeColor)
+    .SegmentTitlesHighlightColor([UIColor whiteColor]);
     [self.select_btn setBackgroundColor:themeColor];
     [self.pick_Btn setBackgroundImage:[self createImageWithColor:themeColor] forState:UIControlStateNormal];
     [self layoutIfNeeded];
     [self refreshSelectState];
+}
+
+- (JLYDatePickerView *(^)(NSString *format))DatePickerFormat{
+    @weakify(self);
+    return ^id(NSString *format){
+        @strongify(self);
+        self.dateFormat = format;
+        return self;
+    };
+}
+
+- (JLYDatePickerView *(^)(UIColor *color))DatePickerTheme{
+    @weakify(self);
+    return ^id(UIColor *color){
+        @strongify(self);
+        self.themeColor = color;
+        return self;
+    };
+}
+
+- (JLYDatePickerView *(^)(UIColor *color))DatePickerTitleColor{
+    @weakify(self);
+    return ^id(UIColor *color){
+        @strongify(self);
+        self.titleColor = color;
+        return self;
+    };
+}
+
+- (JLYDatePickerView *(^)(SelectDateBlock))DatePickerSelectedBlock{
+    @weakify(self);
+    return ^id(SelectDateBlock myblock){
+        @strongify(self);
+        self.dateBlock = myblock;
+        return self;
+    };
 }
 
 - (UIView *)back_View{
@@ -224,15 +264,16 @@ NS_ASSUME_NONNULL_END
             v.layer.cornerRadius = 22.0f;
             v.layer.borderWidth = 2.0f;
             v.backgroundColor = [UIColor whiteColor];
-            v.titles = @[@"开始时间", @"结束时间"];
-            v.duration = 0.3f;
-            v.titlesCustomColor = [UIColor whiteColor];
-            v.backgroundHighlightColor = [UIColor whiteColor];
-            v.titlesHighlightColor = [UIColor colorWithRed:62.0f/255.0f green:181.0f/255.0f blue:169.0f/255.0f alpha:1.0f];
-            __weak typeof(self) weakSelf = self;
-            [v setButtonOnClickBlock:^(NSInteger tag, NSString *title) {
-                weakSelf.selectedIndex = tag;
-            }];
+            @weakify(self);
+            v
+            .SegmentTitles(@[@"开始时间", @"结束时间"])
+            .SegmentTitlesCustomColor([UIColor whiteColor])
+            .SegmentBackgroundHighlightColor([UIColor whiteColor])
+            .SegmentTitlesHighlightColor([UIColor colorWithRed:62.0f/255.0f green:181.0f/255.0f blue:169.0f/255.0f alpha:1.0f])
+            .SegmentClickBlock(^(NSInteger tag, NSString *title){
+                @strongify(self);
+                self.selectedIndex = tag;
+            });
             v;
         });
     }
@@ -243,6 +284,8 @@ NS_ASSUME_NONNULL_END
     if (!_datePicker) {
         _datePicker = [[UIDatePicker alloc] init];
         _datePicker.maximumDate = [NSDate date];
+        _datePicker.locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+        _datePicker.calendar = [NSCalendar currentCalendar];
         CGRect newFrame = _datePicker.frame;
         newFrame.size.width = kDefaultWidth * 4 / 5;
         newFrame.origin.x = 20.0f;
