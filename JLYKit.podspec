@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.6.7'
+s.version = '0.6.9'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
