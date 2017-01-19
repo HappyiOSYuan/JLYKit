@@ -11,19 +11,10 @@
 
 @implementation UINavigationBar (Awesome)
 
-static char overlayKey;
+static void* overlayKey;
 
 - (UIView *)overlay{
-    UIView *view = objc_getAssociatedObject(self, &overlayKey);
-    if (!view) {
-        [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        view = [[UIView alloc] init];
-        view.userInteractionEnabled = NO;
-        view.autoresizingMask = UIViewAutoresizingFlexibleWidth;    // Should not set `UIViewAutoresizingFlexibleHeight`
-        view.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) + 20.0f);
-        [[self.subviews firstObject] insertSubview:view atIndex:0];
-    }
-    return view;
+    return objc_getAssociatedObject(self, &overlayKey);
 }
 
 - (void)setOverlay:(UIView *)overlay{
@@ -31,6 +22,13 @@ static char overlayKey;
 }
 
 - (void)jly_setBackgroundColor:(UIColor *)backgroundColor{
+    if (!self.overlay) {
+        [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
+        self.overlay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) + 20)];
+        self.overlay.userInteractionEnabled = NO;
+        self.overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth;    // Should not set `UIViewAutoresizingFlexibleHeight`
+        [[self.subviews firstObject] insertSubview:self.overlay atIndex:0];
+    }
     self.overlay.backgroundColor = backgroundColor;
 }
 
@@ -59,18 +57,9 @@ static char overlayKey;
 }
 
 - (void)jly_reset{
-    [self jly_resetWithColor:nil];
-}
-
-- (void)jly_resetWithColor:(UIColor *)backgroundColor{
-    [[UINavigationBar appearance] setShadowImage:[UIImage new]];
-    if (backgroundColor) {
-        self.overlay.backgroundColor = backgroundColor;
-        self.overlay.frame = CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds), 64.0f);
-    }else{
-        [self.overlay removeFromSuperview];
-        self.overlay = nil;
-    }
+    [self setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+    [self.overlay removeFromSuperview];
+    self.overlay = nil;
 }
 
 @end
