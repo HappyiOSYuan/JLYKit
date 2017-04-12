@@ -1,6 +1,6 @@
 {
   "name": "JLYKit",
-  "version": "0.7.1",
+  "version": "0.7.2",
   "license": "MIT",
   "summary": "A simple framework on iOS.",
   "homepage": "https://github.com/HappyiOSYuan/JLYKit",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/HappyiOSYuan/JLYKit.git",
-    "tag": "0.7.1"
+    "tag": "0.7.2"
   },
   "requires_arc": true,
   "platforms": {
@@ -47,9 +47,6 @@
 
         ],
         "SVProgressHUD": [
-
-        ],
-        "JDStatusBarNotification": [
 
         ],
         "JLYKit/UIExtensions": [
@@ -145,9 +142,6 @@
       "name": "UIExtensions",
       "source_files": "JLYKit/Classes/UIExtensions/**/*.{h,m}",
       "dependencies": {
-        "JDStatusBarNotification": [
-
-        ],
         "JLYKit/FoundationExtensions": [
 
         ],

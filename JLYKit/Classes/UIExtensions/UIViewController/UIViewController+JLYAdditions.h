@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "SVProgressHUD.h"
-#import "JDStatusBarNotification.h"
 
 NS_ASSUME_NONNULL_BEGIN
 @protocol BackButtonHandlerProtocol <NSObject>

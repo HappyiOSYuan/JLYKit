@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.7.1'
+s.version = '0.7.2'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -19,7 +19,6 @@ s.subspec 'Config' do |config|
 	config.dependency 'SDAutoLayout'
 	config.dependency 'Masonry'
 	config.dependency 'SVProgressHUD'
-    config.dependency 'JDStatusBarNotification'
     config.dependency 'JLYKit/UIExtensions'
     config.dependency 'JLYKit/Vender'
     config.dependency 'JLYKit/AppUtils'
@@ -63,7 +62,6 @@ s.subspec 'JLYNetworking' do |networking|
  
 s.subspec 'UIExtensions' do |ui|
     ui.source_files = 'JLYKit/Classes/UIExtensions/**/*.{h,m}'
-    ui.dependency 'JDStatusBarNotification'
     ui.dependency 'JLYKit/FoundationExtensions'
     ui.dependency 'SVProgressHUD'
   end

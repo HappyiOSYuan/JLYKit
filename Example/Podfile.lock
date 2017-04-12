@@ -15,32 +15,30 @@ PODS:
   - AFNetworking/UIKit (3.1.0):
     - AFNetworking/NSURLSession
   - DGActivityIndicatorView (2.1.1)
-  - JDStatusBarNotification (1.5.5)
-  - JLYKit (0.7.1):
-    - JLYKit/AppDelegate (= 0.7.1)
-    - JLYKit/AppUtils (= 0.7.1)
-    - JLYKit/Config (= 0.7.1)
-    - JLYKit/FoundationExtensions (= 0.7.1)
-    - JLYKit/JLYBaseKit (= 0.7.1)
-    - JLYKit/JLYBaseViewModel (= 0.7.1)
-    - JLYKit/JLYLaunchAnimation (= 0.7.1)
-    - JLYKit/JLYNetworking (= 0.7.1)
-    - JLYKit/JLYURLRouter (= 0.7.1)
-    - JLYKit/JLYVIPER (= 0.7.1)
-    - JLYKit/UIExtensions (= 0.7.1)
-    - JLYKit/Vender (= 0.7.1)
-    - JLYKit/YYModel (= 0.7.1)
+  - JLYKit (0.7.2):
+    - JLYKit/AppDelegate (= 0.7.2)
+    - JLYKit/AppUtils (= 0.7.2)
+    - JLYKit/Config (= 0.7.2)
+    - JLYKit/FoundationExtensions (= 0.7.2)
+    - JLYKit/JLYBaseKit (= 0.7.2)
+    - JLYKit/JLYBaseViewModel (= 0.7.2)
+    - JLYKit/JLYLaunchAnimation (= 0.7.2)
+    - JLYKit/JLYNetworking (= 0.7.2)
+    - JLYKit/JLYURLRouter (= 0.7.2)
+    - JLYKit/JLYVIPER (= 0.7.2)
+    - JLYKit/UIExtensions (= 0.7.2)
+    - JLYKit/Vender (= 0.7.2)
+    - JLYKit/YYModel (= 0.7.2)
     - SDWebImage
-  - JLYKit/AppDelegate (0.7.1):
+  - JLYKit/AppDelegate (0.7.2):
     - Reachability
     - SDWebImage
-  - JLYKit/AppUtils (0.7.1):
+  - JLYKit/AppUtils (0.7.2):
     - JLYKit/FoundationExtensions
     - JLYKit/UIExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Config (0.7.1):
-    - JDStatusBarNotification
+  - JLYKit/Config (0.7.2):
     - JLYKit/AppUtils
     - JLYKit/JLYLaunchAnimation
     - JLYKit/JLYVIPER
@@ -53,9 +51,9 @@ PODS:
     - SDAutoLayout
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/FoundationExtensions (0.7.1):
+  - JLYKit/FoundationExtensions (0.7.2):
     - SDWebImage
-  - JLYKit/JLYBaseKit (0.7.1):
+  - JLYKit/JLYBaseKit (0.7.2):
     - DGActivityIndicatorView
     - JLYKit/Config
     - JLYKit/FoundationExtensions
@@ -63,33 +61,32 @@ PODS:
     - JLYKit/UIExtensions
     - MJRefresh
     - SDWebImage
-  - JLYKit/JLYBaseViewModel (0.7.1):
+  - JLYKit/JLYBaseViewModel (0.7.2):
     - JLYKit/JLYURLRouter
     - SDWebImage
-  - JLYKit/JLYLaunchAnimation (0.7.1):
+  - JLYKit/JLYLaunchAnimation (0.7.2):
     - SDWebImage
-  - JLYKit/JLYNetworking (0.7.1):
+  - JLYKit/JLYNetworking (0.7.2):
     - AFNetworking
     - JLYKit/FoundationExtensions
     - SDWebImage
-  - JLYKit/JLYURLRouter (0.7.1):
+  - JLYKit/JLYURLRouter (0.7.2):
     - SDWebImage
-  - JLYKit/JLYVIPER (0.7.1):
+  - JLYKit/JLYVIPER (0.7.2):
     - JLYKit/AppDelegate
     - JLYKit/JLYURLRouter
     - JLYKit/UIExtensions
     - SDWebImage
-  - JLYKit/UIExtensions (0.7.1):
-    - JDStatusBarNotification
+  - JLYKit/UIExtensions (0.7.2):
     - JLYKit/FoundationExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Vender (0.7.1):
+  - JLYKit/Vender (0.7.2):
     - JLYKit/FoundationExtensions
     - libextobjc
     - SDAutoLayout
     - SDWebImage
-  - JLYKit/YYModel (0.7.1):
+  - JLYKit/YYModel (0.7.2):
     - SDWebImage
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -131,9 +128,9 @@ PODS:
   - MLInputDodger (1.4.1)
   - Reachability (3.2)
   - SDAutoLayout (2.1.7)
-  - SDWebImage (3.8.2):
-    - SDWebImage/Core (= 3.8.2)
-  - SDWebImage/Core (3.8.2)
+  - SDWebImage (4.0.0):
+    - SDWebImage/Core (= 4.0.0)
+  - SDWebImage/Core (4.0.0)
   - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
@@ -146,15 +143,14 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
-  JDStatusBarNotification: 2b4f29bd68a60d7aa2f190b5265f1ce59c18aaf8
-  JLYKit: d2b6a83654eb24ea1a1f729b7324e6883e1adca6
+  JLYKit: 451e8e54648397a8f43658f23fff20b4da914c9f
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
   MLInputDodger: 79cbc9e07a573565e14dcb271965ec9ef5ff7b7f
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDAutoLayout: e9b36d04b8c0b504762a04d76fbbe5108944297a
-  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  SDWebImage: 76a6348bdc74eb5a55dd08a091ef298e56b55e41
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
 PODFILE CHECKSUM: 02e4dfbafb5a82afe75dce02e10f29cfbc49e14f

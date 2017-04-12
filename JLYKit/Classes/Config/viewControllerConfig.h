@@ -9,7 +9,6 @@
 #ifndef viewControllerConfig_h
 #define viewControllerConfig_h
 
-#import <JDStatusBarNotification/JDStatusBarNotification.h>
 #import <SVProgressHUD/SVProgressHUD.h>
 #import "UIViewController+JLYAdditions.h"
 #import "UIScrollView+EmptyDataSet.h"
