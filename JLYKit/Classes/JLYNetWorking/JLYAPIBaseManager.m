@@ -152,7 +152,12 @@ REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiP
                         break;
                 }
                 
-                NSMutableDictionary<NSString * ,id>*params = [apiParams mutableCopy];
+                NSMutableDictionary<NSString * ,id>*params = [NSMutableDictionary dictionary];
+                if ([apiParams isKindOfClass:[NSDictionary class]]) {
+                    params = [apiParams mutableCopy];
+                }else{
+                    params = @{@"params" : apiParams}.mutableCopy;
+                }
                 params[kRTAPIBaseManagerRequestID] = @(requestId);
                 [self afterCallingAPIWithParams:params];
                 return requestId;

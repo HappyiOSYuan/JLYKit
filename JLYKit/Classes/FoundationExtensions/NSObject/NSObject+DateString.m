@@ -24,6 +24,10 @@
     return [NSDate jly_stringWithDate:[NSDate date] format:[NSDate jly_ymdFormat]];
 }
 
+- (NSString *)yesterdayString{
+    return [NSDate jly_stringWithDate:[NSDate dateWithTimeIntervalSinceNow:-(24*60*60)] format:[NSDate jly_ymdFormat]];
+}
+
 - (NSString *)currentMonthBeginDay{
     return [NSDate jly_stringWithDate:[NSDate jly_begindayOfMonth:[NSDate date]] format:[NSDate jly_ymdFormat]];
 }
