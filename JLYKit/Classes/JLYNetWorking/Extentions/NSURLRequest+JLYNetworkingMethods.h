@@ -11,7 +11,7 @@
 NS_ASSUME_NONNULL_BEGIN
 @interface NSURLRequest (JLYNetworkingMethods)
 
-@property (nonatomic, copy) NSDictionary<NSString * ,id> *requestParams;
+@property (nonatomic, copy) id requestParams;
 
 @end
 NS_ASSUME_NONNULL_END

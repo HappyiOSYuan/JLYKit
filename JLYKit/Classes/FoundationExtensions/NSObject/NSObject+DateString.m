@@ -9,7 +9,6 @@
 #import "NSObject+DateString.h"
 
 #define CurrentCalender [NSCalendar currentCalendar]
-#define CalendarComponent [CurrentCalender components:(NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]]
 
 @implementation NSObject (DateString)
 
@@ -34,13 +33,15 @@
 }
 
 - (NSString *)lastMonthBeginDay{
-    [CalendarComponent setMonth:([CalendarComponent month] - 1)];
-    return [NSDate jly_stringWithDate:[NSDate jly_begindayOfMonth:[CurrentCalender dateFromComponents:CalendarComponent]] format:[NSDate jly_ymdFormat]];
+    NSDateComponents *cmp = [CurrentCalender components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
+    [cmp setMonth:[cmp month] - 1];
+    return [NSDate jly_stringWithDate:[NSDate jly_begindayOfMonth:[CurrentCalender dateFromComponents:cmp]] format:[NSDate jly_ymdFormat]];
 }
 
 - (NSString *)lastMonthEndDay{
-    [CalendarComponent setMonth:([CalendarComponent month] - 1)];
-    return [NSDate jly_stringWithDate:[NSDate jly_lastdayOfMonth:[CurrentCalender dateFromComponents:CalendarComponent]] format:[NSDate jly_ymdFormat]];
+    NSDateComponents *cmp = [CurrentCalender components:(NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond) fromDate:[NSDate date]];
+    [cmp setMonth:[cmp month] - 1];
+    return [NSDate jly_stringWithDate:[NSDate jly_lastdayOfMonth:[CurrentCalender dateFromComponents:cmp]] format:[NSDate jly_ymdFormat]];
 }
 
 - (NSString *)monthBeginDay:(NSDate *)date{

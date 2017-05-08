@@ -13,11 +13,11 @@ static void *JLYNetworkingRequestParams;
 
 @implementation NSURLRequest (JLYNetworkingMethods)
 
-- (void)setRequestParams:(NSDictionary<NSString * ,id> *)requestParams{
+- (void)setRequestParams:(id)requestParams{
     objc_setAssociatedObject(self, &JLYNetworkingRequestParams, requestParams, OBJC_ASSOCIATION_COPY);
 }
 
-- (NSDictionary<NSString * ,id> *)requestParams{
+- (id)requestParams{
     return objc_getAssociatedObject(self, &JLYNetworkingRequestParams);
 }
 

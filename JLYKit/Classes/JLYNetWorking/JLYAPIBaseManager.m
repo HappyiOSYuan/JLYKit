@@ -113,14 +113,14 @@ REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiP
 
 #pragma mark - calling api
 - (NSInteger)loadData{
-    NSDictionary<NSString * ,id>*params = [self.paramSource paramsForApi:self];
+    id params = [self.paramSource paramsForApi:self];
     NSInteger requestId = [self loadDataWithParams:params];
     return requestId;
 }
 
-- (NSInteger)loadDataWithParams:(NSDictionary *)params{
+- (NSInteger)loadDataWithParams:(id)params{
     NSInteger requestId = 0;
-    NSDictionary<NSString * ,id>*apiParams = [self reformParams:params];
+    id apiParams = [self reformParams:params];
     if ([self shouldCallAPIWithParams:apiParams]) {
         if ([self.validator manager:self isCorrectWithParamsData:apiParams]) {
             
@@ -246,7 +246,7 @@ REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiP
 }
 
 //只有返回YES才会继续调用API
-- (BOOL)shouldCallAPIWithParams:(NSDictionary *)params{
+- (BOOL)shouldCallAPIWithParams:(id)params{
     if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:shouldCallAPIWithParams:)]) {
         return [self.interceptor manager:self shouldCallAPIWithParams:params];
     } else {
@@ -254,7 +254,7 @@ REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiP
     }
 }
 
-- (void)afterCallingAPIWithParams:(NSDictionary *)params{
+- (void)afterCallingAPIWithParams:(id)params{
     if (self != self.interceptor && [self.interceptor respondsToSelector:@selector(manager:afterCallingAPIWithParams:)]) {
         [self.interceptor manager:self afterCallingAPIWithParams:params];
     }
@@ -278,7 +278,7 @@ REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiP
 
 //如果需要在调用API之前额外添加一些参数，比如pageNumber和pageSize之类的就在这里添加
 //子类中覆盖这个函数的时候就不需要调用[super reformParams:params]了
-- (NSDictionary<NSString * ,id>*)reformParams:(NSDictionary<NSString * ,id>*)params{
+- (id)reformParams:(id)params{
     IMP childIMP = [self.child methodForSelector:@selector(reformParams:)];
     IMP selfIMP = [self methodForSelector:@selector(reformParams:)];
     
@@ -287,7 +287,7 @@ REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiP
     } else {
         // 如果child是继承得来的，那么这里就不会跑到，会直接跑子类中的IMP。
         // 如果child是另一个对象，就会跑到这里
-        NSDictionary<NSString * ,id>*result = nil;
+        id result = nil;
         result = [self.child reformParams:params];
         if (result) {
             return result;
@@ -314,7 +314,7 @@ REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiP
     }
 }
 
-- (BOOL)hasCacheWithParams:(NSDictionary<NSString * ,id>*)params{
+- (BOOL)hasCacheWithParams:(id)params{
     NSString *serviceIdentifier = self.child.serviceType;
     NSString *methodName = self.child.methodName;
     NSData *result = [self.cache fetchCachedDataWithServiceIdentifier:serviceIdentifier

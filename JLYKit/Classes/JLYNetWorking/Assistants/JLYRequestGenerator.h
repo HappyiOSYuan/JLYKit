@@ -14,21 +14,21 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedInstance;
 
 - (__kindof NSURLRequest *)generateGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                     requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                     requestParams:(nullable id)requestParams
                                                         methodName:(NSString *)methodName;
 - (__kindof NSURLRequest *)generatePOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                      requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                      requestParams:(nullable id)requestParams
                                                          methodName:(NSString *)methodName;
 - (__kindof NSURLRequest *)generateImageRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                       requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                       requestParams:(nullable id)requestParams
                                                           methodName:(NSString *)methodName;
 - (__kindof NSURLRequest *)generateRestfulGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                            requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                            requestParams:(nullable id)requestParams
                                                                methodName:(NSString *)methodName;
 - (__kindof NSURLRequest *)generateRestfulPOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
-                                                             requestParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+                                                             requestParams:(nullable id)requestParams
                                                                 methodName:(NSString *)methodName;
-- (__kindof NSURLRequest *)generateGoolgeMapAPIRequestWithParams:(nullable NSDictionary<NSString * ,id>*)requestParams
+- (__kindof NSURLRequest *)generateGoolgeMapAPIRequestWithParams:(nullable id)requestParams
                                                serviceIdentifier:(NSString *)serviceIdentifier;
 
 @end

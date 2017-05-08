@@ -101,7 +101,7 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 
 @optional
 - (void)cleanData;
-- (NSDictionary<NSString * ,id>* _Nullable)reformParams:(NSDictionary<NSString * ,id>* _Nullable)params;
+- (id _Nullable)reformParams:(id _Nullable)params;
 - (BOOL)shouldCache;
 
 @end
@@ -159,8 +159,8 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 - (void)beforePerformFailWithResponse:(JLYURLResponse *)response;
 - (void)afterPerformFailWithResponse:(JLYURLResponse *)response;
 
-- (BOOL)shouldCallAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
-- (void)afterCallingAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
+- (BOOL)shouldCallAPIWithParams:(id _Nullable)params;
+- (void)afterCallingAPIWithParams:(id _Nullable)params;
 
 /*
  用于给继承的类做重载，在调用API之前额外添加一些参数,但不应该在这个函数里面修改已有的参数。
@@ -176,7 +176,7 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
  那么在传递参数要求不同的返回时，可以在这里给返回参数指定类型。
  
  */
-- (NSDictionary<NSString * ,id>* _Nullable)reformParams:(NSDictionary<NSString * ,id>* _Nullable)params;
+- (id _Nullable)reformParams:(id _Nullable)params;
 - (void)cleanData;
 - (BOOL)shouldCache;
 

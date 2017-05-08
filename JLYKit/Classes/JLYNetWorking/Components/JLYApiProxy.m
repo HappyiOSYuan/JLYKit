@@ -65,7 +65,7 @@ static JLYApiProxy * instance = nil;
 }
 
 #pragma mark - public methods
-- (NSInteger)callGETWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callGETWithParams:(id)params
              serviceIdentifier:(NSString *)servieIdentifier
                     methodName:(NSString *)methodName
                        success:(NDBCallback)success
@@ -79,7 +79,7 @@ static JLYApiProxy * instance = nil;
     return [requestId integerValue];
 }
 
-- (NSInteger)callPOSTWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callPOSTWithParams:(id)params
               serviceIdentifier:(NSString *)servieIdentifier
                      methodName:(NSString *)methodName
                         success:(NDBCallback)success
@@ -94,7 +94,7 @@ static JLYApiProxy * instance = nil;
     return [requestId integerValue];
 }
 
-- (NSInteger)callImageWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callImageWithParams:(id)params
                serviceIdentifier:(NSString *)servieIdentifier
                       methodName:(NSString *)methodName
                          success:(NDBCallback)success
@@ -109,7 +109,7 @@ static JLYApiProxy * instance = nil;
     return [requestId integerValue];
 }
 
-- (NSInteger)callRestfulGETWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callRestfulGETWithParams:(id)params
                     serviceIdentifier:(NSString *)servieIdentifier
                            methodName:(NSString *)methodName
                               success:(NDBCallback)success
@@ -124,7 +124,7 @@ static JLYApiProxy * instance = nil;
     return [requestId integerValue];
 }
 
-- (NSInteger)callRestfulPOSTWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callRestfulPOSTWithParams:(id)params
                      serviceIdentifier:(NSString *)servieIdentifier
                             methodName:(NSString *)methodName
                                success:(NDBCallback)success
@@ -139,7 +139,7 @@ static JLYApiProxy * instance = nil;
     return [requestId integerValue];
 }
 
-- (NSInteger)callGoogleMapAPIWithParams:(NSDictionary<NSString * ,id> *)params
+- (NSInteger)callGoogleMapAPIWithParams:(id)params
                       serviceIdentifier:(NSString *)serviceIdentifier
                                 success:(NDBCallback)success
                                    fail:(NDBCallback)fail{
