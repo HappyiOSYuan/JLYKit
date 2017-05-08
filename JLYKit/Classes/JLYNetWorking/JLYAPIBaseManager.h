@@ -42,8 +42,8 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kJLYAPIBaseManagerRequest
  */
 @protocol JLYAPIManagerValidator <NSObject>
 @required
-- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager isCorrectWithCallBackData:(NSDictionary<NSString * ,id>* _Nullable)data;
-- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager isCorrectWithParamsData:(NSDictionary<NSString * ,id>* _Nullable)data;
+- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager isCorrectWithCallBackData:(id _Nullable)data;
+- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager isCorrectWithParamsData:(id _Nullable)data;
 @end
 
 /*!
@@ -51,7 +51,7 @@ static NSString * const kRTAPIBaseManagerRequestID = @"kJLYAPIBaseManagerRequest
  */
 @protocol JLYAPIManagerParamSourceDelegate <NSObject>
 @required
-- (NSDictionary * _Nullable)paramsForApi:(JLYAPIBaseManager *)manager;
+- (id _Nullable)paramsForApi:(JLYAPIBaseManager *)manager;
 @end
 
 typedef NS_ENUM (NSUInteger, JLYAPIManagerErrorType){
@@ -118,8 +118,8 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
 - (void)manager:(__kindof JLYAPIBaseManager *)manager beforePerformFailWithResponse:(JLYURLResponse *)response;
 - (void)manager:(__kindof JLYAPIBaseManager *)manager afterPerformFailWithResponse:(JLYURLResponse *)response;
 
-- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager shouldCallAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
-- (void)manager:(__kindof JLYAPIBaseManager *)manager afterCallingAPIWithParams:(NSDictionary<NSString * ,id>* _Nullable)params;
+- (BOOL)manager:(__kindof JLYAPIBaseManager *)manager shouldCallAPIWithParams:(id)params;
+- (void)manager:(__kindof JLYAPIBaseManager *)manager afterCallingAPIWithParams:(id)params;
 
 @end
 
