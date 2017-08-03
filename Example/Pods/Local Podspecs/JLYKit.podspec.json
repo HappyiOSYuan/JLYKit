@@ -1,6 +1,6 @@
 {
   "name": "JLYKit",
-  "version": "0.7.5",
+  "version": "0.7.6",
   "license": "MIT",
   "summary": "A simple framework on iOS.",
   "homepage": "https://github.com/HappyiOSYuan/JLYKit",
@@ -9,7 +9,7 @@
   },
   "source": {
     "git": "https://github.com/HappyiOSYuan/JLYKit.git",
-    "tag": "0.7.5"
+    "tag": "0.7.6"
   },
   "requires_arc": true,
   "platforms": {
@@ -160,7 +160,7 @@
     },
     {
       "name": "Vender",
-      "source_files": "JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController,JLYNavigationSubtitleView,JLYSegmentControl,JLYDatePickerView}/**/*.{h,m}",
+      "source_files": "JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController,JLYNavigationSubtitleView,JLYSegmentControl,JLYDatePickerView,JLYSqlite}/**/*.{h,m}",
       "dependencies": {
         "SDAutoLayout": [
 

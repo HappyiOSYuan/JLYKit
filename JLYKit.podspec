@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.7.5'
+s.version = '0.7.6'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -75,7 +75,7 @@ s.subspec 'JLYURLRouter' do |router|
   end 
   
 s.subspec 'Vender' do |vender|
-    vender.source_files = 'JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController,JLYNavigationSubtitleView,JLYSegmentControl,JLYDatePickerView}/**/*.{h,m}'
+    vender.source_files = 'JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController,JLYNavigationSubtitleView,JLYSegmentControl,JLYDatePickerView,JLYSqlite}/**/*.{h,m}'
     vender.dependency 'SDAutoLayout'
     vender.dependency 'JLYKit/FoundationExtensions'
     vender.dependency 'libextobjc'
@@ -88,7 +88,7 @@ s.subspec 'JLYLaunchAnimation' do |animation|
 s.subspec 'YYModel' do |model|
     model.source_files = 'JLYKit/Classes/YYModel/**/*.{h,m}'
   end
-  
+
 s.subspec 'AppUtils' do |utils|
     utils.source_files = 'JLYKit/Classes/AppUtils/**/*.{h,m}'
     utils.dependency 'JLYKit/FoundationExtensions'

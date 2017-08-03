@@ -27,7 +27,7 @@
                                               forIndexPath:indexPath];
     CellConfigBlock configBlock = self.sections[indexPath.section].cellConfig;
     if (!configBlock) {
-        NSAssert(configBlock != nil, @"Warning : adapter block for section %ld is null. please use dataSourceMake.adapter(^block) set it");
+        NSAssert(configBlock != nil, @"Warning : adapter block for section %ld is null. please use dataSourceMake.adapter(^block) set it", indexPath.section);
         return cell;
     }
     id data = self.sections[indexPath.section].dataList[indexPath.row];
@@ -72,8 +72,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    NSString * identifier = self.sections[indexPath.section].identifier;
+
     id data = self.sections[indexPath.section].dataList[indexPath.row];
     if(self.sections[indexPath.section].isAutoHeight) {
         return [tableView cellHeightForIndexPath:indexPath

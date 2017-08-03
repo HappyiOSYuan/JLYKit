@@ -52,7 +52,7 @@
     };
 }
 
-- (void)commitEditing:(void (^)(UITableView *tableView,UITableViewCellEditingStyle *editingStyle, NSIndexPath *indexPath))block {
+- (void)commitEditing:(void(^)(__kindof UITableView *tableView, UITableViewCellEditingStyle *editingStyle, NSIndexPath *indexPath))block {
     self.commitEditingBlock = block;
 }
 
