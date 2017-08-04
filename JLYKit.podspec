@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.7.6'
+s.version = '0.7.7'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -58,8 +58,12 @@ s.subspec 'JLYNetworking' do |networking|
     networking.source_files = 'JLYKit/Classes/JLYNetworking/**/*.{h,m}'
     networking.dependency 'AFNetworking'
     networking.dependency 'JLYKit/FoundationExtensions'
-  end 
- 
+  end
+
+s.subspec 'JLYSqlite' do |networking|
+    networking.source_files = 'JLYKit/Classes/JLYSqlite/**/*.{h,m}'
+  end
+
 s.subspec 'UIExtensions' do |ui|
     ui.source_files = 'JLYKit/Classes/UIExtensions/**/*.{h,m}'
     ui.dependency 'JLYKit/FoundationExtensions'
@@ -75,7 +79,7 @@ s.subspec 'JLYURLRouter' do |router|
   end 
   
 s.subspec 'Vender' do |vender|
-    vender.source_files = 'JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController,JLYNavigationSubtitleView,JLYSegmentControl,JLYDatePickerView,JLYSqlite}/**/*.{h,m}'
+    vender.source_files = 'JLYKit/Classes/Vender/{JLYAlert,JLYCountDownButton,JLYForm,JLYGrowingTextView,JLYMaterialTextFeild,JLYPopMenu,RMActionController,JLYNavigationSubtitleView,JLYSegmentControl,JLYDatePickerView}/**/*.{h,m}'
     vender.dependency 'SDAutoLayout'
     vender.dependency 'JLYKit/FoundationExtensions'
     vender.dependency 'libextobjc'
