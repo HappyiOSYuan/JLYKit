@@ -60,8 +60,8 @@ s.subspec 'JLYNetworking' do |networking|
     networking.dependency 'JLYKit/FoundationExtensions'
   end
 
-s.subspec 'JLYSqlite' do |networking|
-    networking.source_files = 'JLYKit/Classes/JLYSqlite/**/*.{h,m}'
+s.subspec 'JLYSqlite' do |sqlite|
+    sqlite.source_files = 'JLYKit/Classes/JLYSqlite/**/*.{h,m}'
   end
 
 s.subspec 'UIExtensions' do |ui|
