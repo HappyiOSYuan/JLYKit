@@ -40,7 +40,7 @@ static NSString * const kNDBApiProxyDispatchItemKeyCallbackFail = @"kNDBApiProxy
         _sessionManager = [AFHTTPSessionManager manager];
         _sessionManager.responseSerializer = [AFHTTPResponseSerializer serializer];
         _sessionManager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"application/json",@"text/json", @"text/plain", @"text/html", nil];
-        ((AFJSONResponseSerializer *)_sessionManager.responseSerializer).removesKeysWithNullValues = YES;
+        //((AFJSONResponseSerializer *)_sessionManager.responseSerializer).removesKeysWithNullValues = YES;
     }
     return _sessionManager;
 }

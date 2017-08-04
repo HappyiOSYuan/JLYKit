@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#define WHCSqlite JLYSqliteWithModel
+#define JLYSqlite JLYSqliteWithModel
 
 /// 数据库协议信息
 @protocol JLYSqliteInfoProtocol <NSObject>

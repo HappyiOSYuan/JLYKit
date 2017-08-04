@@ -17,7 +17,6 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)jly_setElementsAlpha:(CGFloat)alpha;
 - (void)jly_setTranslationY:(CGFloat)translationY;
 - (void)jly_reset;
-- (void)jly_resetWithColor:(UIColor * _Nullable)backgroundColor;
 
 @end
 NS_ASSUME_NONNULL_END
