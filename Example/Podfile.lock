@@ -73,6 +73,7 @@ PODS:
     - SDWebImage
   - JLYKit/JLYSqlite (0.7.8):
     - SDWebImage
+    - SQLCipher
   - JLYKit/JLYURLRouter (0.7.8):
     - SDWebImage
   - JLYKit/JLYVIPER (0.7.8):
@@ -134,6 +135,11 @@ PODS:
   - SDWebImage (4.1.0):
     - SDWebImage/Core (= 4.1.0)
   - SDWebImage/Core (4.1.0)
+  - SQLCipher (3.4.1):
+    - SQLCipher/standard (= 3.4.1)
+  - SQLCipher/common (3.4.1)
+  - SQLCipher/standard (3.4.1):
+    - SQLCipher/common
   - SVProgressHUD (2.1.2)
 
 DEPENDENCIES:
@@ -146,7 +152,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
-  JLYKit: 0e9a3c06a3d8e6409bb08bc9e462fc44388f82b2
+  JLYKit: 8f1f727ed55231caace93653a584e1bdef484646
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -154,6 +160,7 @@ SPEC CHECKSUMS:
   Reachability: 33e18b67625424e47b6cde6d202dce689ad7af96
   SDAutoLayout: c5509e77ae75735d9a39f7bc83dba6d3f75d49d8
   SDWebImage: 0e435c14e402a6730315a0fb79f95e68654d55a4
+  SQLCipher: 43d12c0eb9c57fb438749618fc3ce0065509a559
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
 
 PODFILE CHECKSUM: 02e4dfbafb5a82afe75dce02e10f29cfbc49e14f

@@ -62,6 +62,8 @@ s.subspec 'JLYNetworking' do |networking|
 
 s.subspec 'JLYSqlite' do |sqlite|
     sqlite.source_files = 'JLYKit/Classes/JLYSqlite/**/*.{h,m}'
+    sqlite.library = 'sqlite3'
+    sqlite.dependency 'SQLCipher'
   end
 
 s.subspec 'UIExtensions' do |ui|

@@ -140,7 +140,13 @@
     },
     {
       "name": "JLYSqlite",
-      "source_files": "JLYKit/Classes/JLYSqlite/**/*.{h,m}"
+      "source_files": "JLYKit/Classes/JLYSqlite/**/*.{h,m}",
+      "libraries": "sqlite3",
+      "dependencies": {
+        "SQLCipher": [
+
+        ]
+      }
     },
     {
       "name": "UIExtensions",
