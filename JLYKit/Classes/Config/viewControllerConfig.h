@@ -38,6 +38,13 @@ customCode; \
 _Pragma("clang diagnostic pop") \
 } while (0)
 
+static inline UIEdgeInsets jly_safeAreaInset(UIView *view) {
+    if (@available(iOS 11.0, *)) {
+        return view.safeAreaInsets;
+    }
+    return UIEdgeInsetsZero;
+}
+
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
 
 #define themeColor(customColor) customColor ? : defaultTheme
@@ -48,6 +55,8 @@ _Pragma("clang diagnostic pop") \
 
 #define screenWidth [UIScreen mainScreen].bounds.size.width
 #define screenHeight [UIScreen mainScreen].bounds.size.height
+#define SafeAreaTopHeight (screenHeight == 812.0 ? 88.0f : 64.0f)
+#define SafeAreaBottomHeight (screenHeight == 812.0 ? 34.0f : 0.0f)
 
 #define font(x) [UIFont systemFontOfSize:x]
 #define Numfont(x) [UIFont fontWithName:@"AppleGothic" size:x]

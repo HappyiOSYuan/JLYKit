@@ -92,7 +92,7 @@
 @property (nonatomic      ) JLYAlertAction  *cancelAction;
 @property (nonatomic      ) NSMutableArray *buttons;
 @property (nonatomic      ) NSMutableArray *textFieldHandlers;
-@property (nonatomic, copy) void           (^completion)();
+@property (nonatomic, copy) void           (^completion)(void);
 /** An array of \c NSStrings containing the text in each of the alert controller's text views *after* it has been dismissed.
  This array is passed to each \c JLYAlertActionBlock, so it is only necessary to access this property if you for some reason need to keep it around for later use. */
 @property (nonatomic) NSMutableArray *textFieldInputStrings;

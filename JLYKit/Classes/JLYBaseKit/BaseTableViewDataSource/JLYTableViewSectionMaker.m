@@ -51,7 +51,7 @@
     };
 }
 
-- (JLYTableViewSectionMaker * (^)())autoHeight {
+- (JLYTableViewSectionMaker * (^)(void))autoHeight {
     @weakify(self);
     return ^JLYTableViewSectionMaker * {
         @strongify(self);
@@ -103,18 +103,18 @@
     return retStr;
 }
 
-- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * (^)()))headerView {
+- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * (^)(void)))headerView {
     @weakify(self);
-    return ^JLYTableViewSectionMaker *(__kindof UITableViewHeaderFooterView * (^view)()) {
+    return ^JLYTableViewSectionMaker *(__kindof UITableViewHeaderFooterView * (^view)(void)) {
         @strongify(self);
         self.section.headerView = view();
         return self;
     };
 }
 
-- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * (^)()))footerView {
+- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * (^)(void)))footerView {
     @weakify(self);
-    return ^JLYTableViewSectionMaker *(__kindof UITableViewHeaderFooterView * (^view)()) {
+    return ^JLYTableViewSectionMaker *(__kindof UITableViewHeaderFooterView * (^view)(void)) {
         @strongify(self);
         self.section.footerView = view();
         return self;

@@ -8,6 +8,10 @@
 
 #import "UINavigationBar+Awesome.h"
 #import <objc/runtime.h>
+#import <JLYKit/UIView+Additions.h>
+
+#define screenHeight [UIScreen mainScreen].bounds.size.height
+#define SafeAreaTopHeight (screenHeight == 812.0 ? 88.0f : 64.0f)
 
 @implementation UINavigationBar (Awesome)
 
@@ -22,12 +26,13 @@ static void* overlayKey;
 }
 
 - (void)jly_setBackgroundColor:(UIColor *)backgroundColor{
+    
     if (!self.overlay) {
         [self setBackgroundImage:[UIImage new] forBarMetrics:UIBarMetricsDefault];
-        self.overlay = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.bounds), CGRectGetHeight(self.bounds) + 20)];
+        self.overlay = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, CGRectGetWidth(self.bounds), SafeAreaTopHeight)];
         self.overlay.userInteractionEnabled = NO;
         self.overlay.autoresizingMask = UIViewAutoresizingFlexibleWidth;    // Should not set `UIViewAutoresizingFlexibleHeight`
-        [[self.subviews firstObject] insertSubview:self.overlay atIndex:0];
+        [[self.subviews firstObject] insertSubview:self.overlay atIndex:0.0f];
     }
     self.overlay.backgroundColor = backgroundColor;
 }

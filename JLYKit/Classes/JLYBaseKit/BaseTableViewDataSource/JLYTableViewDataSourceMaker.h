@@ -20,8 +20,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (instancetype)initWithTableView:(UITableView *)tableView;
 - (JLYTableViewDataSourceMaker * (^)(CGFloat))height;
-- (JLYTableViewDataSourceMaker * (^)(UIView *  _Nullable (^)()))headerView;
-- (JLYTableViewDataSourceMaker * (^)(UIView *  _Nullable (^)()))footerView;
+- (JLYTableViewDataSourceMaker * (^)(UIView *  _Nullable (^)(void)))headerView;
+- (JLYTableViewDataSourceMaker * (^)(UIView *  _Nullable (^)(void)))footerView;
 
 - (void)commitEditing:(void(^)(__kindof UITableView *tableView, UITableViewCellEditingStyle *editingStyle, NSIndexPath *indexPath))block;
 - (void)scrollViewDidScroll:(void(^)(UIScrollView *scrollView))block;

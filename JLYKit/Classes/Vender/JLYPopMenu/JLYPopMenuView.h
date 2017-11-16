@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 typedef void(^ItemsClickBlock)(NSString *str, NSInteger tag);
-typedef void(^BackViewTapBlock)();
+typedef void(^BackViewTapBlock)(void);
 
 @interface JLYPopMenuView : UIView
 
@@ -31,7 +31,7 @@ typedef void(^BackViewTapBlock)();
                            target:(__kindof UIViewController *)target
                         dataArray:(NSArray *)dataArray
                   itemsClickBlock:(void(^)(NSString *str, NSInteger tag))itemsClickBlock
-                      backViewTap:(void(^)())backViewTapBlock;
+                        backViewTap:(void(^)(void))backViewTapBlock;
 /**
  *  展示菜单
  *

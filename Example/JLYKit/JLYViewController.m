@@ -24,6 +24,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"JLYKit";
+    [self setIsOpenNetListen:NO];
     UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
     btn.frame = CGRectMake(0.0f, 0.0f, 70.0f, 30.0f);
     btn.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);

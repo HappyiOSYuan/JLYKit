@@ -15,7 +15,7 @@
 //跳转页面
 #define JLY_OPENVC(RouterClass, RouterURL, Params, customCode) \
 RouterClass *router = [RouterClass routing]; \
-NSAssert(router != nil, @"router不能为nil"); \
+if(!router) return; \
 customCode \
 [JLYURLRouter openURL:RouterURL withUserInfo:Params completion:nil];
 
@@ -26,10 +26,10 @@ customCode \
 + (instancetype)routing \
 { \
 return [[super routing] jly_buildModulesWithVCClass:_vcClass_ \
-                                  navigationVCClass:_NAVClass_ \
-                                     PresenterClass:_PresenterClass_ \
-                                    interactorClass:_InteractorClass_ \
-                                           daoClass:_JLYDaoClass_]; \
+navigationVCClass:_NAVClass_ \
+PresenterClass:_PresenterClass_ \
+interactorClass:_InteractorClass_ \
+daoClass:_JLYDaoClass_]; \
 }
 //构建模块关系
 #define JLY_BuildMoudleWith_VNPI(_vcClass_, _NAVClass_, _PresenterClass_, _InteractorClass_) \
@@ -44,7 +44,7 @@ JLY_BuildMoudleWith_VNPID(_vcClass_, nil, _PresenterClass_, _InteractorClass_, n
 // 显示根模块
 #define JLY_ShowRootWindow(RouterClass,customCode) \
 RouterClass *router = [RouterClass routing]; \
-NSAssert(router != nil, @"router不能为nil"); \
+if(!router) NSLog(@"router is none"); \
 customCode \
 [router jly_showRootViewControllerWithWindow:application.delegate.window];
 

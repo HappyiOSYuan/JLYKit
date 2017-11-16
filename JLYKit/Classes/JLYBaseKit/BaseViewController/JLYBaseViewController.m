@@ -75,10 +75,15 @@
     [super viewDidLoad];
     self.isOpenNetListen = YES;
     self.view.backgroundColor = backColor(nil);
-    [self fitViewWithFitViewType:self.fitViewType];
+    
     [self configSubviews];
     [self configConstraints];
     // Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    [self fitViewWithFitViewType:self.fitViewType];
 }
 //视图将要出现
 - (void)viewWillAppear:(BOOL)animated{
@@ -126,11 +131,12 @@
     [self fitCondition];
     //自动调整Insets关闭
     self.automaticallyAdjustsScrollViewInsets = NO;
+    UIEdgeInsets safeAreaInsets = jly_safeAreaInset(self.view);
     //*****************************第一种方法******************************//
     if (fitViewType == FitViewTypeDefault) {
         //当前的容器为导航控制器
         if (self.navigationController && self.navigationController.tabBarController == nil) {
-            _viewToBottom = 0.0f;
+            _viewToBottom = 0.0f + SafeAreaBottomHeight;
             //导航条隐藏
             if (self.navigationController.isNavigationBarHidden) {
                 _viewToTop = 20.0f;
@@ -138,10 +144,10 @@
             }else{
                 //导航条透明
                 if (self.navigationController.navigationBar.isTranslucent) {
-                    _viewToTop = 64.0f;
+                    _viewToTop = safeAreaInsets.top;
                 }else{
                     self.extendedLayoutIncludesOpaqueBars = YES;
-                    _viewToTop = 64.0f;
+                    _viewToTop = safeAreaInsets.top;
                 }
             }
             //当前的容器是tabBar控制器
@@ -149,10 +155,10 @@
             _viewToTop = 20.0f;
             //tabBar隐藏
             if (self.tabBarController.tabBar.isHidden) {
-                _viewToBottom = 0.0f;
+                _viewToBottom = 0.0f + SafeAreaBottomHeight;
                 //tabBar显示
             }else{
-                _viewToBottom = 49.0f;
+                _viewToBottom = 49.0f + SafeAreaBottomHeight;
             }
             //当前容器的容器是tabBar的控制器
         }else if (self.navigationController && self.navigationController.tabBarController){
@@ -160,20 +166,20 @@
             //导航条显示 tabBar显示
             if (self.navigationController.isNavigationBarHidden == NO
                 && self.navigationController.tabBarController.tabBar.isHidden == NO && self.hidesBottomBarWhenPushed == NO) {
-                _viewToBottom =  49.0f;
+                _viewToBottom =  49.0f + SafeAreaBottomHeight;
                 //导航条透明
                 if (self.navigationController.navigationBar.isTranslucent) {
-                    _viewToTop = 64.0f;
+                    _viewToTop = safeAreaInsets.top;
                 }else{
                     self.extendedLayoutIncludesOpaqueBars = YES;
-                    _viewToTop = 64.0f;
+                    _viewToTop = safeAreaInsets.top;
                 }
                 //导航条隐藏 tarBar隐藏
             }else if (self.navigationController.isNavigationBarHidden
                       && (self.navigationController.tabBarController.tabBar.isHidden | self.hidesBottomBarWhenPushed)){
                 
                 _viewToTop = 20.0f;
-                _viewToBottom = 0.0f;
+                _viewToBottom = 0.0f + SafeAreaBottomHeight;
                 
                 //导航条显示 tarBar隐藏
             }else if (self.navigationController.isNavigationBarHidden == NO
@@ -181,17 +187,17 @@
                           || self.hidesBottomBarWhenPushed)){
                           //导航条透明
                           if (self.navigationController.navigationBar.isTranslucent) {
-                              _viewToTop = 64.0f;
+                              _viewToTop = safeAreaInsets.top;
                           }else{
                               self.extendedLayoutIncludesOpaqueBars = YES;
-                              _viewToTop = 64.0f;
+                              _viewToTop = safeAreaInsets.top;
                           }
-                          _viewToBottom = 0.0f;
+                          _viewToBottom = 0.0f + SafeAreaBottomHeight;
                           //导航条隐藏 tabBar显示
                       }else{
                           
                           _viewToTop = 20.0f;
-                          _viewToBottom = 49.0f;
+                          _viewToBottom = 49.0f + SafeAreaBottomHeight;
                       }
             //当前没有容器
         }else{
@@ -289,6 +295,7 @@
             _viewToTop = 20.0f;
         }
     }
+    self.netWorkChageView.frame = CGRectMake(0, self.viewToTop, self.view.frame.size.width, 30.0f);
 }
 
 // 适配条件 留个接口子类继承重写

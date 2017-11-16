@@ -20,15 +20,15 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (JLYTableViewSectionMaker * (^)(CGFloat))height;
 
-- (JLYTableViewSectionMaker * (^)())autoHeight;
+- (JLYTableViewSectionMaker * (^)(void))autoHeight;
 
 - (JLYTableViewSectionMaker * (^)(void(^)(NSIndexPath *indexPath, id model)))cellEvent;
 
 - (JLYTableViewSectionMaker * (^)(NSString * _Nullable))headerTitle;
 - (JLYTableViewSectionMaker * (^)(NSString * _Nullable))footerTitle;
 
-- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * _Nullable (^)()))headerView;
-- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * _Nullable (^)()))footerView;
+- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * _Nullable (^)(void)))headerView;
+- (JLYTableViewSectionMaker * (^)(__kindof UITableViewHeaderFooterView * _Nullable (^)(void)))footerView;
 
 @property(nonatomic, strong) JLYDataSourceSection * section;
 

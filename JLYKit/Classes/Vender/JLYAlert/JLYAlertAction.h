@@ -16,7 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 ///-------------------
 
 /** A void returning block that takes no parameters. */
-typedef void (^JLYVoidBlock)();
+typedef void (^JLYVoidBlock)(void);
 /** A void returning block that takes an array of strings representing the text in each of the text fields of the associated \c JLYAlertController.
  If there were no text fields, or if the alert controller style was \c JLYAlertControllerStyleActionSheet the array is empty and can be ignored. */
 typedef void (^JLYAlertActionBlock)(NSArray *textFieldStrings);

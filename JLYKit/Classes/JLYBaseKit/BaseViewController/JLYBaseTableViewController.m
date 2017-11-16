@@ -185,6 +185,9 @@
         _tableView.emptyDataSetDelegate = self;
         _tableView.emptyDataSetSource = self;
         _tableView.tableFooterView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, screenWidth, 0.1f)];
+        _tableView.estimatedRowHeight = 0.0f;
+        _tableView.estimatedSectionHeaderHeight = 0.0f;
+        _tableView.estimatedSectionFooterHeight = 0.0f;
         _tableView.backgroundColor = backColor(nil);
     }
     return _tableView;

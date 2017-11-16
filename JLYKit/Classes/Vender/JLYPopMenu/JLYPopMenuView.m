@@ -33,7 +33,7 @@
                              target:(UIViewController *)target
                           dataArray:(NSArray *)dataArray
                     itemsClickBlock:(void (^)(NSString *, NSInteger))itemsClickBlock
-                        backViewTap:(void (^)())backViewTapBlock{
+                        backViewTap:(void (^)(void))backViewTapBlock{
     
     JLYPopMenuView *menuView = [[JLYPopMenuView alloc] initWithFrame:frame];
     menuView.rect = frame;

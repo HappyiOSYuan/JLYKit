@@ -21,9 +21,9 @@
     return self;
 }
 
-- (JLYTableViewDataSourceMaker * (^)(UIView * (^)()))headerView {
+- (JLYTableViewDataSourceMaker * (^)(UIView * (^)(void)))headerView {
     @weakify(self);
-    return ^JLYTableViewDataSourceMaker *(UIView * (^view)()) {
+    return ^JLYTableViewDataSourceMaker *(UIView * (^view)(void)) {
         @strongify(self);
         UIView * headerView =  view();
         [self.tableView.tableHeaderView layoutIfNeeded];
@@ -32,9 +32,9 @@
     };
 }
 
-- (JLYTableViewDataSourceMaker * (^)(UIView * (^)()))footerView {
+- (JLYTableViewDataSourceMaker * (^)(UIView * (^)(void)))footerView {
     @weakify(self);
-    return ^JLYTableViewDataSourceMaker *(UIView * (^view)()) {
+    return ^JLYTableViewDataSourceMaker *(UIView * (^view)(void)) {
         @strongify(self);
         UIView * footerView = view();
         [self.tableView.tableFooterView layoutIfNeeded];
