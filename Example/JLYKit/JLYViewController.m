@@ -21,14 +21,22 @@
 
 @implementation JLYViewController
 #pragma mark - LifeCycle
+- (void)configConstraints{
+    [super configConstraints];
+    NSLog(@"self.viewToTop--->%f", self.viewToTop);
+    self.btn.sd_layout
+    .topSpaceToView(self.view, self.viewToTop + 80.0f)
+    .leftSpaceToView(self.view, 80.0f)
+    .rightSpaceToView(self.view, 80.0f)
+    .heightIs(40.0f);
+}
+
 - (void)viewDidLoad{
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"JLYKit";
     [self setIsOpenNetListen:NO];
     self.btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    self.btn.frame = CGRectMake(0.0f, self.viewToTop, 70.0f, 30.0f);
-//    self.btn.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
     [self.btn setTitle:@"push" forState:UIControlStateNormal];
     [self.btn addTarget:self action:@selector(push:) forControlEvents:UIControlEventTouchUpInside];
     self.btn.layer.borderColor = self.btn.titleLabel.textColor.CGColor;
@@ -36,13 +44,10 @@
     self.btn.layer.cornerRadius = 15.0f;
     [self.view addSubview:self.btn];
     [self.view addSubview:self.test_TextFeild];
-    NSLog(@"%f", self.viewToTop);
 }
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
-    NSLog(@"self.viewToTop--->%f", self.viewToTop);
-    //self.btn.frame = CGRectMake(0.0f, self.viewToTop, 70.0f, 30.0f);
 }
 
 - (void)viewWillAppear:(BOOL)animated{
