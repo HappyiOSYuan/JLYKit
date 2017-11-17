@@ -75,15 +75,14 @@
     [super viewDidLoad];
     self.isOpenNetListen = YES;
     self.view.backgroundColor = backColor(nil);
-    
     [self configSubviews];
-    [self configConstraints];
     // Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidLayoutSubviews{
     [super viewDidLayoutSubviews];
     [self fitViewWithFitViewType:self.fitViewType];
+    [self configConstraints];
 }
 //视图将要出现
 - (void)viewWillAppear:(BOOL)animated{

@@ -15,6 +15,7 @@
 @interface JLYViewController ()
 
 @property (nonatomic, strong) JLYMaterialTextFeild *test_TextFeild;
+@property (nonatomic, strong) UIButton *btn;
 
 @end
 
@@ -25,16 +26,23 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"JLYKit";
     [self setIsOpenNetListen:NO];
-    UIButton *btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    btn.frame = CGRectMake(0.0f, 0.0f, 70.0f, 30.0f);
-    btn.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
-    [btn setTitle:@"push" forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(push:) forControlEvents:UIControlEventTouchUpInside];
-    btn.layer.borderColor = btn.titleLabel.textColor.CGColor;
-    btn.layer.borderWidth = 2.0f;
-    btn.layer.cornerRadius = 15.0f;
-    [self.view addSubview:btn];
+    self.btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    self.btn.frame = CGRectMake(0.0f, self.viewToTop, 70.0f, 30.0f);
+//    self.btn.center = CGPointMake(self.view.frame.size.width / 2, self.view.frame.size.height / 2);
+    [self.btn setTitle:@"push" forState:UIControlStateNormal];
+    [self.btn addTarget:self action:@selector(push:) forControlEvents:UIControlEventTouchUpInside];
+    self.btn.layer.borderColor = self.btn.titleLabel.textColor.CGColor;
+    self.btn.layer.borderWidth = 2.0f;
+    self.btn.layer.cornerRadius = 15.0f;
+    [self.view addSubview:self.btn];
     [self.view addSubview:self.test_TextFeild];
+    NSLog(@"%f", self.viewToTop);
+}
+
+- (void)viewDidLayoutSubviews{
+    [super viewDidLayoutSubviews];
+    NSLog(@"self.viewToTop--->%f", self.viewToTop);
+    //self.btn.frame = CGRectMake(0.0f, self.viewToTop, 70.0f, 30.0f);
 }
 
 - (void)viewWillAppear:(BOOL)animated{
