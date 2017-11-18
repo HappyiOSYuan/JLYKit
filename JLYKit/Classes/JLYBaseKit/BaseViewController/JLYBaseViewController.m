@@ -294,7 +294,7 @@
             _viewToTop = 20.0f;
         }
     }
-    self.netWorkChageView.frame = CGRectMake(0, self.viewToTop, self.view.frame.size.width, 30.0f);
+    self.netWorkChageView.frame = CGRectMake(0.0f, self.viewToTop, self.view.frame.size.width, 30.0f);
 }
 
 // 适配条件 留个接口子类继承重写

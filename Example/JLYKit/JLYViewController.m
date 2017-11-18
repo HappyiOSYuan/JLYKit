@@ -21,6 +21,18 @@
 
 @implementation JLYViewController
 #pragma mark - LifeCycle
+- (void)configSubviews{
+    [super configSubviews];
+    self.btn = [UIButton buttonWithType:UIButtonTypeSystem];
+    [self.btn setTitle:@"push" forState:UIControlStateNormal];
+    [self.btn addTarget:self action:@selector(push:) forControlEvents:UIControlEventTouchUpInside];
+    self.btn.layer.borderColor = self.btn.titleLabel.textColor.CGColor;
+    self.btn.layer.borderWidth = 2.0f;
+    self.btn.layer.cornerRadius = 15.0f;
+    [self.view addSubview:self.btn];
+    [self.view addSubview:self.test_TextFeild];
+}
+
 - (void)configConstraints{
     [super configConstraints];
     NSLog(@"self.viewToTop--->%f", self.viewToTop);
@@ -36,14 +48,7 @@
 	// Do any additional setup after loading the view, typically from a nib.
     self.title = @"JLYKit";
     [self setIsOpenNetListen:NO];
-    self.btn = [UIButton buttonWithType:UIButtonTypeSystem];
-    [self.btn setTitle:@"push" forState:UIControlStateNormal];
-    [self.btn addTarget:self action:@selector(push:) forControlEvents:UIControlEventTouchUpInside];
-    self.btn.layer.borderColor = self.btn.titleLabel.textColor.CGColor;
-    self.btn.layer.borderWidth = 2.0f;
-    self.btn.layer.cornerRadius = 15.0f;
-    [self.view addSubview:self.btn];
-    [self.view addSubview:self.test_TextFeild];
+    
 }
 
 - (void)viewDidLayoutSubviews{
