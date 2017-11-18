@@ -222,7 +222,7 @@
                 if (self.navigationController.navigationBar.isTranslucent) {
                     self.edgesForExtendedLayout = UIRectEdgeAll;
                     self.extendedLayoutIncludesOpaqueBars = YES;
-                    _viewToTop = 20.0f;
+                    _viewToTop = safeAreaInsets.top;
                     //导航条不透明
                 }else{
                     self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight |  UIRectEdgeBottom;
@@ -241,11 +241,11 @@
                 if (self.navigationController.navigationBar.isTranslucent) {
                     self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight |UIRectEdgeTop;
                     self.extendedLayoutIncludesOpaqueBars = YES;
-                    _viewToTop = 20.0f;
+                    _viewToTop = safeAreaInsets.top;
                 }else{
                     self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight ;
                     self.extendedLayoutIncludesOpaqueBars = NO;
-                    _viewToTop = 0.0f;
+                    _viewToTop = safeAreaInsets.top;
                 }
                 //2）导航条显示 tabBar隐藏
             }else if (self.navigationController.isNavigationBarHidden == NO
@@ -256,12 +256,12 @@
                           if (self.navigationController.navigationBar.isTranslucent) {
                               self.edgesForExtendedLayout = UIRectEdgeAll;
                               self.extendedLayoutIncludesOpaqueBars = YES;
-                              _viewToTop = 20.0f;
+                              _viewToTop = safeAreaInsets.top;
                               //导航条不透明
                           }else{
                               self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight | UIRectEdgeBottom;
                               self.extendedLayoutIncludesOpaqueBars = NO;
-                              _viewToTop = 0.0f;
+                              _viewToTop = safeAreaInsets.top;
                           }
                           //3）导航条隐藏 tabBar显示
                       }else if (self.navigationController.isNavigationBarHidden
