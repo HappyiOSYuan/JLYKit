@@ -42,7 +42,7 @@ static inline UIEdgeInsets jly_safeAreaInset(UIView *view) {
     if (@available(iOS 11.0, *)) {
         return view.safeAreaInsets;
     }
-    return UIEdgeInsetsMake(0.0f, 64.0f, 0.0f, 0.0f);
+    return UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f);
 }
 
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
