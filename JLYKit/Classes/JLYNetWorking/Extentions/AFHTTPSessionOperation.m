@@ -48,17 +48,32 @@
         task = [manager POST:URLString
                   parameters:paramDic
    constructingBodyWithBlock:^(id<AFMultipartFormData>formData){
-       NSDictionary<NSString * ,id> *photo = parameters[@"photo"];
-       if ([photo count] > 0) {
-           NSString *path = photo[@"path"];
-           if (![path hasPrefix:@"http"]) {
-               NSData *imageData = UIImageJPEGRepresentation([UIImage imageWithContentsOfFile:photo[@"path"]], 0.5);
-               [formData appendPartWithFileData:imageData
-                                           name:@"image"
-                                       fileName:photo[@"name"]
-                                       mimeType:@"image/png"];
-           }else{
-               
+       if ([parameters[@"photo"] isKindOfClass:[NSMutableArray class]]) {
+           [parameters[@"photo"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
+               NSString *path = obj[@"path"];
+               if (![path hasPrefix:@"http"]) {
+                   NSData *imageData = UIImageJPEGRepresentation([UIImage imageWithContentsOfFile:obj[@"path"]], 0.5);
+                   [formData appendPartWithFileData:imageData
+                                               name:@"image"
+                                           fileName:obj[@"name"]
+                                           mimeType:@"image/png"];
+               }else{
+                   
+               }
+           }];
+       }else{
+           NSDictionary<NSString * ,id> *photo = parameters[@"photo"];
+           if ([photo count] > 0) {
+               NSString *path = photo[@"path"];
+               if (![path hasPrefix:@"http"]) {
+                   NSData *imageData = UIImageJPEGRepresentation([UIImage imageWithContentsOfFile:photo[@"path"]], 0.5);
+                   [formData appendPartWithFileData:imageData
+                                               name:@"image"
+                                           fileName:photo[@"name"]
+                                           mimeType:@"image/png"];
+               }else{
+                   
+               }
            }
        }
    }
