@@ -35,6 +35,18 @@
     return cell;
 }
 
+- (nullable NSArray<UITableViewRowAction *> *)tableView:(UITableView *)tableView editActionsForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return self.sections[indexPath.section].actions;
+}
+
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return self.sections[indexPath.section].actions.count > 0 ? UITableViewCellEditingStyleDelete: UITableViewCellEditingStyleNone;
+}
+
+- (nullable NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return self.sections[indexPath.section].actions.count > 0 ? @"删除" :nil;
+}
+
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
     return self.sections[section].headerTitle;
 }

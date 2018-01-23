@@ -7,15 +7,14 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "JLYTableViewDataSource.h"
 
 NS_ASSUME_NONNULL_BEGIN
-
-typedef void (^CellConfigBlock)(__kindof UITableViewCell *cell, id model, NSIndexPath *indexPath);
-typedef void (^CellEventBlock)(NSIndexPath *indexPath, id model);
 
 @interface JLYDataSourceSection : NSObject
 
 @property (nonatomic, strong ,nullable) NSArray * dataList;
+@property(nonatomic, strong) NSArray * actions;
 @property (nonatomic, strong) Class cellClazz;
 @property (nonatomic, strong) NSString * identifier;
 @property (nonatomic, copy) CellConfigBlock cellConfig;

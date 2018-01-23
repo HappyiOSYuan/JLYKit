@@ -33,6 +33,13 @@
     };
 }
 
+- (JLYTableViewSectionMaker * (^)(NSArray *))actions {
+    return ^JLYTableViewSectionMaker *(NSArray * actions) {
+        self.section.actions = actions;
+        return self;
+    };
+}
+
 - (JLYTableViewSectionMaker * (^)(CellConfigBlock))cellConfig {
     @weakify(self);
     return ^JLYTableViewSectionMaker *(CellConfigBlock cellConfigBlock) {
