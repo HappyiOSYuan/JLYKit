@@ -211,9 +211,9 @@ static JLYApiProxy * instance = nil;
                                                                                             }
                                                                                             NSHTTPURLResponse *res = (NSHTTPURLResponse *)task.response;
                                                                                             [JLYLogger logDebugInfoWithResponse:res
-                                                                                                                  resposeString:responseObject
+                                                                                                                  resposeString:nil
                                                                                                                         request:request
-                                                                                                                          error:nil];
+                                                                                                                          error:error];
                                                                                             
                                                                                             JLYURLResponse *response = [[JLYURLResponse alloc] initWithResponseString:nil
                                                                                                                                                             requestId:requestId
