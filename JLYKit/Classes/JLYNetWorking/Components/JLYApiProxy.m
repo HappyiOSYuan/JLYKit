@@ -189,7 +189,8 @@ static JLYApiProxy * instance = nil;
                                                                                             } else {
                                                                                                 [self.dispatchTable removeObjectForKey:requestId];
                                                                                             }
-                                                                                            [JLYLogger logDebugInfoWithResponse:nil
+                                                                                            NSHTTPURLResponse *res = (NSHTTPURLResponse *)task.response;
+                                                                                            [JLYLogger logDebugInfoWithResponse:res
                                                                                                                   resposeString:responseObject
                                                                                                                         request:request
                                                                                                                           error:nil];
@@ -208,10 +209,11 @@ static JLYApiProxy * instance = nil;
                                                                                             } else {
                                                                                                 [self.dispatchTable removeObjectForKey:requestId];
                                                                                             }
-                                                                                            [JLYLogger logDebugInfoWithResponse:nil
-                                                                                                                  resposeString:nil
+                                                                                            NSHTTPURLResponse *res = (NSHTTPURLResponse *)task.response;
+                                                                                            [JLYLogger logDebugInfoWithResponse:res
+                                                                                                                  resposeString:responseObject
                                                                                                                         request:request
-                                                                                                                          error:error];
+                                                                                                                          error:nil];
                                                                                             
                                                                                             JLYURLResponse *response = [[JLYURLResponse alloc] initWithResponseString:nil
                                                                                                                                                             requestId:requestId

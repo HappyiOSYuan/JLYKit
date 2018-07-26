@@ -10,7 +10,17 @@
 
 /*************************************************************************/
 
-NSString * const kJLYServiceManager = @"kJLYServiceManager";
+NSString * const kGFServiceManager = @"kGFServiceManager";
+NSString * const kGFLogonServiceManager = @"kGFLogonServiceManager";
+NSString * const kGFCommodityServiceManager = @"kGFCommodityServiceManager";
+NSString * const kGFProjectServiceManager = @"kGFProjectServiceManager";
+NSString * const kGFProjectManageServiceManager = @"kGFProjectManangeServiceManager";
+NSString * const kGFSalesManageServiceManager = @"kGFSalesManageServiceManager";
+NSString * const kGFRequestServiceManager = @"GFRequestServiceManager";
+NSString * const kGFContactServiceManager = @"GFContactServiceManager";
+NSString * const kGFCarManageServiceManager = @"GFCarManageServiceManager";
+NSString * const kGFReimburseServiceManager = @"GFReimburseServiceManager";
+NSString * const kGFHomeServiceManager = @"GFHomeServiceManager";
 
 
 @interface JLYServiceFactory ()
@@ -58,10 +68,39 @@ static JLYServiceFactory * instance = nil;
 
 #pragma mark - private methods
 - (__kindof JLYService<JLYServiceProtocal> *)newServiceWithIdentifier:(NSString *)identifier{
-    if ([identifier isEqualToString:kJLYServiceManager]) {
+    if ([identifier isEqualToString:kGFServiceManager]) {
         return [[NSClassFromString(@"GFServiceManager") alloc] init];
     }
-    
+    if ([identifier isEqualToString:kGFLogonServiceManager]){
+        return [[NSClassFromString(@"GFLogonServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFCommodityServiceManager]){
+        return [[NSClassFromString(@"GFCommodityServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFProjectServiceManager]){
+        return [[NSClassFromString(@"GFProjectServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFProjectManageServiceManager]){
+        return [[NSClassFromString(@"GFProjectManageServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFSalesManageServiceManager]){
+        return [[NSClassFromString(@"GFSalesManageServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFRequestServiceManager]){
+        return [[NSClassFromString(@"GFRequestServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFContactServiceManager]){
+        return [[NSClassFromString(@"GFContactServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFCarManageServiceManager]){
+        return [[NSClassFromString(@"GFCarManageServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFReimburseServiceManager]){
+        return [[NSClassFromString(@"GFReimburseServiceManager")alloc] init];
+    }
+    if ([identifier isEqualToString:kGFHomeServiceManager]){
+        return [[NSClassFromString(@"GFHomeServiceManager")alloc] init];
+    }
     return nil;
 }
 

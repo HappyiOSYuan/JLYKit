@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'JLYKit'
-s.version = '0.8.9'
+s.version = '0.9.0'
 s.license = 'MIT'
 s.summary = 'A simple framework on iOS.'
 s.homepage = 'https://github.com/HappyiOSYuan/JLYKit'
@@ -58,6 +58,7 @@ s.subspec 'JLYNetworking' do |networking|
     networking.source_files = 'JLYKit/Classes/JLYNetworking/**/*.{h,m}'
     networking.dependency 'AFNetworking'
     networking.dependency 'JLYKit/FoundationExtensions'
+    networking.dependency 'JLYKit/UIExtensions'
   end
 
 s.subspec 'JLYSqlite' do |sqlite|

@@ -61,7 +61,7 @@
 }
 
 - (NSString *)currentMonth{
-    return [self stringFromDate:[NSDate date] DateFormat:@"YYYY年MM月"];
+    return [self stringFromDate:[NSDate date] DateFormat:@"yyyy年MM月"];
 }
 
 @end

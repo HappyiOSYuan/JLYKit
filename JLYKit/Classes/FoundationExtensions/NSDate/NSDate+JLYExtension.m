@@ -186,7 +186,6 @@
     NSDateComponents *componentsToAdd = [[NSDateComponents alloc] init];
     [componentsToAdd setMonth:month];
     NSDate *dateAfterMonth = [calendar dateByAddingComponents:componentsToAdd toDate:date options:0];
-    NSLog(@"dateAfterMonth--->%@", dateAfterMonth);
     return dateAfterMonth;
 }
 
@@ -204,7 +203,6 @@
 
 + (NSDate *)jly_lastdayOfMonth:(NSDate *)date {
     NSDate *lastDate = [self jly_begindayOfMonth:date];
-    NSLog(@"return--->%@", [[lastDate jly_dateAfterMonth:1] jly_dateAfterDay:-1]);
     return [[lastDate jly_dateAfterMonth:1] jly_dateAfterDay:-1];
 }
 
@@ -448,7 +446,7 @@
 }
 
 + (NSString *)jly_ymdFormat {
-    return @"YYYY-MM-dd";
+    return @"yyyy-MM-dd";
 }
 
 + (NSString *)jly_hmsFormat {

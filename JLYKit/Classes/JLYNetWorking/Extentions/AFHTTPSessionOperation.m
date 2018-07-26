@@ -7,6 +7,7 @@
 
 #import "AFHTTPSessionOperation.h"
 #import "AFNetworking.h"
+#import <JLYKit/UIImage+HEIC.h>
 
 @interface AFHTTPSessionManager (DataTask)
 
@@ -52,11 +53,11 @@
            [parameters[@"photo"] enumerateObjectsUsingBlock:^(id obj, NSUInteger idx, BOOL *stop){
                NSString *path = obj[@"path"];
                if (![path hasPrefix:@"http"]) {
-                   NSData *imageData = UIImageJPEGRepresentation([UIImage imageWithContentsOfFile:obj[@"path"]], 0.5);
-                   [formData appendPartWithFileData:imageData
+                   [formData appendPartWithFileData:obj[@"imageData"]
                                                name:@"image"
                                            fileName:obj[@"name"]
-                                           mimeType:@"image/png"];
+                                           mimeType:@"image/*"];
+                   
                }else{
                    
                }
@@ -66,11 +67,16 @@
            if ([photo count] > 0) {
                NSString *path = photo[@"path"];
                if (![path hasPrefix:@"http"]) {
-                   NSData *imageData = UIImageJPEGRepresentation([UIImage imageWithContentsOfFile:photo[@"path"]], 0.5);
+                   NSData *imageData = nil;
+                   if (@available(iOS 11.0, *)) {
+                       imageData = jly_UIImageHEICRepresentation([UIImage imageWithContentsOfFile:photo[@"path"]], 0.5);
+                   }else{
+                       imageData = UIImageJPEGRepresentation([UIImage imageWithContentsOfFile:photo[@"path"]], 0.5);
+                   }
                    [formData appendPartWithFileData:imageData
                                                name:@"image"
                                            fileName:photo[@"name"]
-                                           mimeType:@"image/png"];
+                                           mimeType:@"image/*"];
                }else{
                    
                }

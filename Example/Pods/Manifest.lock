@@ -15,31 +15,31 @@ PODS:
   - AFNetworking/UIKit (3.2.1):
     - AFNetworking/NSURLSession
   - DGActivityIndicatorView (2.1.1)
-  - JLYKit (0.8.9):
-    - JLYKit/AppDelegate (= 0.8.9)
-    - JLYKit/AppUtils (= 0.8.9)
-    - JLYKit/Config (= 0.8.9)
-    - JLYKit/FoundationExtensions (= 0.8.9)
-    - JLYKit/JLYBaseKit (= 0.8.9)
-    - JLYKit/JLYBaseViewModel (= 0.8.9)
-    - JLYKit/JLYLaunchAnimation (= 0.8.9)
-    - JLYKit/JLYNetworking (= 0.8.9)
-    - JLYKit/JLYSqlite (= 0.8.9)
-    - JLYKit/JLYURLRouter (= 0.8.9)
-    - JLYKit/JLYVIPER (= 0.8.9)
-    - JLYKit/UIExtensions (= 0.8.9)
-    - JLYKit/Vender (= 0.8.9)
-    - JLYKit/YYModel (= 0.8.9)
+  - JLYKit (0.9.0):
+    - JLYKit/AppDelegate (= 0.9.0)
+    - JLYKit/AppUtils (= 0.9.0)
+    - JLYKit/Config (= 0.9.0)
+    - JLYKit/FoundationExtensions (= 0.9.0)
+    - JLYKit/JLYBaseKit (= 0.9.0)
+    - JLYKit/JLYBaseViewModel (= 0.9.0)
+    - JLYKit/JLYLaunchAnimation (= 0.9.0)
+    - JLYKit/JLYNetworking (= 0.9.0)
+    - JLYKit/JLYSqlite (= 0.9.0)
+    - JLYKit/JLYURLRouter (= 0.9.0)
+    - JLYKit/JLYVIPER (= 0.9.0)
+    - JLYKit/UIExtensions (= 0.9.0)
+    - JLYKit/Vender (= 0.9.0)
+    - JLYKit/YYModel (= 0.9.0)
     - SDWebImage
-  - JLYKit/AppDelegate (0.8.9):
+  - JLYKit/AppDelegate (0.9.0):
     - Reachability
     - SDWebImage
-  - JLYKit/AppUtils (0.8.9):
+  - JLYKit/AppUtils (0.9.0):
     - JLYKit/FoundationExtensions
     - JLYKit/UIExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Config (0.8.9):
+  - JLYKit/Config (0.9.0):
     - JLYKit/AppUtils
     - JLYKit/JLYLaunchAnimation
     - JLYKit/JLYVIPER
@@ -52,9 +52,9 @@ PODS:
     - SDAutoLayout
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/FoundationExtensions (0.8.9):
+  - JLYKit/FoundationExtensions (0.9.0):
     - SDWebImage
-  - JLYKit/JLYBaseKit (0.8.9):
+  - JLYKit/JLYBaseKit (0.9.0):
     - DGActivityIndicatorView
     - JLYKit/Config
     - JLYKit/FoundationExtensions
@@ -62,35 +62,36 @@ PODS:
     - JLYKit/UIExtensions
     - MJRefresh
     - SDWebImage
-  - JLYKit/JLYBaseViewModel (0.8.9):
+  - JLYKit/JLYBaseViewModel (0.9.0):
     - JLYKit/JLYURLRouter
     - SDWebImage
-  - JLYKit/JLYLaunchAnimation (0.8.9):
+  - JLYKit/JLYLaunchAnimation (0.9.0):
     - SDWebImage
-  - JLYKit/JLYNetworking (0.8.9):
+  - JLYKit/JLYNetworking (0.9.0):
     - AFNetworking
     - JLYKit/FoundationExtensions
+    - JLYKit/UIExtensions
     - SDWebImage
-  - JLYKit/JLYSqlite (0.8.9):
+  - JLYKit/JLYSqlite (0.9.0):
     - SDWebImage
     - SQLCipher
-  - JLYKit/JLYURLRouter (0.8.9):
+  - JLYKit/JLYURLRouter (0.9.0):
     - SDWebImage
-  - JLYKit/JLYVIPER (0.8.9):
+  - JLYKit/JLYVIPER (0.9.0):
     - JLYKit/AppDelegate
     - JLYKit/JLYURLRouter
     - JLYKit/UIExtensions
     - SDWebImage
-  - JLYKit/UIExtensions (0.8.9):
+  - JLYKit/UIExtensions (0.9.0):
     - JLYKit/FoundationExtensions
     - SDWebImage
     - SVProgressHUD
-  - JLYKit/Vender (0.8.9):
+  - JLYKit/Vender (0.9.0):
     - JLYKit/FoundationExtensions
     - libextobjc
     - SDAutoLayout
     - SDWebImage
-  - JLYKit/YYModel (0.8.9):
+  - JLYKit/YYModel (0.9.0):
     - SDWebImage
   - libextobjc (0.4.1):
     - libextobjc/EXTADT (= 0.4.1)
@@ -152,7 +153,7 @@ EXTERNAL SOURCES:
 SPEC CHECKSUMS:
   AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
   DGActivityIndicatorView: ff2c76073d79692f724863c8dd38685866a03cb6
-  JLYKit: 2d496d5509c5884e915eafe884b843993e703027
+  JLYKit: aa25f417095f8eba2830772e225645bb46869bde
   libextobjc: a650fc1bf489a3d3a9bc2e621efa3e1006fc5471
   Masonry: 678fab65091a9290e40e2832a55e7ab731aad201
   MJRefresh: b48380ae2b927b46c4ef000de9adb8dc748e1df7

@@ -16,7 +16,7 @@
             self.channelID = [JLYAppContext sharedInstance].channelID;
             self.appKey = @"appKey";
             self.logAppName = [JLYAppContext sharedInstance].appName;
-            self.serviceType = kJLYServiceManager;
+            self.serviceType = kGFServiceManager;
             self.sendLogMethod = @"admin.writeAppLog";
             self.sendActionMethod = @"admin.recordaction";
             self.sendLogKey = @"data";

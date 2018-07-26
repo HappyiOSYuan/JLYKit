@@ -89,6 +89,7 @@
 #import "UIColor+HexColors.h"
 #import "UIControl+JLYFixMultiClick.h"
 #import "UIImage+colorImage.h"
+#import "UIImage+HEIC.h"
 #import "UIImage+Transform.h"
 #import "UIImageView+JLYAdditions.h"
 #import "UINavigationBar+Awesome.h"

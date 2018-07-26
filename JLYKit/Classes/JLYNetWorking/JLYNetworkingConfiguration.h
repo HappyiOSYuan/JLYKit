@@ -28,6 +28,16 @@ static BOOL kJLYShouldCache = NO;
 static NSTimeInterval kJLYCacheOutdateTimeSeconds = 0; // cache过期时间
 static NSUInteger kJLYCacheCountLimit = 1000; // 最多1000条cache
 
-extern NSString * const kJLYServiceManager;
+extern NSString * const kGFServiceManager;
+extern NSString * const kGFLogonServiceManager;
+extern NSString * const kGFCommodityServiceManager;
+extern NSString * const kGFProjectServiceManager;
+extern NSString * const kGFProjectManageServiceManager;
+extern NSString * const kGFSalesManageServiceManager;
+extern NSString * const kGFRequestServiceManager;
+extern NSString * const kGFContactServiceManager;
+extern NSString * const kGFCarManageServiceManager;
+extern NSString * const kGFReimburseServiceManager;
+extern NSString * const kGFHomeServiceManager;
 
 #endif
