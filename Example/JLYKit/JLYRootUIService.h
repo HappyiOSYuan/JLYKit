@@ -7,7 +7,7 @@
 //
 
 @import Foundation;
-#import <JLYKit/JLYAppDelegate.h>
+#import "JLYAppDelegate.h"
 
 @interface JLYRootUIService : NSObject<JLYAppService>
 

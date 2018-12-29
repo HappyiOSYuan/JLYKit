@@ -54,6 +54,7 @@
 //视图已经出现
 - (void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
+    [self showLoadingUIWith:self.tableView];
     [self headerRefresh];
 }
 //视图将要消失

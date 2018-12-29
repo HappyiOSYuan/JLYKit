@@ -12,12 +12,6 @@
 #import "UIView+Additions.h"
 
 NS_ASSUME_NONNULL_BEGIN
-@class DGActivityIndicatorView;
-@interface JLYNetWorkLoadingView : UIView
-
-@property (nonatomic, strong) DGActivityIndicatorView *activityView;
-
-@end
 /**
  *  网络变化呈现的UI 可自定义
  */
@@ -58,11 +52,11 @@ typedef NS_ENUM(NSUInteger, FitViewType){
 /*!
  *  @brief 显示加载动画
  */
-- (void)showLoadingUI;
+- (void)showLoadingUIWith:(UIView *)view;
 /*!
  *  @brief 隐藏加载动画
  */
-- (void)hideLoadingUI;
+- (void)hideLoadingUIWith:(UIView *)view;
 /*!
  *  @brief 加载子视图
  */

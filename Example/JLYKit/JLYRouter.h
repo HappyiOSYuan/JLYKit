@@ -6,7 +6,7 @@
 //  Copyright © 2016年 HappyiOSYuan. All rights reserved.
 //
 
-#import <JLYKit/JLYBaseRouter.h>
+#import "JLYBaseRouter.h"
 #import "JLYRouterProtocol.h"
 
 @interface JLYRouter : JLYBaseRouter<JLYRouterProtocol>

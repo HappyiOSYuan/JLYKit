@@ -6,7 +6,7 @@
 //  Copyright (c) 2016 HappyiOSYuan. All rights reserved.
 //
 
-#import <JLYKit/JLYAppDelegate.h>
+#import "JLYAppDelegate.h"
 
 @interface AppDelegate : JLYAppDelegate
 

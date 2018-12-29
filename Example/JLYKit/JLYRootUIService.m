@@ -7,7 +7,7 @@
 //
 
 #import "JLYRootUIService.h"
-#import <JLYKit/viewControllerConfig.h>
+#import "viewControllerConfig.h"
 #import "JLYRouter.h"
 
 @implementation JLYRootUIService

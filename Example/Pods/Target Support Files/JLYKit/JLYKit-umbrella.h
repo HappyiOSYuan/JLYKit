@@ -107,6 +107,7 @@
 #import "JLYDatePickerView.h"
 #import "JLYForm.h"
 #import "JLYGrowingTextView.h"
+#import "JLYLoadingShimmer.h"
 #import "JLYDottedLineLayer.h"
 #import "JLYFloatTextField.h"
 #import "JLYFloatTextView.h"

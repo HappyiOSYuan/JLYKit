@@ -84,7 +84,7 @@
 		AF6D1AB31DE6D9200088F830 /* JLYPushPresenter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYPushPresenter.h; sourceTree = "<group>"; };
 		AF6D1AB41DE6D9200088F830 /* JLYPushPresenter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JLYPushPresenter.m; sourceTree = "<group>"; };
 		AF6D1AB61DE6DB310088F830 /* JLYRouterProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JLYRouterProtocol.h; sourceTree = "<group>"; };
-		BC5F747484AA57ED8AA4C574 /* JLYKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JLYKit.podspec; path = ../JLYKit.podspec; sourceTree = "<group>"; };
+		BC5F747484AA57ED8AA4C574 /* JLYKit.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = JLYKit.podspec; path = ../JLYKit.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		C5F1D39D492E6FD6CF17115E /* Pods-JLYKit_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JLYKit_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-JLYKit_Example/Pods-JLYKit_Example.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -257,7 +257,6 @@
 				6003F587195388D20070C39A /* Frameworks */,
 				6003F588195388D20070C39A /* Resources */,
 				88A8E1F03ED8397D9A93DCFA /* [CP] Embed Pods Frameworks */,
-				611D3EFF9F530430A0616E0A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -276,8 +275,6 @@
 				6003F5AA195388D20070C39A /* Sources */,
 				6003F5AB195388D20070C39A /* Frameworks */,
 				6003F5AC195388D20070C39A /* Resources */,
-				B0F617AAC8A456ED12876196 /* [CP] Embed Pods Frameworks */,
-				548FEB130116C4677F01E668 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -296,7 +293,7 @@
 			isa = PBXProject;
 			attributes = {
 				CLASSPREFIX = JLY;
-				LastUpgradeCheck = 0910;
+				LastUpgradeCheck = 1010;
 				ORGANIZATIONNAME = HappyiOSYuan;
 				TargetAttributes = {
 					6003F5AD195388D20070C39A = {
@@ -344,36 +341,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		548FEB130116C4677F01E668 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLYKit_Tests/Pods-JLYKit_Tests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		611D3EFF9F530430A0616E0A /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLYKit_Example/Pods-JLYKit_Example-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		88A8E1F03ED8397D9A93DCFA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,7 +349,6 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-JLYKit_Example/Pods-JLYKit_Example-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
-				"${BUILT_PRODUCTS_DIR}/DGActivityIndicatorView/DGActivityIndicatorView.framework",
 				"${BUILT_PRODUCTS_DIR}/JLYKit/JLYKit.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MLInputDodger/MLInputDodger.framework",
@@ -397,7 +363,6 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DGActivityIndicatorView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JLYKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLInputDodger.framework",
@@ -412,21 +377,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLYKit_Example/Pods-JLYKit_Example-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B0F617AAC8A456ED12876196 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JLYKit_Tests/Pods-JLYKit_Tests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CAE830696ABB6104B9F855FD /* [CP] Check Pods Manifest.lock */ = {
@@ -535,12 +485,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -586,12 +538,14 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;

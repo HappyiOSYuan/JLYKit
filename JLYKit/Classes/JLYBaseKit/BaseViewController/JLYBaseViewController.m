@@ -7,30 +7,9 @@
 //
 
 #import "JLYBaseViewController.h"
-#import "DGActivityIndicatorView.h"
 #import <Reachability/Reachability.h>
 #import "JLYAppDelegate.h"
 
-@implementation JLYNetWorkLoadingView
-
-- (instancetype)initWithFrame:(CGRect)frame{
-    if (self = [super initWithFrame:frame]) {
-        self.backgroundColor = backColor(nil);
-        self.alpha = 0.8f;
-        [self addSubview:self.activityView];
-    }
-    return self;
-}
-
-- (DGActivityIndicatorView *)activityView{
-    if (!_activityView) {
-        _activityView = [[DGActivityIndicatorView alloc] initWithType:DGActivityIndicatorAnimationTypeNineDots tintColor:themeColor(nil) size:60.0f];
-        _activityView.center = CGPointMake(self.frame.size.width / 2, self.frame.size.height / 2);
-        [_activityView startAnimating];
-    }
-    return _activityView;
-}
-@end
 /**
  *  定制网络变化UI
  */
@@ -40,8 +19,7 @@
 
 @interface JLYBaseViewController ()<UITextFieldDelegate>
 
-@property (nonatomic, strong) JLYNetWorkChangeView  *netWorkChageView;
-@property (nonatomic, strong) JLYNetWorkLoadingView *netWorkLoadingView;
+@property (nonatomic, strong) JLYNetWorkChangeView *netWorkChageView;
 
 @end
 
@@ -88,7 +66,6 @@
 - (void)viewWillAppear:(BOOL)animated{
     [self initializeData];
     [super viewWillAppear:animated];
-    [self showLoadingUI];
 }
 //视图已经出现
 - (void)viewDidAppear:(BOOL)animated{
@@ -376,21 +353,12 @@
     }
 }
 #pragma mark - PublicMethod
-- (void)showLoadingUI{
-    self.netWorkLoadingView.hidden = NO;
-    self.netWorkLoadingView.alpha = 1;
-    [self.netWorkLoadingView.activityView startAnimating];
+- (void)showLoadingUIWith:(UIView *)view{
+    [JLYLoadingShimmer jly_startCovering:view];
 }
 
-- (void)hideLoadingUI{
-    if (self.netWorkLoadingView && !self.netWorkLoadingView.hidden) {
-        [UIView animateWithDuration:0.3f animations:^{
-            self.netWorkLoadingView.alpha = 0;
-        }completion:^(BOOL finished){
-            [self.netWorkLoadingView.activityView stopAnimating];
-            self.netWorkLoadingView.hidden = YES;
-        }];
-    }
+- (void)hideLoadingUIWith:(UIView *)view{
+    [JLYLoadingShimmer jly_stopCovering:view];
 }
 
 - (void)initializeData{
@@ -425,14 +393,6 @@
             _netWorkChageView = nil;
         }
     }
-}
-
-- (JLYNetWorkLoadingView *)netWorkLoadingView{
-    if (!_netWorkLoadingView) {
-        _netWorkLoadingView = [[JLYNetWorkLoadingView alloc] initWithFrame:CGRectMake(0.0f, _viewToTop, self.view.frame.size.width, self.view.frame.size.height - _viewToTop - _viewToBottom)];
-        [self.view addSubview:_netWorkLoadingView];
-    }
-    return _netWorkLoadingView;
 }
 
 - (JLYNetWorkChangeView *)netWorkChageView{

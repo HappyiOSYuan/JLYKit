@@ -22,6 +22,7 @@
 #import "JLYMaterialTextView.h"
 #import "JLYBaseVCModuleProtocol.h"
 #import "UIControl+JLYFixMultiClick.h"
+#import "JLYLoadingShimmer.h"
 #import <libextobjc/extobjc.h>
 
 #define SUPPRESS_UNDECLARED_SELECTOR_LEAK_WARNING(customCode)                        \
