@@ -20,36 +20,36 @@ typedef void(^NDBCallback)(JLYURLResponse *response);
              serviceIdentifier:(NSString *)servieIdentifier
                     methodName:(NSString *)methodName
                        success:(nullable NDBCallback)success
-                          fail:(nullable NDBCallback)fail;
+                       failure:(nullable NDBCallback)fail;
 
 - (NSInteger)callPOSTWithParams:(id _Nullable)params
               serviceIdentifier:(NSString *)servieIdentifier
                      methodName:(NSString *)methodName
                         success:(nullable NDBCallback)success
-                           fail:(nullable NDBCallback)fail;
+                        failure:(nullable NDBCallback)fail;
 
-- (NSInteger)callImageWithParams:(id _Nullable)params
+- (NSInteger)callFileWithParams:(id _Nullable)params
                serviceIdentifier:(NSString *)servieIdentifier
                       methodName:(NSString *)methodName
                          success:(nullable NDBCallback)success
-                            fail:(nullable NDBCallback)fail;
+                        failure:(nullable NDBCallback)fail;
 
 - (NSInteger)callRestfulGETWithParams:(id _Nullable)params
                     serviceIdentifier:(NSString *)servieIdentifier
                            methodName:(NSString *)methodName
                               success:(nullable NDBCallback)success
-                                 fail:(nullable NDBCallback)fail;
+                              failure:(nullable NDBCallback)fail;
 
 - (NSInteger)callRestfulPOSTWithParams:(id _Nullable)params
                      serviceIdentifier:(NSString *)servieIdentifier
                             methodName:(NSString *)methodName
                                success:(nullable NDBCallback)success
-                                  fail:(nullable NDBCallback)fail;
+                               failure:(nullable NDBCallback)fail;
 
 - (NSInteger)callGoogleMapAPIWithParams:(id _Nullable)params
                       serviceIdentifier:(NSString *)serviceIdentifier
                                 success:(nullable NDBCallback)success
-                                   fail:(nullable NDBCallback)fail;
+                                failure:(nullable NDBCallback)fail;
 
 - (void)cancelRequestWithRequestID:(NSNumber *)requestID;
 - (void)cancelRequestWithRequestIDList:(NSArray<NSNumber *> *)requestIDList;

@@ -14,6 +14,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (JLYTableViewSectionMaker * (^)(Class))cellClazz;
 
+- (JLYTableViewSectionMaker * (^)(Class))cellNibClazz;
+
 - (JLYTableViewSectionMaker * (^)(NSArray * _Nullable))dataList;
 
 - (JLYTableViewSectionMaker * (^)(NSArray *))actions;

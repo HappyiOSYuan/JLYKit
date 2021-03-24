@@ -66,9 +66,16 @@ static NSString * getIdentifier (){
     
     NSMutableDictionary<NSString *, id> *delegates = [NSMutableDictionary dictionary];
     JLYTableViewSectionMaker * make = [JLYTableViewSectionMaker new];
+    
     make.dataList(dataList);
-    make.cellClazz([JLYBaseTableViewCell class]);
-    [self registerClass:make.section.cellClazz forCellReuseIdentifier:make.section.identifier];
+    if (make.section.cellRegisterType == JLYCellRegisterTypeClass) {
+        make.cellClazz([JLYBaseTableViewCell class]);
+        [self registerClass:make.section.cellClazz forCellReuseIdentifier:make.section.identifier];
+    }else{
+        make.cellNibClazz([JLYBaseTableViewCell class]);
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass(make.section.cellClazz) bundle:nil];
+        [self registerNib:nib forCellReuseIdentifier:make.section.identifier];
+    }
     id<JLYBaseTableViewDataSourceProtocol> ds = [JLYBaseTableViewDataSource new];
     
     if(!self.tableFooterView) {
@@ -87,7 +94,11 @@ static NSString * getIdentifier (){
     [self jly_makeDataSource:^(JLYTableViewDataSourceMaker * make) {
         [make makeSection:^(JLYTableViewSectionMaker * section) {
             section.dataList(dataList);
-            section.cellClazz(cellClass);
+            if (section.section.cellRegisterType == JLYCellRegisterTypeClass) {
+                section.cellClazz(cellClass);
+            }else{
+                section.cellNibClazz(cellClass);
+            }
             section.cellConfig(^(id cell, id model, NSIndexPath *indexPath) {
                 if([cell respondsToSelector:NSSelectorFromString(@"setModel:")]) {
                     [cell performSelector:NSSelectorFromString(@"setModel:") withObject:model];

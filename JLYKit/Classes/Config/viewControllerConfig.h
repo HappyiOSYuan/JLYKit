@@ -43,7 +43,7 @@ static inline UIEdgeInsets jly_safeAreaInset(UIView *view) {
     if (@available(iOS 11.0, *)) {
         return view.safeAreaInsets;
     }
-    return UIEdgeInsetsMake(64.0f, 0.0f, 0.0f, 0.0f);
+    return UIEdgeInsetsZero;
 }
 
 #define RGBA(r,g,b,a) [UIColor colorWithRed:r/255.0f green:g/255.0f blue:b/255.0f alpha:a]
@@ -63,5 +63,49 @@ static inline UIEdgeInsets jly_safeAreaInset(UIView *view) {
 #define Numfont(x) [UIFont fontWithName:@"AppleGothic" size:x]
 
 typedef void (^NextViewControllerBlock)(id obj);
+
+extern NSString * const kGFServiceManager;
+extern NSString * const kGFLogonServiceManager;
+extern NSString * const kGFCommodityServiceManager;
+extern NSString * const kGFProjectServiceManager;
+extern NSString * const kGFProjectManageServiceManager;
+extern NSString * const kGFSalesManageServiceManager;
+extern NSString * const kGFRequestServiceManager;
+extern NSString * const kGFContactServiceManager;
+extern NSString * const kGFCarManageServiceManager;
+extern NSString * const kGFReimburseServiceManager;
+extern NSString * const kGFHomeServiceManager;
+extern NSString * const kGFResourceServiceManager;
+extern NSString * const kGFLoginRecordServiceManager;
+extern NSString * const kGFCustomerServiceManager;
+extern NSString * const kGFStaffArchivesServiceManager;
+extern NSString * const kGFDailyServiceManager;
+extern NSString * const kGFVerifyCodeServiceManager;
+extern NSString * const kGFResourceHandleServiceManager;
+extern NSString * const kGFOrderServiceManager;
+extern NSString * const kGFOrderSaleServiceManager;
+extern NSString * const kGFOldOrderServiceManager;
+extern NSString * const kGFDriverSettingServiceManager;
+extern NSString * const kGFHomePopedomServiceManager;
+extern NSString * const kGFApprovalServiceManager;
+extern NSString * const kGFWorkAttendanceServiceManager;
+extern NSString * const kGFRecruitServiceManager;
+extern NSString * const kGFHandleForumServiceManager;
+extern NSString * const kGFStorageSettingServiceManager;
+extern NSString * const kGFMemoAndScheduleServiceManager;
+extern NSString * const kGFComplaintServiceManager;
+extern NSString * const kGFInvoiceServiceManager;
+extern NSString * const kGFStartManageServiceManager;
+extern NSString * const kGFSalaryTreasureServiceManager;
+extern NSString * const kGFFinancialUpdateServiceManager;
+extern NSString * const kGFWorkRolePrincipalsServiceManager;
+extern NSString * const kGFUserInfoServiceManager;
+extern NSString * const kGFAccountServiceManager;
+extern NSString * const kGFForumServiceManager;
+extern NSString * const kGFHomeCustomerServiceManager;
+extern NSString * const kGFSuspendPurMATServiceManager;
+extern NSString * const kGFFinancialBankAccountServiceManager;
+extern NSString * const kGFFinancialChequeServiceManager;
+extern NSString * const kGFFinancialInvoiceServiceManager;
 
 #endif /* viewControllerConfig_h */

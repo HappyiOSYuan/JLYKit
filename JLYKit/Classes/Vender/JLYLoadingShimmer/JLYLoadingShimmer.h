@@ -15,6 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)jly_startCovering:(UIView *)view;
 /** 停止覆盖子控件 */
 + (void)jly_stopCovering:(UIView *)view;
++ (void)jly_startCovering:(UIView *)view andIdentifers:(NSArray *)identifers;
 
 @end
 

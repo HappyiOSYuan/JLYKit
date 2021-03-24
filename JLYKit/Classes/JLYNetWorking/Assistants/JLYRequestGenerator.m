@@ -105,7 +105,7 @@ static JLYRequestGenerator * instance = nil;
     return request;
 }
 
-- (NSURLRequest *)generateImageRequestWithServiceIdentifier:(NSString *)serviceIdentifier
+- (NSURLRequest *)generateFileRequestWithServiceIdentifier:(NSString *)serviceIdentifier
                                               requestParams:(id)requestParams
                                                  methodName:(NSString *)methodName{
     JLYService *service = [[JLYServiceFactory sharedInstance] serviceWithIdentifier:serviceIdentifier];

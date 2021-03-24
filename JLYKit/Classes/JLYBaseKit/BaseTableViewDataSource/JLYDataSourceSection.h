@@ -9,6 +9,10 @@
 #import <Foundation/Foundation.h>
 #import "JLYTableViewDataSource.h"
 
+typedef NS_ENUM(NSInteger, JLYCellRegisterType) {
+    JLYCellRegisterTypeClass      = 0,
+    JLYCellRegisterTypeXib     = 1
+};
 NS_ASSUME_NONNULL_BEGIN
 
 @interface JLYDataSourceSection : NSObject
@@ -25,6 +29,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong ,nullable) UIView * footerView;
 @property (nonatomic, assign) BOOL isAutoHeight;
 @property (nonatomic, assign) CGFloat staticHeight;
+@property (nonatomic, assign) JLYCellRegisterType cellRegisterType;
 
 @end
 NS_ASSUME_NONNULL_END

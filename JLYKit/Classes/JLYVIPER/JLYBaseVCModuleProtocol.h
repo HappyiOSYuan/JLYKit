@@ -32,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)jly_dissmissVC;
 - (void)jly_popVC;
 - (NSArray<__kindof UIViewController *> *)jly_listViewControllers;
+- (UIViewController *)jly_getViewController;
 
 @end
 

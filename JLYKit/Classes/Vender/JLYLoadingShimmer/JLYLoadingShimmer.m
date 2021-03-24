@@ -18,6 +18,7 @@
 /** 总的覆盖路径 */
 @property (nonatomic, strong) UIBezierPath *totalCoverablePath;
 @property (nonatomic, assign) BOOL addOffsetflag;
+@property (nonatomic, assign) NSArray *identifer_Arr;
 
 @end
 
@@ -30,7 +31,7 @@
 - (UIView *)viewCover {
     if (!_viewCover) {
         _viewCover = [UIView new];
-        _viewCover.tag = 1127; // 做一个标志，尽可能大一点，防止冲突
+        _viewCover.tag = 20190102; // 做一个标志，尽可能大一点，防止冲突
         _viewCover.backgroundColor = [UIColor whiteColor];
     }
     return _viewCover;
@@ -45,7 +46,11 @@
 
 
 + (void)jly_startCovering:(UIView *)view {
-    [[self alloc] coverSubviews:view];
+    [[self alloc] coverSubviews:view andIdentifers:@[]];
+}
+
++ (void)jly_startCovering:(UIView *)view andIdentifers:(nonnull NSArray *)identifers{
+    [[self alloc] coverSubviews:view andIdentifers:identifers];
 }
 
 + (void)jly_stopCovering:(UIView *)view {
@@ -62,7 +67,7 @@
     }
     
     for (UIView *subview in view.subviews) {
-        if (subview.tag == 1127) {
+        if (subview.tag == 20190102) {
             [subview removeFromSuperview];
             break; // 跳出循环
         }
@@ -71,7 +76,7 @@
 }
 
 
-- (void)coverSubviews:(UIView *)view {
+- (void)coverSubviews:(UIView *)view andIdentifers:(NSArray *)identifers{
     
     if (!view) {
         @throw [NSException exceptionWithName:@"coverSubviews"
@@ -82,12 +87,12 @@
     
     // Avoid multiple cover. 避免多次cover
     for (UIView *subview in view.subviews) {
-        if (subview.tag == 1127) {
+        if (subview.tag == 20190102) {
             return;
         }
     }
-    
-    NSArray *coverableCellsIds = @[@"Cell1", @"Cell1", @"Cell1", @"Cell1", @"Cell1"];
+    NSArray *coverableCellsIds = identifers;
+    NSLog(@"coverableCellsIds--->%@", coverableCellsIds);
     if ([view isMemberOfClass:[UITableView class]]) {
         for (int i = 0; i < coverableCellsIds.count; i++) {
             [self getTableViewPath:view index:i coverableCellsIds:coverableCellsIds];
@@ -103,9 +108,9 @@
             
             // 获取每个子控件的path，用于后面的加遮盖
             // 添加圆角
-            UIBezierPath *defaultCoverblePath = [UIBezierPath bezierPathWithRoundedRect:subview.bounds cornerRadius:subview.frame.size.height/2.0];
+            UIBezierPath *defaultCoverblePath = [UIBezierPath bezierPathWithRoundedRect:subview.bounds cornerRadius:0.0f];
             if ([subview isMemberOfClass:[UILabel class]] || [subview isMemberOfClass:[UITextView class]]) {
-                defaultCoverblePath = [UIBezierPath bezierPathWithRoundedRect:subview.bounds cornerRadius:4];
+                defaultCoverblePath = [UIBezierPath bezierPathWithRoundedRect:subview.bounds cornerRadius:0.0f];
             }
             UIBezierPath *relativePath = defaultCoverblePath;
             
@@ -132,13 +137,12 @@
     
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:coverableCellsIds[i]];
-    
+    NSLog(@"cell--->%@", cell);
     // Determine if there is a navigation controller. 判断是否有导航控制器
     float headerOffset = [self getHeaderOffset];
     
     cell.frame = CGRectMake(0, cell.frame.size.height*i+headerOffset, cell.frame.size.width, cell.frame.size.height);
-    
-    [cell layoutIfNeeded];
+    [cell layoutSubviews];
     
     //If it is a UITableViewCell, you still need to traverse the subviews of the cell a second time. 如果是 UITableViewCell ， 则仍需第二次遍历cell 的 subviews
     for (UIView *cellSubview in cell.contentView.subviews) {
@@ -175,14 +179,21 @@
     colorLayer.endPoint = CGPointMake(1.4, 0);
     
     // 颜色分割线
-    colorLayer.colors = @[(__bridge id)[UIColor colorWithRed:0 green:0 blue:0 alpha:0.01].CGColor,(__bridge id)[UIColor colorWithRed:0 green:0 blue:0 alpha:0.1].CGColor,(__bridge id)[UIColor colorWithRed:1 green:1 blue:1 alpha:0.009].CGColor, (__bridge id)[UIColor colorWithRed:0 green:0 blue:0 alpha:0.04].CGColor, (__bridge id)[UIColor colorWithRed:0 green:0 blue:0 alpha:0.02].CGColor];
+    colorLayer.colors = @[
+                          (__bridge id)[UIColor colorWithRed:0 green:0 blue:0 alpha:0.01].CGColor,
+                          (__bridge id)[UIColor colorWithRed:0 green:0 blue:0 alpha:0.1].CGColor,
+                          (__bridge id)[UIColor colorWithRed:1 green:1 blue:1 alpha:0.009].CGColor,
+                          (__bridge id)[UIColor colorWithRed:0 green:0 blue:0 alpha:0.04].CGColor,
+                          (__bridge id)[UIColor colorWithRed:0 green:0 blue:0 alpha:0.02].CGColor
+                          ];
     
     colorLayer.locations = @[
                              [NSNumber numberWithDouble:colorLayer.startPoint.x],
                              [NSNumber numberWithDouble:colorLayer.startPoint.x],
                              @0,
                              [NSNumber numberWithDouble:0.2],
-                             [NSNumber numberWithDouble:1.2]];
+                             [NSNumber numberWithDouble:1.2]
+                             ];
     
     [self.viewCover.layer addSublayer:colorLayer];
     

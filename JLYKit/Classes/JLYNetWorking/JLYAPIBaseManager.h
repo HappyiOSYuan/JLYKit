@@ -66,7 +66,7 @@ typedef NS_ENUM (NSUInteger, JLYAPIManagerErrorType){
 typedef NS_ENUM (NSUInteger, JLYAPIManagerRequestType){
     JLYAPIManagerRequestTypeGet,
     JLYAPIManagerRequestTypePost,
-    JLYAPIManagerRequestTypeImage,
+    JLYAPIManagerRequestTypeFile,
     JLYAPIManagerRequestTypeRestGet,
     JLYAPIManagerRequestTypeRestPost
 };

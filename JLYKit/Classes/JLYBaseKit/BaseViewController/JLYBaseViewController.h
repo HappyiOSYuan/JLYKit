@@ -39,6 +39,10 @@ typedef NS_ENUM(NSUInteger, FitViewType){
 /**标示当前有没有网络,每次请求接口时都要判断当期网络是否可用*/
 /**只有开启了网络监听此变量才有效*/
 @property (nonatomic, assign, readonly) BOOL netIsUse;
+/**
+ 是否开启推送
+ */
+@property (nonatomic, assign) BOOL isOpenNotification;
 /**适配条件 留个接口子类继承重写*/
 - (void)fitCondition;//填充适配的条件eg:导航条是否隐藏,导航条是否透明 tabBar是否隐藏
 
@@ -49,14 +53,26 @@ typedef NS_ENUM(NSUInteger, FitViewType){
 
 - (void)reachabilityChanged:(NSNotification *)note;
 - (void)goNetNotUse:(UIButton*)sender;
-/*!
- *  @brief 显示加载动画
+
+/**
+ 显示加载动画
+
+ @param view 需要显示的视图
  */
 - (void)showLoadingUIWith:(UIView *)view;
+/**
+ 显示加载动画
+
+ @param view 需要显示的列表
+ @param identifers cell标识
+ */
+- (void)showLoadingUIWith:(UIView *)view andCellIdentifers:(NSArray *)identifers;
 /*!
  *  @brief 隐藏加载动画
  */
 - (void)hideLoadingUIWith:(UIView *)view;
+- (void)showLoadingUI;
+- (void)hideLoadingUI;
 /*!
  *  @brief 加载子视图
  */
@@ -74,6 +90,7 @@ typedef NS_ENUM(NSUInteger, FitViewType){
  *  @brief 清空文本
  */
 - (void)clearText;
+- (void)xgNotification:(id)notification;
 
 @end
 NS_ASSUME_NONNULL_END

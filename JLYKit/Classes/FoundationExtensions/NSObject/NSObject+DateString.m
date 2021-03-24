@@ -64,4 +64,26 @@
     return [self stringFromDate:[NSDate date] DateFormat:@"yyyy年MM月"];
 }
 
+- (NSDate *)monthEndDate:(NSDate *)date{
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    [calendar setFirstWeekday:2];//设定周一为周首日
+    double interval = 0;
+    NSDate *beginDate = nil;
+    NSDate *endDate = nil;
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_8_0
+    // NSDayCalendarUnit
+    BOOL ok = [calendar rangeOfUnit:NSCalendarUnitMonth startDate:&beginDate interval:&interval forDate:date];
+#else
+    BOOL ok = [calendar rangeOfUnit:NSMonthCalendarUnit startDate:&beginDate interval:&interval forDate:date];
+#endif
+    //分别修改为 NSDayCalendarUnit NSWeekCalendarUnit NSYearCalendarUnit
+    if (ok) {
+        endDate = [beginDate dateByAddingTimeInterval:interval-1];
+    }else {
+        return [NSDate date];
+    }
+    return endDate;
+}
+
+
 @end

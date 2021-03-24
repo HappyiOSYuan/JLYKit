@@ -161,6 +161,10 @@
     
 }
 
+- (void)hideLoadingUI{
+    [self hideLoadingUIWith:self.tableView];
+}
+
 - (void)goNetNotUse:(UIButton *)sender{
     [super goNetNotUse:sender];
     

@@ -19,7 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (__kindof NSURLRequest *)generatePOSTRequestWithServiceIdentifier:(NSString *)serviceIdentifier
                                                       requestParams:(nullable id)requestParams
                                                          methodName:(NSString *)methodName;
-- (__kindof NSURLRequest *)generateImageRequestWithServiceIdentifier:(NSString *)serviceIdentifier
+- (__kindof NSURLRequest *)generateFileRequestWithServiceIdentifier:(NSString *)serviceIdentifier
                                                        requestParams:(nullable id)requestParams
                                                           methodName:(NSString *)methodName;
 - (__kindof NSURLRequest *)generateRestfulGETRequestWithServiceIdentifier:(NSString *)serviceIdentifier

@@ -22,10 +22,13 @@
     AFURLSessionOperation *operation = [[AFURLSessionOperation alloc] init];
     
     operation.task = [manager dataTaskWithRequest:request
+                                   uploadProgress:nil
+                                 downloadProgress:nil
                                 completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
                                     if (completionHandler) completionHandler(response, responseObject, error);
                                     [operation completeOperation];
                                 }];
+    
     return operation;
 }
 

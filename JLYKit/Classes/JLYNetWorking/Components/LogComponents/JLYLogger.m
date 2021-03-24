@@ -142,7 +142,7 @@ static JLYLogger * instance = nil;
                                    serviceIdentifier:self.configParams.serviceType
                                           methodName:self.configParams.sendActionMethod
                                              success:nil
-                                                fail:nil];
+                                             failure:nil];
 }
 
 

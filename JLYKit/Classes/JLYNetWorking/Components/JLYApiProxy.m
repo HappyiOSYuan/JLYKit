@@ -69,13 +69,14 @@ static JLYApiProxy * instance = nil;
              serviceIdentifier:(NSString *)servieIdentifier
                     methodName:(NSString *)methodName
                        success:(NDBCallback)success
-                          fail:(NDBCallback)fail{
+                       failure:(NDBCallback)fail{
     NSURLRequest *request = [[JLYRequestGenerator sharedInstance] generateGETRequestWithServiceIdentifier:servieIdentifier
                                                                                             requestParams:params
                                                                                                methodName:methodName];
     NSNumber *requestId = [self callApiTaskWithMethodName:@"GET"
                                                andRequest:request
-                                                  success:success fail:fail];
+                                                  success:success
+                                                     fail:fail];
     return [requestId integerValue];
 }
 
@@ -83,7 +84,7 @@ static JLYApiProxy * instance = nil;
               serviceIdentifier:(NSString *)servieIdentifier
                      methodName:(NSString *)methodName
                         success:(NDBCallback)success
-                           fail:(NDBCallback)fail{
+                        failure:(NDBCallback)fail{
     NSURLRequest *request = [[JLYRequestGenerator sharedInstance] generatePOSTRequestWithServiceIdentifier:servieIdentifier
                                                                                              requestParams:params
                                                                                                 methodName:methodName];
@@ -94,15 +95,15 @@ static JLYApiProxy * instance = nil;
     return [requestId integerValue];
 }
 
-- (NSInteger)callImageWithParams:(id)params
+- (NSInteger)callFileWithParams:(id)params
                serviceIdentifier:(NSString *)servieIdentifier
                       methodName:(NSString *)methodName
                          success:(NDBCallback)success
-                            fail:(NDBCallback)fail{
-    NSURLRequest *request = [[JLYRequestGenerator sharedInstance] generateImageRequestWithServiceIdentifier:servieIdentifier
+                        failure:(NDBCallback)fail{
+    NSURLRequest *request = [[JLYRequestGenerator sharedInstance] generateFileRequestWithServiceIdentifier:servieIdentifier
                                                                                               requestParams:params
                                                                                                  methodName:methodName];
-    NSNumber *requestId = [self callApiTaskWithMethodName:@"Image"
+    NSNumber *requestId = [self callApiTaskWithMethodName:@"File"
                                                andRequest:request
                                                   success:success
                                                      fail:fail];
@@ -113,7 +114,7 @@ static JLYApiProxy * instance = nil;
                     serviceIdentifier:(NSString *)servieIdentifier
                            methodName:(NSString *)methodName
                               success:(NDBCallback)success
-                                 fail:(NDBCallback)fail{
+                              failure:(NDBCallback)fail{
     NSURLRequest *request = [[JLYRequestGenerator sharedInstance] generateRestfulGETRequestWithServiceIdentifier:servieIdentifier
                                                                                                    requestParams:params
                                                                                                       methodName:methodName];
@@ -128,7 +129,7 @@ static JLYApiProxy * instance = nil;
                      serviceIdentifier:(NSString *)servieIdentifier
                             methodName:(NSString *)methodName
                                success:(NDBCallback)success
-                                  fail:(NDBCallback)fail{
+                               failure:(NDBCallback)fail{
     NSURLRequest *request = [[JLYRequestGenerator sharedInstance] generateRestfulPOSTRequestWithServiceIdentifier:servieIdentifier
                                                                                                     requestParams:params
                                                                                                        methodName:methodName];
@@ -142,7 +143,7 @@ static JLYApiProxy * instance = nil;
 - (NSInteger)callGoogleMapAPIWithParams:(id)params
                       serviceIdentifier:(NSString *)serviceIdentifier
                                 success:(NDBCallback)success
-                                   fail:(NDBCallback)fail{
+                                failure:(NDBCallback)fail{
     NSURLRequest *request = [[JLYRequestGenerator sharedInstance] generateGoolgeMapAPIRequestWithParams:params
                                                                                       serviceIdentifier:serviceIdentifier];
     NSNumber *requestId = [self callApiTaskWithMethodName:nil
@@ -172,7 +173,7 @@ static JLYApiProxy * instance = nil;
     NSNumber *requestId = [self generateRequestId];
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
     AFHTTPSessionOperation *httpRequestOperation = [AFHTTPSessionOperation operationWithManager:self.sessionManager
-                                                                                         HTTPMethod:methodName
+                                                                                     HTTPMethod:methodName
                                                                                       URLString:[request.URL absoluteString]
                                                                                      parameters:request.requestParams
                                                                                  uploadProgress:^(NSProgress *uploadProgress){
@@ -182,46 +183,45 @@ static JLYApiProxy * instance = nil;
                                                                                    
                                                                                }
                                                                                         success:^(NSURLSessionDataTask *task, id responseObject){
-                                                                                            AFHTTPSessionOperation *storedOperation = self.dispatchTable[requestId];
-                                                                                            if (storedOperation == nil) {
-                                                                                                // 如果这个operation是被cancel的，那就不用处理回调了。
-                                                                                                return;
-                                                                                            } else {
-                                                                                                [self.dispatchTable removeObjectForKey:requestId];
-                                                                                            }
-                                                                                            NSHTTPURLResponse *res = (NSHTTPURLResponse *)task.response;
-                                                                                            [JLYLogger logDebugInfoWithResponse:res
-                                                                                                                  resposeString:responseObject
-                                                                                                                        request:request
-                                                                                                                          error:nil];
-                                                                                            JLYURLResponse *response = [[JLYURLResponse alloc] initWithResponseString:responseObject
-                                                                                                                                                            requestId:requestId
-                                                                                                                                                              request:request
-                                                                                                                                                         responseData:responseObject
-                                                                                                                                                               status:JLYURLResponseStatusSuccess];
-                                                                                            success?success(response):nil;
-                                                                                        }
+        AFHTTPSessionOperation *storedOperation = self.dispatchTable[requestId];
+        if (storedOperation == nil) {
+            // 如果这个operation是被cancel的，那就不用处理回调了。
+            return;
+        } else {
+            [self.dispatchTable removeObjectForKey:requestId];
+        }
+        NSHTTPURLResponse *res = (NSHTTPURLResponse *)task.response;
+        [JLYLogger logDebugInfoWithResponse:res
+                              resposeString:responseObject
+                                    request:request
+                                      error:nil];
+        JLYURLResponse *response = [[JLYURLResponse alloc] initWithResponseString:responseObject
+                                                                        requestId:requestId
+                                                                          request:request
+                                                                     responseData:responseObject
+                                                                           status:JLYURLResponseStatusSuccess];
+        success ? success(response) : nil;
+    }
                                                                                         failure:^(NSURLSessionDataTask *task, NSError *error){
-                                                                                            AFHTTPSessionOperation *storedOperation = self.dispatchTable[requestId];
-                                                                                            if (storedOperation == nil) {
-                                                                                                // 如果这个operation是被cancel的，那就不用处理回调了。
-                                                                                                return;
-                                                                                            } else {
-                                                                                                [self.dispatchTable removeObjectForKey:requestId];
-                                                                                            }
-                                                                                            NSHTTPURLResponse *res = (NSHTTPURLResponse *)task.response;
-                                                                                            [JLYLogger logDebugInfoWithResponse:res
-                                                                                                                  resposeString:nil
-                                                                                                                        request:request
-                                                                                                                          error:error];
-                                                                                            
-                                                                                            JLYURLResponse *response = [[JLYURLResponse alloc] initWithResponseString:nil
-                                                                                                                                                            requestId:requestId
-                                                                                                                                                              request:request
-                                                                                                                                                         responseData:nil
-                                                                                                                                                                error:error];
-                                                                                            fail?fail(response):nil;
-                                                                                        }];
+        AFHTTPSessionOperation *storedOperation = self.dispatchTable[requestId];
+        if (storedOperation == nil) {
+            // 如果这个operation是被cancel的，那就不用处理回调了。
+            return;
+        } else {
+            [self.dispatchTable removeObjectForKey:requestId];
+        }
+        NSHTTPURLResponse *res = (NSHTTPURLResponse *)task.response;
+        [JLYLogger logDebugInfoWithResponse:res
+                              resposeString:nil
+                                    request:request
+                                      error:error];
+        JLYURLResponse *response = [[JLYURLResponse alloc] initWithResponseString:nil
+                                                                        requestId:requestId
+                                                                          request:request
+                                                                     responseData:nil
+                                                                            error:error];
+        fail ? fail(response) : nil;
+    }];
     self.dispatchTable[requestId] = httpRequestOperation;
     [queue addOperation:httpRequestOperation];
     return requestId;

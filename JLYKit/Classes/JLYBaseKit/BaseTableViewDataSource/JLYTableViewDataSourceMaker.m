@@ -64,8 +64,11 @@
 - (void)makeSection:(void (^)(JLYTableViewSectionMaker * section))block {
     JLYTableViewSectionMaker * sectionMaker = [JLYTableViewSectionMaker new];
     block(sectionMaker);
-    if (sectionMaker.section.cellClazz) {
+    if (sectionMaker.section.cellRegisterType == JLYCellRegisterTypeClass) {
         [self.tableView registerClass:sectionMaker.section.cellClazz forCellReuseIdentifier:sectionMaker.section.identifier];
+    }else{
+        UINib *nib = [UINib nibWithNibName:NSStringFromClass(sectionMaker.section.cellClazz) bundle:nil];
+        [self.tableView registerNib:nib forCellReuseIdentifier:sectionMaker.section.identifier];
     }
     [self.sections addObject:sectionMaker.section];
 }

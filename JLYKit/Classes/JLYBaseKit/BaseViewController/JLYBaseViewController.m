@@ -52,6 +52,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.isOpenNetListen = YES;
+    self.isOpenNotification = YES;
     self.view.backgroundColor = backColor(nil);
     [self configSubviews];
     // Do any additional setup after loading the view, typically from a nib.
@@ -65,6 +66,9 @@
 //视图将要出现
 - (void)viewWillAppear:(BOOL)animated{
     [self initializeData];
+    if (self.isOpenNotification) {
+        [self initNotification];
+    }
     [super viewWillAppear:animated];
 }
 //视图已经出现
@@ -72,6 +76,11 @@
     [super viewDidAppear:animated];
     self.view.shiftHeightAsDodgeViewForMLInputDodger = 50.0f;
     [self.view registerAsDodgeViewForMLInputDodger];
+    self.navigationController.interactivePopGestureRecognizer.delegate = self;
+}
+
+- (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer{
+    return NO; //YES：允许右滑返回 NO：禁止右滑返回
 }
 //视图将要消失
 - (void)viewWillDisappear:(BOOL)animated{
@@ -85,6 +94,7 @@
     [self.view endEditing:YES];
     [self textResignFirstResponder];
     [self clearText];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:@"xgPush" object:nil];
 }
 //收到系统内存警告
 - (void)didReceiveMemoryWarning{
@@ -108,33 +118,34 @@
     //自动调整Insets关闭
     self.automaticallyAdjustsScrollViewInsets = NO;
     UIEdgeInsets safeAreaInsets = jly_safeAreaInset(self.view);
+    _viewToTop = safeAreaInsets.top;
     //*****************************第一种方法******************************//
     if (fitViewType == FitViewTypeDefault) {
         //当前的容器为导航控制器
         if (self.navigationController && self.navigationController.tabBarController == nil) {
-            _viewToBottom = 0.0f + SafeAreaBottomHeight;
+            _viewToBottom = 0.0f + safeAreaInsets.bottom;
             //导航条隐藏
             if (self.navigationController.isNavigationBarHidden) {
-                _viewToTop = 20.0f;
+//                _viewToTop = 20.0f;
                 //导航条显示
             }else{
                 //导航条透明
                 if (self.navigationController.navigationBar.isTranslucent) {
-                    _viewToTop = safeAreaInsets.top;
+//                    _viewToTop = 20.0f + height;
                 }else{
                     self.extendedLayoutIncludesOpaqueBars = YES;
-                    _viewToTop = safeAreaInsets.top;
+//                    _viewToTop = 20.0f + height;
                 }
             }
             //当前的容器是tabBar控制器
         }else if (self.navigationController == nil && self.tabBarController){
-            _viewToTop = 20.0f;
+//            _viewToTop = 20.0f;
             //tabBar隐藏
             if (self.tabBarController.tabBar.isHidden) {
-                _viewToBottom = 0.0f + SafeAreaBottomHeight;
+                _viewToBottom = 0.0f + safeAreaInsets.bottom;
                 //tabBar显示
             }else{
-                _viewToBottom = 49.0f + SafeAreaBottomHeight;
+                _viewToBottom = 49.0f + safeAreaInsets.bottom;
             }
             //当前容器的容器是tabBar的控制器
         }else if (self.navigationController && self.navigationController.tabBarController){
@@ -142,20 +153,20 @@
             //导航条显示 tabBar显示
             if (self.navigationController.isNavigationBarHidden == NO
                 && self.navigationController.tabBarController.tabBar.isHidden == NO && self.hidesBottomBarWhenPushed == NO) {
-                _viewToBottom =  49.0f + SafeAreaBottomHeight;
+                _viewToBottom =  49.0f + safeAreaInsets.bottom;
                 //导航条透明
                 if (self.navigationController.navigationBar.isTranslucent) {
-                    _viewToTop = safeAreaInsets.top;
+//                    _viewToTop = height;
                 }else{
                     self.extendedLayoutIncludesOpaqueBars = YES;
-                    _viewToTop = safeAreaInsets.top;
+//                    _viewToTop = height;
                 }
                 //导航条隐藏 tarBar隐藏
             }else if (self.navigationController.isNavigationBarHidden
                       && (self.navigationController.tabBarController.tabBar.isHidden | self.hidesBottomBarWhenPushed)){
                 
-                _viewToTop = 20.0f;
-                _viewToBottom = 0.0f + SafeAreaBottomHeight;
+//                _viewToTop = 20.0f;
+                _viewToBottom = 0.0f + safeAreaInsets.bottom;
                 
                 //导航条显示 tarBar隐藏
             }else if (self.navigationController.isNavigationBarHidden == NO
@@ -163,21 +174,21 @@
                           || self.hidesBottomBarWhenPushed)){
                           //导航条透明
                           if (self.navigationController.navigationBar.isTranslucent) {
-                              _viewToTop = safeAreaInsets.top;
+//                              _viewToTop = height;
                           }else{
                               self.extendedLayoutIncludesOpaqueBars = YES;
-                              _viewToTop = safeAreaInsets.top;
+//                              _viewToTop = height;
                           }
-                          _viewToBottom = 0.0f + SafeAreaBottomHeight;
+                          _viewToBottom = 0.0f + safeAreaInsets.bottom;
                           //导航条隐藏 tabBar显示
                       }else{
                           
-                          _viewToTop = 20.0f;
-                          _viewToBottom = 49.0f + SafeAreaBottomHeight;
+//                          _viewToTop = 20.0f;
+                          _viewToBottom = 49.0f + safeAreaInsets.bottom;
                       }
             //当前没有容器
         }else{
-            _viewToTop =  20.0f;
+//            _viewToTop =  20.0f;
             _viewToBottom = 0.0f;
         }
         //*****************************第二种方法******************************//
@@ -199,12 +210,12 @@
                 if (self.navigationController.navigationBar.isTranslucent) {
                     self.edgesForExtendedLayout = UIRectEdgeAll;
                     self.extendedLayoutIncludesOpaqueBars = YES;
-                    _viewToTop = safeAreaInsets.top;
+//                    _viewToTop = height;
                     //导航条不透明
                 }else{
                     self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight |  UIRectEdgeBottom;
                     self.extendedLayoutIncludesOpaqueBars = NO;
-                    _viewToTop = 0.0f;
+//                    _viewToTop = 0.0f;
                 }
             }
             //2当前容器的容器是TabBarController
@@ -218,11 +229,11 @@
                 if (self.navigationController.navigationBar.isTranslucent) {
                     self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight |UIRectEdgeTop;
                     self.extendedLayoutIncludesOpaqueBars = YES;
-                    _viewToTop = safeAreaInsets.top;
+//                    _viewToTop = height;
                 }else{
                     self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight ;
                     self.extendedLayoutIncludesOpaqueBars = NO;
-                    _viewToTop = safeAreaInsets.top;
+//                    _viewToTop = height;
                 }
                 //2）导航条显示 tabBar隐藏
             }else if (self.navigationController.isNavigationBarHidden == NO
@@ -233,12 +244,12 @@
                           if (self.navigationController.navigationBar.isTranslucent) {
                               self.edgesForExtendedLayout = UIRectEdgeAll;
                               self.extendedLayoutIncludesOpaqueBars = YES;
-                              _viewToTop = safeAreaInsets.top;
+//                              _viewToTop = height;
                               //导航条不透明
                           }else{
                               self.edgesForExtendedLayout = UIRectEdgeLeft | UIRectEdgeRight | UIRectEdgeBottom;
                               self.extendedLayoutIncludesOpaqueBars = NO;
-                              _viewToTop = safeAreaInsets.top;
+//                              _viewToTop = height;
                           }
                           //3）导航条隐藏 tabBar显示
                       }else if (self.navigationController.isNavigationBarHidden
@@ -246,11 +257,11 @@
                                     || self.hidesBottomBarWhenPushed == NO)){
                                     self.edgesForExtendedLayout = UIRectEdgeTop | UIRectEdgeLeft | UIRectEdgeRight;
                                     self.extendedLayoutIncludesOpaqueBars= YES;
-                                    _viewToTop = 20.0f;
+//                                    _viewToTop = 20.0f;
                                     //4）导航条隐藏 taBar隐藏
                                 }else{
                                     self.edgesForExtendedLayout = UIRectEdgeAll;
-                                    _viewToTop = 20.0f;
+//                                    _viewToTop = 20.0f;
                                 }
             //*****************************end******************************//
             
@@ -263,15 +274,15 @@
             }else{
                 self.edgesForExtendedLayout = UIRectEdgeRight | UIRectEdgeLeft | UIRectEdgeTop;
             }
-            _viewToTop = 20.0f;
+//            _viewToTop = 20.0f;
             //4没有容器
         }else{
             self.edgesForExtendedLayout = UIRectEdgeAll;
             self.extendedLayoutIncludesOpaqueBars = YES;
-            _viewToTop = 20.0f;
+//            _viewToTop = 20.0f;
         }
     }
-    self.netWorkChageView.frame = CGRectMake(0.0f, self.viewToTop, self.view.frame.size.width, 30.0f);
+    self.netWorkChageView.frame = CGRectMake(0.0f, safeAreaInsets.top, self.view.frame.size.width, 30.0f);
 }
 
 // 适配条件 留个接口子类继承重写
@@ -352,17 +363,40 @@
         [[UIApplication sharedApplication] openURL:url];
     }
 }
+
+- (void)xgNotification:(id)notification{
+    NSLog(@"notification--->%@", notification);
+}
 #pragma mark - PublicMethod
 - (void)showLoadingUIWith:(UIView *)view{
     [JLYLoadingShimmer jly_startCovering:view];
+}
+
+- (void)showLoadingUIWith:(UIView *)view andCellIdentifers:(nonnull NSArray *)identifers{
+    [JLYLoadingShimmer jly_startCovering:view andIdentifers:identifers];
 }
 
 - (void)hideLoadingUIWith:(UIView *)view{
     [JLYLoadingShimmer jly_stopCovering:view];
 }
 
+- (void)showLoadingUI{
+    [self showLoadingUIWith:self.view];
+}
+
+- (void)hideLoadingUI{
+    [self hideLoadingUIWith:self.view];
+}
+
 - (void)initializeData{
     
+}
+
+- (void)initNotification{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(xgNotification:)
+                                                 name:@"xgPush"
+                                               object:nil];
 }
 #pragma mark - SettersAndGetters
 - (FitViewType)fitViewType{

@@ -16,7 +16,7 @@
 {                                                                                       \
 REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiParams serviceIdentifier:self.child.serviceType methodName:self.child.methodName success:^(JLYURLResponse *response) { \
 [self successedOnCallingAPI:response];                                          \
-} fail:^(JLYURLResponse *response) {                                                \
+} failure:^(JLYURLResponse *response) {                                                \
 [self failedOnCallingAPI:response withErrorType:JLYAPIManagerErrorTypeDefault];  \
 }];                                                                                 \
 [self.requestIdList addObject:@(REQUEST_ID)];                                          \
@@ -139,8 +139,8 @@ REQUEST_ID = [[JLYApiProxy sharedInstance] call##REQUEST_METHOD##WithParams:apiP
                     case JLYAPIManagerRequestTypePost:
                         AXCallAPI(POST, requestId);
                         break;
-                    case JLYAPIManagerRequestTypeImage:
-                        AXCallAPI(Image, requestId);
+                    case JLYAPIManagerRequestTypeFile:
+                        AXCallAPI(File, requestId);
                         break;
                     case JLYAPIManagerRequestTypeRestGet:
                         AXCallAPI(RestfulGET, requestId);

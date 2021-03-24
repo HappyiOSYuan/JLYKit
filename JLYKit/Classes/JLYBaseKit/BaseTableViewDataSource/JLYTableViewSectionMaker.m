@@ -16,6 +16,20 @@
     @weakify(self);
     return ^JLYTableViewSectionMaker *(Class cell) {
         @strongify(self);
+        self.section.cellRegisterType = JLYCellRegisterTypeClass;
+        self.section.cellClazz = cell;
+        if (!self.section.identifier) {
+            self.section.identifier = [self getSectionIdentifer];
+        }
+        return self;
+    };
+}
+
+- (JLYTableViewSectionMaker * (^)(Class))cellNibClazz {
+    @weakify(self);
+    return ^JLYTableViewSectionMaker *(Class cell) {
+        @strongify(self);
+        self.section.cellRegisterType = JLYCellRegisterTypeXib;
         self.section.cellClazz = cell;
         if (!self.section.identifier) {
             self.section.identifier = [self getSectionIdentifer];

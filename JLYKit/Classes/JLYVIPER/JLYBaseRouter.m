@@ -67,6 +67,7 @@
             JLYBasePresenter *basePresenter = [[presentClass alloc] init];
             [self.viewController setValue:basePresenter forKey:@"eventHandler"];
             [basePresenter setValue:self forKey:@"router"];
+            [basePresenter setValue:self.viewController forKey:@"userInterface"];
             [self setValue:basePresenter forKey:@"presenter"];
             
             if (interactorClass) {
@@ -90,7 +91,7 @@
         @autoreleasepool {
             while (true) {
                 // 当事件层能拿到视图时，立即释放对它的强引用
-                if ([_presenter userInterface]) {
+                if ([self.presenter userInterface]) {
                     self.currentUserInterface = nil;
                     self.currentNavigator = nil;
                     break;
@@ -107,12 +108,12 @@
 
 - (JLYBaseNavigationController *)currentNavVC{
     [self removePresenterForCurrentInterface];
-    return self.currentNavigator ? : (JLYBaseNavigationController *)[[_presenter userInterface] navigationController];
+    return self.currentNavigator ? : (JLYBaseNavigationController *)[[self.presenter userInterface] navigationController];
 }
 
 - (__kindof id<JLYBaseVCModuleProtocol>)realVC{
     [self removePresenterForCurrentInterface];
-    return self.currentUserInterface ? : [_presenter userInterface];
+    return self.currentUserInterface ? : [self.presenter userInterface];
 }
 
 @end

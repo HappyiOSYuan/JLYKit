@@ -81,6 +81,15 @@ NS_ASSUME_NONNULL_BEGIN
  */
 - (NSString *)monthBeginDay:(NSDate *)date;
 /*!
+ *  @brief 月末时间Date数据
+ *
+ *  @param date 时间数据
+ *
+ *  @return 时间NSDate类型数据
+ */
+- (NSDate *)monthEndDate:(NSDate *)date;
+
+/*!
  *  @brief 当前月份
  *
  *  @return 时间字符串
