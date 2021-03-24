@@ -13,7 +13,7 @@
   },
   "requires_arc": true,
   "platforms": {
-    "ios": "9.0"
+    "ios": "12.0"
   },
   "frameworks": [
     "UIKit",

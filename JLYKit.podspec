@@ -9,7 +9,7 @@ s.authors = { '宁袁' => '1294752518@qq.com' }
 s.source = { :git => 'https://github.com/HappyiOSYuan/JLYKit.git', :tag => s.version.to_s }
 s.requires_arc = true
 s.platform = :ios
-s.ios.deployment_target = "9.0"
+s.ios.deployment_target = "12.0"
 s.frameworks = 'UIKit','ImageIO','QuartzCore','Security','CoreGraphics','Foundation','SystemConfiguration'
 
 s.subspec 'Config' do |config|
